@@ -35,4 +35,14 @@ See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full de
     KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.
-    
+
+
+
+
+## Code of Conduct
+
+&copy; 2024 Takuya Miyazaki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+
+</footer>
+
+
