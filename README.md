@@ -17,7 +17,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-See [LICENSE](LICENSE) for full details.
+See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full details.
 
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
