@@ -1,16 +1,13 @@
-## Hi there 👋
+![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 
-<!--
-**Takuya-Miyazaki/Takuya-Miyazaki** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+* A repository for learning
 
-Here are some ideas to get you started:
+  * There may be something in the dependency
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+  * There may be serious security practices
+  
+  * We are not responsible at all.
+
+## 学習に協力して頂ける神の方探しています
+
+![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
