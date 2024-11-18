@@ -48,6 +48,12 @@ See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full de
 &bull; [Google developer Site Policy](https://developers.google.com/terms/site-policies?)
 
 
+&bull; [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
+
+&bull; [Google developer Site Policy](https://developers.google.com/terms/site-policies?)
+
+
+
 </footer>
 
 
