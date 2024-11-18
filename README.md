@@ -43,6 +43,11 @@ See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full de
 
 &copy; 2024 Takuya Miyazaki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
+&bull; [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/)
+
+&bull; [Google developer Site Policy](https://developers.google.com/terms/site-policies?)
+
+
 </footer>
 
 
