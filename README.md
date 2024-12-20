@@ -1,9 +1,5 @@
-<p></p>
-<p></p>
+
 <hr />
-
-
-
 
 
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
@@ -11,35 +7,39 @@
 
 macOS&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-macos)
 
-<p></p>
-<p></p>
 
 
+    
+
+  
 
 
-<p></p>
 * A repository for learning
 
   * Please check each license.
 
   * Check the Code of Conduct of each company.
-  
+
+
+
   * Please contact us if you have any security, dependencies, or serious security issues.
 
-<p></p>
-<p></p>
-<p></p>
+
+      
 
 ## 学習に協力して頂ける方はお気軽にご連絡ください
 
 
-<p></p>
+
+      
 
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
-<p></p>
-<p></p>
+
+
+
+        
 
 ## License
 
@@ -82,6 +82,6 @@ See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full de
 
 
 
-</footer>
+</details>
 
 
