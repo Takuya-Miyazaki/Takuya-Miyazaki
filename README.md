@@ -1,5 +1,5 @@
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
-
+[![Gem Version](https://badge.fury.io/rb/line-bot-api.svg)](https://badge.fury.io/rb/line-bot-api)
 * A repository for learning
 
   * There may be something in the dependency
