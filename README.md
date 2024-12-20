@@ -2,7 +2,7 @@
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 [![Gem Version](https://badge.fury.io/rb/line-bot-api.svg)](https://badge.fury.io/rb/line-bot-api)
 
-macOS[&emsp;!][Build Status](https://ci.swift.org/job/oss-swift-package-macos/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-macos)
+macOS[&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-macos)
 
 
 * A repository for learning
