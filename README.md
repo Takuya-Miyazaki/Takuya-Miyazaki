@@ -1,14 +1,22 @@
+
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 [![Gem Version](https://badge.fury.io/rb/line-bot-api.svg)](https://badge.fury.io/rb/line-bot-api)
+
+[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-macos)
+
+
 * A repository for learning
 
-  * There may be something in the dependency
+  * Please check each license.
 
-  * There may be serious security practices
+  * Check the Code of Conduct of each company.
   
-  * We are not responsible at all.
+  * Please contact us if you have any security, dependencies, or serious security issues.
 
-## 学習に協力して頂ける神の方探しています
+
+## 学習に協力して頂ける方はお気軽にご連絡ください
+
+
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
@@ -16,6 +24,8 @@
 ## License
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
 
 See [LICENSE]([LICENSE](https://opensource.org/licenses/Apache-2.0)) for full details.
 
