@@ -1,9 +1,15 @@
+<p></p>
+<p></p>
+<hr />
+<p></p>
+
 
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 [![Gem Version](https://badge.fury.io/rb/line-bot-api.svg)](https://badge.fury.io/rb/line-bot-api)
 
 macOS&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/lastCompletedBuild/badge/icon)](https://ci.swift.org/job/oss-swift-package-macos)
-
+<p></p>
+<p></p>
 
 * A repository for learning
 
@@ -13,9 +19,11 @@ macOS&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/las
   
   * Please contact us if you have any security, dependencies, or serious security issues.
 
-
+<p></p>
+<p></p>
+<p></p>
 ## 学習に協力して頂ける方はお気軽にご連絡ください
-
+<p></p>
 
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
