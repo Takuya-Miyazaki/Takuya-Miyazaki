@@ -27,7 +27,7 @@ macOS&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/las
 
       
 
-## 学習に協力して頂ける方はお気軽にご連絡ください
+## I'm studying software supply chain attacks.
 
 
 
