@@ -27,7 +27,7 @@ macOS&emsp;[![Build Status](https://ci.swift.org/job/oss-swift-package-macos/las
 
       
 
-## I'm studying software supply chain attacks.
+## I'm studying robust security measures from software supply chain attacks.
 
 
 
