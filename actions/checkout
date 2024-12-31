@@ -1,0 +1,16 @@
+# The workflow is broken. DO NOT use it in production.
+on: [push, pull_request_target]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build and test
+        run: /bin/bash ./build.sh && /bin/bash ./runtests.sh
+      - name: Report
+        if: failure() && github.event.action != 'push'
+        with: fancy/commenter@v1
+          message: |
+            Some checks have failed.
