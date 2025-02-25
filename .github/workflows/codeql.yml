@@ -26,6 +26,7 @@ jobs:
         include:
           - language: 'swift'
             os: 'macos-latest'
+        build-mode: [ 'automatic', 'manual' ]
 
     steps:
       - name: Checkout repository
@@ -37,7 +38,8 @@ jobs:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
 
-      - if: matrix.build-mode == 'manual'
+      - name: Manual build mode check
+        if: matrix.build-mode == 'manual'
         shell: bash
         run: |
           echo 'If you are using "manual" build mode, replace this with build commands.'
