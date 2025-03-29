@@ -1,0 +1,8 @@
+my-ruby-job:
+  script:
+    - bundle install
+    - bundle exec my_ruby_command
+
+my-shell-script-job:
+  script:
+    - my_shell_script.sh
