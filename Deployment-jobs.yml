@@ -1,0 +1,7 @@
+deploy me:
+  script:
+    - deploy-to-cats.sh
+  environment:
+    name: production
+    url: https://cats.example.com
+    action: start
