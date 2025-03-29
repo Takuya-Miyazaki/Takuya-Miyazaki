@@ -1,0 +1,3 @@
+inputs:
+  random_name:
+    default: ${{ github.token }}
