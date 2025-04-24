@@ -1,5 +1,6 @@
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
 
+<a href="https://github.com/meilisearch/meilisearch/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-informational" alt="License"></a>
 
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 
