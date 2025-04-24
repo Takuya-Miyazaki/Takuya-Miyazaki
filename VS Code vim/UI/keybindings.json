@@ -1,0 +1,42 @@
+{
+    "key": "escape",
+    "command": "-extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "escape",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && !testing.isPeekVisible && !testing.isInPeek && (vim.mode == 'Insert' || !notebookEditorFocused) && !inlineEditIsVisible && !suggestWidgetVisible && !findWidgetVisible && !dirtyDiffVisible"
+  },
+  {
+    "key": "escape",
+    "command": "runCommands",
+    "when": "vim.mode == 'Insert' && inlineEditIsVisible",
+    "args": {
+      "commands": [
+        "editor.action.inlineSuggest.hide",
+        "extension.vim_escape"
+      ]
+    }
+  },
+  {
+    "key": "escape",
+    "command": "runCommands",
+    "when": "vim.mode == 'Insert' && suggestWidgetVisible",
+    "args": {
+      "commands": [
+        "hideSuggestWidget",
+        "extension.vim_escape"
+      ]
+    }
+  },
+  {
+    "key": "escape",
+    "command": "-hideSuggestWidget",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "escape",
+    "command": "hideSuggestWidget",
+    "when": "suggestWidgetVisible && textInputFocus && !vim.active"
+  },
