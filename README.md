@@ -19,9 +19,12 @@
 
 # GoogleCloud
 
-[![Set clear rules for Google's products](https://transparency.google/intl/ja_ALL/)](https://transparency.google/intl/ja_ALL/)
+# AWS 
 
-[![Privacy, Terms of Service, and AI Principles](https://transparency.google/intl/ja_ALL/our-policies/privacy-policy-terms-of-service/)](https://transparency.google/intl/ja_ALL/our-policies/privacy-policy-terms-of-service/)
+# Azure
+
+# arm  developer
+
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/Takuya-Miyazaki/github.io/edit/main/README.md.svg)](https://pkg.go.dev/github.com/Takuya-Miyazaki/github.io/edit/main/README.md)
 <a href="https://www.apache.org/licenses/LICENSE-2.0/"><img src="https://img.shields.io/badge/license-Apache--2.0-3474B62">
