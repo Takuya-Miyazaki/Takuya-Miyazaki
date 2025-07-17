@@ -75,4 +75,5 @@ require (
 	google.golang.org/protobuf v1.36.5 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gotest.tools/v3 v3.0.3 // indirect
+        github.com/tonistiigi/fsutil v0.0.0-20250227023350-13604323a291
 )
