@@ -1,0 +1,31 @@
+name: Generate SBOM
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23.5'
+
+    - name: Install CycloneDX tool
+      run: go install github.com/CycloneDX/cyclonedx-gomod@latest
+
+    - name: Generate SBOM
+      run: cyclonedx-gomod mod -licenses -output sbom.json
+
+    - name: Upload SBOM artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: sbom
+        path: sbom.json
