@@ -1,0 +1,5 @@
+- name: Sign image with cosign
+  run: |
+    cosign sign --yes ghcr.io/${{ github.repository }}:${{ github.sha }}
+  env:
+    COSIGN_EXPERIMENTAL: "true"
