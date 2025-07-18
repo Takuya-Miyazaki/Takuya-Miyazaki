@@ -1,0 +1,7 @@
+- name: Notify Slack
+  uses: slackapi/slack-github-action@v1.23.0
+  with:
+    payload: |
+      {
+        "text": "🚨 CI failed at Docker login step for commit ${{ github.sha }}"
+      }
