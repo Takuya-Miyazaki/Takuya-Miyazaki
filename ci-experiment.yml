@@ -1,0 +1,44 @@
+name: Experimental Secure CI
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-sign-sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate SBOM
+        run: cyclonedx-gomod mod -o sbom.json
+
+      - name: Scan SBOM
+        run: trivy sbom sbom.json
+
+      - name: Sign Image
+        run: |
+          cosign sign --yes ghcr.io/${{ github.repository }}:${{ github.sha }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+
+      - name: Attach SBOM
+        run: |
+          cosign attach sbom ghcr.io/${{ github.repository }}:${{ github.sha }} --sbom sbom.json
+
+      - name: Notify Slack (Success)
+        if: success()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: '{"text":"✅ CI succeeded for ${{ github.sha }}"}'
+
+      - name: Notify Slack (Failure)
+        if: failure()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: '{"text":"❌ CI failed for ${{ github.sha }}"}'
