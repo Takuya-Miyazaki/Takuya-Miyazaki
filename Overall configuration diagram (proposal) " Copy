@@ -1,0 +1,3 @@
+[Push] → [Build] → [SBOM] → [Scan] → [Sign] → [Notify]
+   │         │         │        │        │        │
+   └── Secrets管理 ── OIDC ── CycloneDX ── Trivy ── Slack
