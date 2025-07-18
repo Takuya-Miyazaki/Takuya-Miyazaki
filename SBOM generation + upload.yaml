@@ -1,0 +1,3 @@
+- name: Generate SBOM
+  run: |
+    cyclonedx-gomod mod -o sbom.json
