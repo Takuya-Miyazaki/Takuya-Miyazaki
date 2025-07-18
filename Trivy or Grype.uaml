@@ -1,0 +1,3 @@
+- name: Scan image
+  run: |
+    trivy image ghcr.io/${{ github.repository }}:${{ github.sha }}
