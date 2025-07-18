@@ -1,0 +1,48 @@
+name: Secure Go CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  secure-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23.5'
+        cache: true
+
+    - name: Tidy modules
+      run: go mod tidy
+
+    - name: Build
+      run: go build ./...
+
+    - name: Run tests
+      run: go test -v ./...
+
+    - name: Vulnerability scan (govulncheck)
+      uses: golang/govulncheck-action@v1
+      with:
+        go-version-input: '1.23.5'
+
+    - name: Install CycloneDX tool
+      run: go install github.com/CycloneDX/cyclonedx-gomod@latest
+
+    - name: Generate SBOM
+      run: cyclonedx-gomod mod -licenses -output sbom.json
+
+    - name: Upload SBOM artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: sbom
+        path: sbom.json
