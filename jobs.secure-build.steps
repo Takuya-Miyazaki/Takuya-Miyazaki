@@ -1,0 +1,17 @@
+- name: Install cyclonedx-docker
+      run: |
+        curl -sSL https://github.com/CycloneDX/cyclonedx-docker/releases/latest/download/cyclonedx-docker-linux-x64 -o cyclonedx-docker
+        chmod +x cyclonedx-docker
+        sudo mv cyclonedx-docker /usr/local/bin/
+
+    - name: Build Docker image
+      run: docker build -t myapp:latest .
+
+    - name: Generate SBOM from Docker image
+      run: cyclonedx-docker -i myapp:latest -o sbom-docker.json
+
+    - name: Upload Docker SBOM artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: sbom-docker
+        path: sbom-docker.json
