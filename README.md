@@ -48,6 +48,8 @@
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
 # Google Cloud
+> - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
+> - [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice?hl=ja)
 
 # Google developer
 > - [Privacy Policy
