@@ -39,10 +39,13 @@
 
 
 # informa
+***
 
 # CSA
+***
 
 # Omdia
+***
 
 # Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
@@ -56,10 +59,13 @@
 Complete the web.dev privacy course](https://developers.google.com/profile/badges/playlists/webdev/learn-privacy?hl=ja)
 
 # AWS 
+> - [Privacy Notice](https://aws.amazon.com/privacy/)
 
 # Azure
+> - [Protecting customer data in Azure](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/protection-customer-data)
 
 # arm  developer
+***
 
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/Takuya-Miyazaki/github.io/edit/main/README.md.svg)](https://pkg.go.dev/github.com/Takuya-Miyazaki/github.io/edit/main/README.md)
