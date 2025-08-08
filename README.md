@@ -45,6 +45,7 @@
 # Omdia
 
 # Microsoft
+> - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
 # Google Cloud
 
