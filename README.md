@@ -50,6 +50,8 @@
 # Google Cloud
 
 # Google developer
+> - [Privacy Policy
+Complete the web.dev privacy course](https://developers.google.com/profile/badges/playlists/webdev/learn-privacy?hl=ja)
 
 # AWS 
 
