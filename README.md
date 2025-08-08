@@ -6,11 +6,10 @@
 
 * A repository for learning
 
-  * There may be something in the dependency
 
-  * There may be serious security practices
-  
-  * We are not responsible at all.
+
+
+
 
 
 
@@ -25,6 +24,9 @@
 > 
 > AI is a tool—not a substitute for human judgment.  
 > We believe in augmenting decision-making, not automating responsibility.
+
+
+
 
 
 
