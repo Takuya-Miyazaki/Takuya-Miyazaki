@@ -36,7 +36,19 @@
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
 
-# GoogleCloud
+
+
+# informa
+
+# CSA
+
+# Omdia
+
+# Microsoft
+
+# Google Cloud
+
+# Google developer
 
 # AWS 
 
