@@ -12,7 +12,24 @@
   
   * We are not responsible at all.
 
-## 学習に協力して頂ける神の方探しています
+
+
+> **Responsible AI Statement**
+> 
+> This project is committed to the ethical and transparent use of artificial intelligence.  
+> All AI components are designed with auditability, fairness, and human-centered values in mind.
+> 
+> - Transparency: Clear documentation of system design and intent  
+> - Accountability: Traceable logic behind outputs and decisions  
+> - Fairness: Ongoing evaluation and mitigation of bias  
+> 
+> AI is a tool—not a substitute for human judgment.  
+> We believe in augmenting decision-making, not automating responsibility.
+
+
+
+
+
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
