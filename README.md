@@ -4,12 +4,12 @@
 
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 
-* A repository for learning
 
 
 
 
 
+### Responsible AI
 
 
 
