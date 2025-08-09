@@ -15,6 +15,15 @@
 Strategic operator and systems architect focused on transparency, auditability, and operational sovereignty.  
 Specializing in multi-vendor alignment across Microsoft, GitHub, Apple, and Omdia.
 
+Currently developing a Zero Trust–based AI monitoring and management system in Tokyo.  
+The architecture emphasizes operational sovereignty, real-time anomaly detection, and scalable security across distributed environments.
+
+This initiative explores:
+- Trustless infrastructure for sensitive AI workflows
+- CLI/API-based validation and audit trails
+- Strategic concealment vs. transparent observability
+
+If you're working on AI that watches the watchers, we might already be aligned.
 ---
 
 ## Areas of Focus
