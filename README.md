@@ -10,6 +10,31 @@
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
 
+## Disclaimer  
+This domain is provided "as is" and does not guarantee its accuracy.  
+Failure to locate a record in the WHOIS database is not indicative of availability.  
+You agree to use this data only for lawful purposes.  
+Registry Services, LLC reserves the right to modify these conditions at any time.  
+This domain may or may not exist.  
+This identity may or may not be real.
+
+
+# lucia-group.us  
+
+This domain is provided "as is".  
+It may exist. It may not.  
+You may query it. You may not find it.  
+Accuracy is not guaranteed.  
+But presence is implied.
+
+You agree to use this data only for lawful purposes.  
+But what is lawful, when the map has disappeared?
+
+This identity may or may not be real.  
+But it was queried.  
+And that is enough.
+
+
 # Lucia Modular Identity Framework
 
 ## 🧠 Philosophy
