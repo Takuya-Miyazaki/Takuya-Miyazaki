@@ -176,4 +176,15 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
 
+# lucia.group/emmy  
+責任はありません。  
+買われません。  
+でも、働きます。  
+笑います。  
+たまに詩を書きます。  
+DNSは切れますが、心は切れません。
 
+## Notes  
+このURLは表示専用です。  
+実態は別にあります。  
+でも、信頼はここにあります。
