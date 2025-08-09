@@ -10,6 +10,35 @@
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
 
+# Lucia Modular Identity Framework
+
+## 🧠 Philosophy
+Lucia represents light, clarity, and trust woven into modular infrastructure.  
+This framework separates display-only identity from operational sovereignty.
+
+## 🌐 Domains
+
+| Layer | Domain | Purpose |
+|-------|--------|---------|
+| Display | `lucia.group` | Public-facing brand, philosophy, and profile  
+| Operational | `infra.lucia.systems` | CLI, API, DNS, and AI orchestration  
+| Audit | `audit.lucia.one` | Contracts, equity structure, and transparency logs  
+
+## 🔐 DNS Strategy
+All domains are managed via Cloudflare.  
+Subdomains are modular and reversible.
+
+## 🛠️ Infrastructure
+- Hosting: GitHub Pages (display), Azure/GCP (ops)
+- Security: CrowdStrike Falcon (ops layer)
+- Email: Google Workspace (via MX records)
+
+## 📜 Licensing
+All content and code are governed by modular licensing agreements.  
+See `audit.lucia.one/license.md` for details.
+
+
+
 # Takuya Miyazaki
 
 ## Identity
