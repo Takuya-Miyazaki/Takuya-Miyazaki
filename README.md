@@ -4,6 +4,64 @@
 
 ![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
 
+![GitHub followers](https://img.shields.io/github/followers/Takuya-Miyazaki?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social)
+![Last Commit](https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki)
+![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
+![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
+
+# Takuya Miyazaki
+
+Strategic operator and systems architect focused on transparency, auditability, and operational sovereignty.  
+Specializing in multi-vendor alignment across Microsoft, GitHub, Apple, and Omdia.
+
+---
+
+## Areas of Focus
+
+- Business registration and infrastructure orchestration
+- CLI-based validation logic for operational resilience
+- Responsible AI design aligned with NIST frameworks
+- Provisional vs official data management strategies
+
+---
+
+## Key Repositories
+
+| Repository | Description | Tech Stack |
+|------------|-------------|------------|
+| `cvss-v4-calculator` | CVSS v4.0 scoring tool | JavaScript |
+| `SecurityBenchmarks` | Azure security benchmark templates | Markdown / YAML |
+| `securitylab` | GitHub Security Lab integrations | C / Markdown |
+
+---
+
+## Philosophy
+
+> "Responsible AI should elevate human dignity and create new employment — not just efficiency."
+
+---
+
+## Contact
+
+- Based in Tokyo
+- Operational email addresses are CLI-validated; display-only addresses are not recommended
+
+---
+
+## Experimental Work
+
+- `demo`: GitHub Dependabot behavior testing  
+- `security-wg`: Collaboration with Node.js Security Working Group
+
+---
+
+## Status Badges
+
+![GitHub followers](https://img.shields.io/github/followers/Takuya-Miyazaki?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki)
+![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
+![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&style=flat-square)
 
 
 
@@ -72,3 +130,5 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 <a href="https://www.apache.org/licenses/LICENSE-2.0/"><img src="https://img.shields.io/badge/license-Apache--2.0-3474B62">
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
+
+
