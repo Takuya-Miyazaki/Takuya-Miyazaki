@@ -12,6 +12,13 @@
 
 # Takuya Miyazaki
 
+## Identity
+
+@Lucia.microsoft.com  
+Operational alias used during corporate registration phase.  
+Official entity name pending legal confirmation.  
+All communications routed via Microsoft infrastructure for auditability and consistency.
+
 Strategic operator and systems architect focused on transparency, auditability, and operational sovereignty.  
 Specializing in multi-vendor alignment across Microsoft, GitHub, Apple, and Omdia.
 
