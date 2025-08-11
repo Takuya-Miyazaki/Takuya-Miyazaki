@@ -179,26 +179,38 @@ If you're working on AI that watches the watchers, we might already be aligned.
 # Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
+
 # Google Cloud
 > - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
 > - [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice?hl=ja)
+
 
 # Google developer
 > - [Privacy Policy
 Complete the web.dev privacy course](https://developers.google.com/profile/badges/playlists/webdev/learn-privacy?hl=ja)
 
+
 # AWS 
 > - [Privacy Notice](https://aws.amazon.com/privacy/)
+
 
 # Azure
 > - [Protecting customer data in Azure](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/protection-customer-data)
 
+
 # arm  developer
 ***
+
 
 # ZeroSSL
 > - [Terms & Conditions](https://zerossl.com/terms/)
 
+
+# CrowdStrike 
+
+> - [CrowdStrike](https://www.crowdstrike.com/en-us/)
+> - [Privacy Policy](https://www.crowdstrike.com/en-us/legal/privacy-notice/)
+ 
 
 
 
