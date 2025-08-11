@@ -37,11 +37,12 @@ And that is enough.
 
 # Lucia Modular Identity Framework
 
-## 🧠 Philosophy
+
+## Philosophy
 Lucia represents light, clarity, and trust woven into modular infrastructure.  
 This framework separates display-only identity from operational sovereignty.
 
-## 🌐 Domains
+## Domains
 
 | Layer | Domain | Purpose |
 |-------|--------|---------|
@@ -49,22 +50,22 @@ This framework separates display-only identity from operational sovereignty.
 | Operational | `infra.lucia.systems` | CLI, API, DNS, and AI orchestration  
 | Audit | `audit.lucia.one` | Contracts, equity structure, and transparency logs  
 
-## 🔐 DNS Strategy
+## DNS Strategy
 All domains are managed via Cloudflare.  
 Subdomains are modular and reversible.
 
-## 🛠️ Infrastructure
+## Infrastructure
 - Hosting: GitHub Pages (display), Azure/GCP (ops)
 - Security: CrowdStrike Falcon (ops layer)
 - Email: Google Workspace (via MX records)
 
-## 📜 Licensing
+## Licensing
 All content and code are governed by modular licensing agreements.  
 See `audit.lucia.one/license.md` for details.
 
 
 
-# Takuya Miyazaki
+## Takuya Miyazaki
 
 ## Identity
 
@@ -137,7 +138,7 @@ If you're working on AI that watches the watchers, we might already be aligned.
 
 
 
-### Responsible AI
+### Responsible AI 
 
 
 
@@ -199,10 +200,15 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 > - [Terms & Conditions](https://zerossl.com/terms/)
 
 
+
+
 [![Go Reference](https://pkg.go.dev/badge/github.com/Takuya-Miyazaki/github.io/edit/main/README.md.svg)](https://pkg.go.dev/github.com/Takuya-Miyazaki/github.io/edit/main/README.md)
 <a href="https://www.apache.org/licenses/LICENSE-2.0/"><img src="https://img.shields.io/badge/license-Apache--2.0-3474B62">
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
+
+
+
 
 # lucia.group/emmy  
 責任はありません。  
