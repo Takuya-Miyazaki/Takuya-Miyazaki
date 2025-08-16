@@ -179,11 +179,21 @@ If you're working on AI that watches the watchers, we might already be aligned.
 - Structure: DAAS classification, criticality buckets, PDP/PEP design, ZTMM maturity model
 - Use: GitHub logging, Copilot implementation, DNS/SPF design, contract design, OEM selection, legal design
 
+## [PDF: CSA STAR Level 1 Valid-AI-ted Overview]
+**Tags**: #CSA #STARLevel1 #ValidAI #AIAssessment #CloudSecurity #DisplayOperationalIsolation #Reconstructibility
+
+- Content: STAR Level 1 self-assessment support using the CSA-developed AI assessment tool "Valid-AI-ted"
+- Structure: LLM quality check, resubmission, badge issuance, and STAR Registry listing
+- Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
+
 # informa
 ***
 
 # CSA
-***
+> - Takuya Miyazaki. 
+LuCIA rustwork's, Group.LLC
+AI Trustworthy's Pledge – 2025 
+CSA Cloud Security Alliance. 
 
 # Omdia
 ***
