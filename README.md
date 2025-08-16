@@ -172,6 +172,12 @@ If you're working on AI that watches the watchers, we might already be aligned.
 - Structure: Multi-layered Display/Operational Separation Design
 - Uses: Can be used for GitHub logging, Copilot implementation, DNS/SPF design, and contract design.
 
+## [PDF: Zero Trust Guidance for IoT - CSA]
+**Tags**: #CSA #ZeroTrust #IoT #ProtectSurface #ZTArchitecture #ZTPolicy #Monitoring #OEM #Legal #DisplayOperationalIsolation
+
+- Content: Complete design document for implementing ZT in IoT environments (5 steps + attack vectors + legal + OEM)
+- Structure: DAAS classification, criticality buckets, PDP/PEP design, ZTMM maturity model
+- Use: GitHub logging, Copilot implementation, DNS/SPF design, contract design, OEM selection, legal design
 
 # informa
 ***
