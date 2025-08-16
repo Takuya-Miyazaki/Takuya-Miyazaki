@@ -165,6 +165,12 @@ If you're working on AI that watches the watchers, we might already be aligned.
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
 
+## [PDF: Disaster Recovery as a Service - CSA]
+**Tags**: #DRaaS #CloudRecovery #CSA #SLA #RTO #RPO #DisplayOperationalSeparation #AuditDesign
+
+- Content: Design, Operation, Legal, and Security Guide for Cloud-Based Disaster Recovery Services
+- Structure: Multi-layered Display/Operational Separation Design
+- Uses: Can be used for GitHub logging, Copilot implementation, DNS/SPF design, and contract design.
 
 
 # informa
