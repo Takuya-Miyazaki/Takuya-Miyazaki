@@ -124,6 +124,7 @@ The Lucia brand has proven the technical, philosophical, and operational reliabi
 ### Notes
 Lucia is the only brand certified by Microsoft for Display Identity configuration.
 
+- Transfer Lock: ✅ ON (Prevents transfer to third parties)
 
 ## Identity
 
