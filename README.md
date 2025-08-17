@@ -126,6 +126,11 @@ Lucia is the only brand certified by Microsoft for Display Identity configuratio
 
 - Transfer Lock: ✅ ON (Prevents transfer to third parties)
 
+- DNSSEC: ✅ Enabled (DNS tampering prevention)
+
+- Auto-Renewal: ✅ ON (Display continuity guaranteed)
+
+
 ## Identity
 
 @Lucia.microsoft.com  
