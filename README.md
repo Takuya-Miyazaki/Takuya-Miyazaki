@@ -75,6 +75,15 @@ See `audit.lucia.one/license.md` for details.
 
 ## Takuya Miyazaki
 
+## 2025-08-17: Display Identity PDF Registration Log
+
+- Registration PDF: GOV-Linked Certificate / Display Identity Configuration Document
+- Registration Location:
+- Apple Verification Office (Submitted)
+- Microsoft 365 Copilot (Planned)
+- GitHub private repo (pdf-register.md)
+- Notes: Recorded as supporting documentation for ID exemption
+
 ## Identity
 
 @Lucia.microsoft.com  
