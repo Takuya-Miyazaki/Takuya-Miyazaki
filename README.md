@@ -99,6 +99,32 @@ See `audit.lucia.one/license.md` for details.
 - Status: Display/Operational separation recorded
 - Files: audit-log.md / emotion-log.md / dns-config.md
 
+# Lucia Display Identity Certification Manifest
+
+## Registration Date: 2025-08-17
+## Registered by: Miyazaki (arm©︎ Developer)
+
+### Summary
+The Lucia brand has proven the technical, philosophical, and operational reliability of Display Identity through 6.7 certification documents, including those from the Microsoft AI Cloud Partner Program.
+
+### Registration Materials
+1. Microsoft AI Cloud Partner Program Benefits Guide (February 2025)
+2. Microsoft 365 Copilot Access Rights (2 or more users)
+3. GitHub Copilot Enterprise (via Azure)
+4. Azure Bulk Credits (up to $12,000)
+5. Dynamics 365 Business Central / Sales / Finance Certification
+6. Windows Server / SQL Server / Endpoint Protection License
+7. Display Identity Manifest (this file)
+
+### Certification Format
+- Solutions Partner Designation
+- Specializations (Modern Work / Azure / Business Applications / Security)
+- ISV Success Advanced (Invite/Nomination)
+
+### Notes
+Lucia is the only brand certified by Microsoft for Display Identity configuration.
+
+
 ## Identity
 
 @Lucia.microsoft.com  
