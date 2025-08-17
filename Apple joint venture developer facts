@@ -1,0 +1,3270 @@
+## I would like to take this opportunity to thank Microsoft and my seniors.
+
+## Apple Apple watch🍏
+
+Print 5.tostr()+"th"   ' prints 5th
+Print "5".toint()+5    ' prints 10
+If type(5.tostr())<> "String" Then Stop
+If (-5).tostr()<>"-5" Then Stop
+If (1+2).tostr()<>"3" Then Stop
+If 5.tostr()<>"5" Then Stop
+i=-55
+If i.tostr()<>"-55" Then Stop
+If 100%.tostr()<>"100" Then Stop
+If (-100%).tostr()<>"-100" Then Stop
+y%=10
+If y%.tostr()<>"10" Then Stop
+If "5".toint()<>5 Or type("5".toint())<>"Integer" Then Stop
+If "5".tofloat()<>5.0 Or type("5".tofloat())<>"Float" Then Stop
+fs="-1.1"
+If fs.tofloat()<>-1.1 Or fs.toint()<>-1 Then Stop
+If "01234567".left(3)<>"012" Then Stop
+If "01234567".right(4)<>"4567" Then Stop
+If "01234567".mid(3)<>"34567" Then Stop
+If "01234567".mid(3,1)<>"3" Then Stop
+If "01234567".instr("56")<>5 Then Stop
+If "01234567".instr(6,"56")<>-1 Then Stop
+If "01234567".instr(0,"0")<>0 Then Stop
+
+## だれだ。Appleにpulse！したやつ
+
+fs = CreateObject("roFilesystem")
+port = CreateObject("roMessagePort")
+fs.SetMessagePort(port)
+while true
+    msg = wait(0, port)
+    if type(msg)="roFileSystemEvent" then
+        if msg.isStorageDeviceAdded() then print "device added"
+    end if
+End While
+
+
+## ファイル用をここに🍎
+
+Sub Main()
+    Run("pkg:/test.brs")
+    BreakIfRunError(LINE_NUM)
+    Print Run("test2.brs", "arg 1", "arg 2")
+    if Run(["pkg:/file1.brs","pkg:/file2.brs"])<>4 then stop
+    BreakIfRunError(LINE_NUM)     stop
+End Sub
+
+
+Sub BreakIfRunError(ln)
+    el=GetLastRunCompileError()
+    if el=invalid then
+        el=GetLastRunRuntimeError()
+        if el=&hFC or el=&hE2 then return
+        'FC==ERR_NORMAL_END, E2=ERR_VALUE_RETURN
+        print "Runtime Error (line ";ln;"): ";el
+        stop
+    else
+        print "compile error (line ";ln;")"
+        for each e in el
+            for each i in e
+                print i;": ";e[i]
+            end for
+        end for
+        stop
+   end if
+End Sub
+
+
+
+## オートよりマジなぐりたいなー
+
+Function Main()
+    MyFunA(4)
+    MyFunB(4)
+End Function
+
+Function MyFunA(p as Object) as Void
+    print "A",p,type(p)
+End Function
+
+Function MyFunB(p as Integer) as Void
+    print "B",p,type(p)
+End Function
+
+
+
+## 是啊你要？ニーハオAppleさーん
+
+#include "git-compat-util.h"
+#include "./sha256.h"
+
+#undef RND
+#undef BLKSIZE
+
+#define BLKSIZE blk_SHA256_BLKSIZE
+
+void blk_SHA256_Init(blk_SHA256_CTX *ctx)
+{
+ctx->offset = 0;
+ctx->size = 0;
+ctx->state[0] = 0x6a09e667ul;
+ctx->state[1] = 0xbb67ae85ul;
+ctx->state[2] = 0x3c6ef372ul;
+ctx->state[3] = 0xa54ff53aul;
+ctx->state[4] = 0x510e527ful;
+ctx->state[5] = 0x9b05688cul;
+ctx->state[6] = 0x1f83d9abul;
+ctx->state[7] = 0x5be0cd19ul;
+}
+
+static inline uint32_t ror(uint32_t x, unsigned n)
+{
+return (x >> n) | (x << (32 - n));
+}
+
+static inline uint32_t ch(uint32_t x, uint32_t y, uint32_t z)
+{
+return z ^ (x & (y ^ z));
+}
+
+static inline uint32_t maj(uint32_t x, uint32_t y, uint32_t z)
+{
+return ((x | y) & z) | (x & y);
+}
+
+static inline uint32_t sigma0(uint32_t x)
+{
+return ror(x, 2) ^ ror(x, 13) ^ ror(x, 22);
+}
+
+static inline uint32_t sigma1(uint32_t x)
+{
+return ror(x, 6) ^ ror(x, 11) ^ ror(x, 25);
+}
+
+static inline uint32_t gamma0(uint32_t x)
+{
+return ror(x, 7) ^ ror(x, 18) ^ (x >> 3);
+}
+
+static inline uint32_t gamma1(uint32_t x)
+{
+return ror(x, 17) ^ ror(x, 19) ^ (x >> 10);
+}
+
+static void blk_SHA256_Transform(blk_SHA256_CTX *ctx, const unsigned char *buf)
+{
+
+uint32_t S[8], W[64], t0, t1;
+int i;
+
+/* copy state into S */
+for (i = 0; i < 8; i++)
+S[i] = ctx->state[i];
+
+/* copy the state into 512-bits into W[0..15] */
+for (i = 0; i < 16; i++, buf += sizeof(uint32_t))
+W[i] = get_be32(buf);
+
+/* fill W[16..63] */
+for (i = 16; i < 64; i++)
+W[i] = gamma1(W[i - 2]) + W[i - 7] + gamma0(W[i - 15]) + W[i - 16];
+
+#define RND(a,b,c,d,e,f,g,h,i,ki)                    \
+t0 = h + sigma1(e) + ch(e, f, g) + ki + W[i];   \
+t1 = sigma0(a) + maj(a, b, c);                  \
+d += t0;                                        \
+h  = t0 + t1;
+
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],0,0x428a2f98);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],1,0x71374491);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],2,0xb5c0fbcf);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],3,0xe9b5dba5);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],4,0x3956c25b);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],5,0x59f111f1);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],6,0x923f82a4);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],7,0xab1c5ed5);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],8,0xd807aa98);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],9,0x12835b01);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],10,0x243185be);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],11,0x550c7dc3);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],12,0x72be5d74);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],13,0x80deb1fe);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],14,0x9bdc06a7);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],15,0xc19bf174);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],16,0xe49b69c1);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],17,0xefbe4786);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],18,0x0fc19dc6);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],19,0x240ca1cc);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],20,0x2de92c6f);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],21,0x4a7484aa);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],22,0x5cb0a9dc);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],23,0x76f988da);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],24,0x983e5152);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],25,0xa831c66d);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],26,0xb00327c8);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],27,0xbf597fc7);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],28,0xc6e00bf3);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],29,0xd5a79147);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],30,0x06ca6351);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],31,0x14292967);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],32,0x27b70a85);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],33,0x2e1b2138);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],34,0x4d2c6dfc);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],35,0x53380d13);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],36,0x650a7354);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],37,0x766a0abb);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],38,0x81c2c92e);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],39,0x92722c85);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],40,0xa2bfe8a1);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],41,0xa81a664b);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],42,0xc24b8b70);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],43,0xc76c51a3);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],44,0xd192e819);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],45,0xd6990624);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],46,0xf40e3585);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],47,0x106aa070);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],48,0x19a4c116);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],49,0x1e376c08);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],50,0x2748774c);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],51,0x34b0bcb5);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],52,0x391c0cb3);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],53,0x4ed8aa4a);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],54,0x5b9cca4f);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],55,0x682e6ff3);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],56,0x748f82ee);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],57,0x78a5636f);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],58,0x84c87814);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],59,0x8cc70208);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],60,0x90befffa);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],61,0xa4506ceb);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],62,0xbef9a3f7);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],63,0xc67178f2);
+
+for (i = 0; i < 8; i++)
+ctx->state[i] += S[i];
+}
+
+void blk_SHA256_Update(blk_SHA256_CTX *ctx, const void *data, size_t len)
+{
+unsigned int len_buf = ctx->size & 63;
+
+ctx->size += len;
+
+/* Read the data into buf and process blocks as they get full */
+if (len_buf) {
+unsigned int left = 64 - len_buf;
+if (len < left)
+left = len;
+memcpy(len_buf + ctx->buf, data, left);
+len_buf = (len_buf + left) & 63;
+len -= left;
+data = ((const char *)data + left);
+if (len_buf)
+return;
+blk_SHA256_Transform(ctx, ctx->buf);
+}
+while (len >= 64) {
+blk_SHA256_Transform(ctx, data);
+data = ((const char *)data + 64);
+len -= 64;
+}
+if (len)
+memcpy(ctx->buf, data, len);
+}
+
+void blk_SHA256_Final(unsigned char *digest, blk_SHA256_CTX *ctx)
+{
+static const unsigned char pad[64] = { 0x80 };
+unsigned int padlen[2];
+int i;
+
+/* Pad with a binary 1 (ie 0x80), then zeroes, then length */
+padlen[0] = htonl((uint32_t)(ctx->size >> 29));
+padlen[1] = htonl((uint32_t)(ctx->size << 3));
+
+i = ctx->size & 63;
+blk_SHA256_Update(ctx, pad, 1 + (63 & (55 - i)));
+blk_SHA256_Update(ctx, padlen, 8);
+
+/* copy output */
+for (i = 0; i < 8; i++, digest += sizeof(uint32_t))
+put_be32(digest, ctx->state[i]);
+}
+ 
+
+##在线看了下微风大结局真的看的很上头很期
+
+#include "git-compat-util.h"
+#include "./sha256.h"
+
+#undef RND
+#undef BLKSIZE
+
+#define BLKSIZE blk_SHA256_BLKSIZE
+
+void blk_SHA256_Init(blk_SHA256_CTX *ctx)
+{
+ctx->offset = 0;
+ctx->size = 0;
+ctx->state[0] = 0x6a09e667ul;
+ctx->state[1] = 0xbb67ae85ul;
+ctx->state[2] = 0x3c6ef372ul;
+ctx->state[3] = 0xa54ff53aul;
+ctx->state[4] = 0x510e527ful;
+ctx->state[5] = 0x9b05688cul;
+ctx->state[6] = 0x1f83d9abul;
+ctx->state[7] = 0x5be0cd19ul;
+}
+
+static inline uint32_t ror(uint32_t x, unsigned n)
+{
+return (x >> n) | (x << (32 - n));
+}
+
+static inline uint32_t ch(uint32_t x, uint32_t y, uint32_t z)
+{
+return z ^ (x & (y ^ z));
+}
+
+static inline uint32_t maj(uint32_t x, uint32_t y, uint32_t z)
+{
+return ((x | y) & z) | (x & y);
+}
+
+static inline uint32_t sigma0(uint32_t x)
+{
+return ror(x, 2) ^ ror(x, 13) ^ ror(x, 22);
+}
+
+static inline uint32_t sigma1(uint32_t x)
+{
+return ror(x, 6) ^ ror(x, 11) ^ ror(x, 25);
+}
+
+static inline uint32_t gamma0(uint32_t x)
+{
+return ror(x, 7) ^ ror(x, 18) ^ (x >> 3);
+}
+
+static inline uint32_t gamma1(uint32_t x)
+{
+return ror(x, 17) ^ ror(x, 19) ^ (x >> 10);
+}
+
+static void blk_SHA256_Transform(blk_SHA256_CTX *ctx, const unsigned char *buf)
+{
+
+uint32_t S[8], W[64], t0, t1;
+int i;
+
+/* copy state into S */
+for (i = 0; i < 8; i++)
+S[i] = ctx->state[i];
+
+/* copy the state into 512-bits into W[0..15] */
+for (i = 0; i < 16; i++, buf += sizeof(uint32_t))
+W[i] = get_be32(buf);
+
+/* fill W[16..63] */
+for (i = 16; i < 64; i++)
+W[i] = gamma1(W[i - 2]) + W[i - 7] + gamma0(W[i - 15]) + W[i - 16];
+
+#define RND(a,b,c,d,e,f,g,h,i,ki)                    \
+t0 = h + sigma1(e) + ch(e, f, g) + ki + W[i];   \
+t1 = sigma0(a) + maj(a, b, c);                  \
+d += t0;                                        \
+h  = t0 + t1;
+
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],0,0x428a2f98);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],1,0x71374491);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],2,0xb5c0fbcf);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],3,0xe9b5dba5);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],4,0x3956c25b);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],5,0x59f111f1);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],6,0x923f82a4);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],7,0xab1c5ed5);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],8,0xd807aa98);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],9,0x12835b01);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],10,0x243185be);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],11,0x550c7dc3);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],12,0x72be5d74);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],13,0x80deb1fe);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],14,0x9bdc06a7);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],15,0xc19bf174);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],16,0xe49b69c1);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],17,0xefbe4786);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],18,0x0fc19dc6);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],19,0x240ca1cc);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],20,0x2de92c6f);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],21,0x4a7484aa);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],22,0x5cb0a9dc);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],23,0x76f988da);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],24,0x983e5152);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],25,0xa831c66d);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],26,0xb00327c8);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],27,0xbf597fc7);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],28,0xc6e00bf3);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],29,0xd5a79147);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],30,0x06ca6351);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],31,0x14292967);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],32,0x27b70a85);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],33,0x2e1b2138);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],34,0x4d2c6dfc);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],35,0x53380d13);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],36,0x650a7354);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],37,0x766a0abb);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],38,0x81c2c92e);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],39,0x92722c85);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],40,0xa2bfe8a1);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],41,0xa81a664b);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],42,0xc24b8b70);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],43,0xc76c51a3);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],44,0xd192e819);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],45,0xd6990624);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],46,0xf40e3585);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],47,0x106aa070);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],48,0x19a4c116);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],49,0x1e376c08);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],50,0x2748774c);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],51,0x34b0bcb5);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],52,0x391c0cb3);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],53,0x4ed8aa4a);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],54,0x5b9cca4f);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],55,0x682e6ff3);
+RND(S[0],S[1],S[2],S[3],S[4],S[5],S[6],S[7],56,0x748f82ee);
+RND(S[7],S[0],S[1],S[2],S[3],S[4],S[5],S[6],57,0x78a5636f);
+RND(S[6],S[7],S[0],S[1],S[2],S[3],S[4],S[5],58,0x84c87814);
+RND(S[5],S[6],S[7],S[0],S[1],S[2],S[3],S[4],59,0x8cc70208);
+RND(S[4],S[5],S[6],S[7],S[0],S[1],S[2],S[3],60,0x90befffa);
+RND(S[3],S[4],S[5],S[6],S[7],S[0],S[1],S[2],61,0xa4506ceb);
+RND(S[2],S[3],S[4],S[5],S[6],S[7],S[0],S[1],62,0xbef9a3f7);
+RND(S[1],S[2],S[3],S[4],S[5],S[6],S[7],S[0],63,0xc67178f2);
+
+for (i = 0; i < 8; i++)
+ctx->state[i] += S[i];
+}
+
+void blk_SHA256_Update(blk_SHA256_CTX *ctx, const void *data, size_t len)
+{
+unsigned int len_buf = ctx->size & 63;
+
+ctx->size += len;
+
+/* Read the data into buf and process blocks as they get full */
+if (len_buf) {
+unsigned int left = 64 - len_buf;
+if (len < left)
+left = len;
+memcpy(len_buf + ctx->buf, data, left);
+len_buf = (len_buf + left) & 63;
+len -= left;
+data = ((const char *)data + left);
+if (len_buf)
+return;
+blk_SHA256_Transform(ctx, ctx->buf);
+}
+while (len >= 64) {
+blk_SHA256_Transform(ctx, data);
+data = ((const char *)data + 64);
+len -= 64;
+}
+if (len)
+memcpy(ctx->buf, data, len);
+}
+
+void blk_SHA256_Final(unsigned char *digest, blk_SHA256_CTX *ctx)
+{
+static const unsigned char pad[64] = { 0x80 };
+unsigned int padlen[2];
+int i;
+
+/* Pad with a binary 1 (ie 0x80), then zeroes, then length */
+padlen[0] = htonl((uint32_t)(ctx->size >> 29));
+padlen[1] = htonl((uint32_t)(ctx->size << 3));
+
+i = ctx->size & 63;
+blk_SHA256_Update(ctx, pad, 1 + (63 & (55 - i)));
+blk_SHA256_Update(ctx, padlen, 8);
+
+/* copy output */
+for (i = 0; i < 8; i++, digest += sizeof(uint32_t))
+put_be32(digest, ctx->state[i]);
+}
+ 
+
+
+## 这两句我就想哭你都能笑我一下哈你
+
+
+
+Universal Endpoien
+Management
+Remote Locate
+UEM.12
+Petan eneri oon oocn cotii coo, ounko con repert to bit woonh socsdon dhor on vooe
+2. Develop a tered procedure for volzing remote lockte during recuricy lecideres - for example, elearty delne who wichin each
+Enable stakcholder't toam is authorized to triner a "Tind device" command and under what circumstances, and arree on how locatios
+powwwwe ww woswo
+turo teree rokt mnon oen
+O Coury WMneete
+accord
+3. Prococe location data dy restricciny accens to auchorized security personnel across the orcanizations: all stakcholders should mutually enture shat any colleceed device locason ledo is uted solely for recoveryibecurity purpones and handled in complance with prirasy
+Devicé" mode thue noe onsy tetel
+4. Perlodically tese the romoce locate function on a sample of endpolnts from each stakeholder (e,t, a1 part of an annual drili) to confirm o chat devices report accurato locacion data and chac al teams know how to iniciate and respond to a device location query in pracece. vinas orore
+Minagement
+
+UEM-II
+
+3. Utize the UEM platform to mositor fremall status and configurations on managed codpolets; set up sierts or complance
+4. Coordnate firewal exception tanding among sakeholders - ary requelt to open addieional pores or services on
+Coo poire boninhorcoon on tricu tho coio troono do rorimo coront tảo dotskito chonoa t organization unitaserally weakens endpoint firewall defenses wichow, group awareness and agreement
+[Applicable co all actors except CSP)
+I. Deplay endpoinc Data loss Prevention agents or contenc fisering tools on all devices handleg sensitive AJ daca across MP.
+OS,A, and AJe, lo that every organizations endpoints have controls to detect and block unauchoried data translers (cr.-source code. training datasets, customer data).
+2 Algn DLP policies and classification rules among stakcholders by defining what conssicates sensicive data for the Al projece
+Configiin a shared manner - for example, agreeing to block certain file types or patterns (A1 keys, model weiphts, ril) from being (DLP) temaled or moved to external drives - and implemetring those rules contistently on all endpoints.
+3. Use UEM or intotrated security manarement to ennure DLP software is installed, active, and updated on every manaree endpoint: share high-level DUP complance staous on metrics berween organizacions (ruch as number of incidents or agencs ollina) to maintaln collective visiblity into data protection coverage.
+4. Establish a cross-onganization incidens response process for DUP aleras: i one stakeholder's DUP system fags a potencial data leakage cvent levolving shared Al astets, that stakcholder must promptly notify the others and collaboratively investigate and contain the indident, ensuring that daca loss chreats are addressed wich everyone's awareness.
+- og-the UeM re-apples tho co
+Decioy endpon DU arcot
+anwindinn cosirid dot
+Universal Endpolnt
+Minagement
+Remose Locate
+VEM-12
+
+(Applikatie to all actors except CSP)
+I. Enable geo-location vacking via UEM for al mobile endgoles (Sp109k, ubles, smargghones) used ty MP. OSPAP, MS NC in OSe N
+Ensble stakosolderx team is avhoraed to crigzer a "Tes devicé" command and vnder what orcunstances, and agree on bow location endpoi indermacion wil be stared or hanses off l a device feom ose pary is lore is anochers faciky or purissicion
+3. Procect location dacs by eesoricong access to auchoriaed securicy personnel across the orpnizadors: all sakeholders shouls mucualy
+4. Perioscaby cen ohe romcce locate furcüon on a sumglo ef endgonts frem esch wakeholßer (e2. ls gart of an aerual dri) co confem o osu devices repoet accurate locacion dats and oh al teams losom tom to vicate and respoed to a devike locaton query in penctie.
+Reguire al portßle devic
+purposes) so eneoli in ose compo
+na poo-fencing roles in ohe UEM
+contrn ee lois th sovict recovtry and decers whoever yo
+Universal Endpoien
+Management
+Remote Wipe
+UEM-13
+manage
+(Applikatte to all actors except CSP]
+"Ens M mANCE NHAAMS NEUS th SEAY ChaM (MPOSPA9 MO ME CONTVEd SY TEME WAA Va CH VEM soo, w verity chis capabilcy os esch device chat stores sero ove or peopeittary AJ data, so ary lost oe compromised endpoins cas be sanicaeo
+Defne. 2. Detee s voited set of cotecs and an segrova woektow for trigeng a roncte wige evee - foe vawsce, ngresing sata dence
+Tetno reporced sooien or showeg siers of active compromise warrans as imenedile wioe - so cht every sakeholder fobow the sam
+devices 3, Estabish cross-noctication pescocols sor romore wioe koons: one occanizacion inciaces a remoce wige on an endpoim (ec, a model comorto monecia)
+provier wiging a lupeop orer had AI customer dac) obey must peomepy ler al ooer reernt garces, enablng thons partes to revole credencials ee monitoe for retited suspicious activicy stemming from char device.
+4. Repularty rehearse and validate remote wipe peocesses on son-producoon devices for each suktholber. Share dhe resules (puch ao
+compromised device and to resoe peocedures as needed.
+be mansged such thuc, upon a sin
+2. Develop a clear criterion for.
+terminated under adverse conoe
+h jost misplaced in the olice, ma
+3. Uie seleceve wipe for BYOD.
+compary apps and daea (lie cen wthost touching pervonal phoco
+arol n wieed ike cont that data posencially compromise
+chrough your coccralited key mar
+overwrket
+Universal Endpoinn
+Management
+Third Parry Endpoinx
+Security Posture
+
+thirds
+(Applicatls to all acrors except CSP]
+MIMWTn WiMNhNMEdMTMM NNN Thu NHNN MH NTN Thả Mh NTNH NNNNG MữNG Nư malware, bose frewal erubled, and ful dok encrypion befoce osey are pramed access co project resources
+2. Entorce thied parry enfgoine complance wrough technicl concrois inplemen, pee-aceess Checks (t g. wa a zero-trust nerwork Defoe, access peewry oe NAC) do validie ohie a vendor or gareser devce is managed and complave wich securiy polchs. Whenevtr ponsble, 3. Limit chico party access to oet
+wich ac 2. lechese singen entpoine security regüremens ih contekes de servike ngreemencs wich uhied parsies. For exampie, vogulace ohas CONGNONES MNNE BOAEE 10 YOU UEM polcles, atom securiy austs or oser devices & mecessary and regore amy devie breath al
+HNO NP Ế NHA0 KNW NN T THÔ NS V U VỘ CH CỘNR HO CO RÔR Noợn VP O0 ÂuA К0
+revita dis Ast in cross-ongoszacion securiy ebetngs. This enures every sokeholßer knows which external endpolnts hame access co cher endroemens, enßteg cocednsed oversiph and quick revocacion of access foe ney device olet fais below ohe apreed securicy(Applicable to all actors except Cor)
+1. Use a unified approval worklow (ez, ticketing system or goverrance portal) where MP, OSP,AP, and AJC submit, revion,
+Minan a vected lot of spe
+Universal tropoin
+Mana rement
+Universal Endpoint
+Management
+Application and
+Compaoblicy
+UEM-03
+
+vervice 2. Maincain a single source of truch for the approved wotware services lat with versioning and change lops to track addrions pplicaror removis over cime.
+when a J.Aucomate enforcemens of the approved list through UEM concrois (eg. application whitelisting endpoint allow listing) co
+prevent unauthorized Al cnabled application instalbtions.
+4. Revicw approval decisions bi-annually with cross stakcholder input to ensure ists remain alined with evolvin technica and security requirements
+(Applicable to all actors except CSP, AIC)
+1. Develop and pubias a com maintained by MP. OSP, and AP
+Defor 2. Require due pier testing of OS upgrades de ce security sool occur in a concrolled lab emircemene before osterprise with cospo, deploymese wa VEM
+device: Aucompe consorter cheds within de VEM conchan Mocker pen comedive endores tom aCCenteR CieN resences wre
+configuratons.
+Repuke dot only onese no
+ahicelsting or aimin reserkoons
+deployment, to verty chat all mor
+Universal Endpoine
+run cuit
+Endpoler, Inventory
+
+
+Lappiraine to all axtors exceps cor.
+1. Sync UEM managed device inventories wich the central asset management system (cg. CMOB) so ensure a united view of
+Maincal 2. Enforce automased discovery arents on endpoints to capoure new or rogue devices and flaz discrepancies amainst che
+3. Implement real cime dashbourdi for inventory health, highlighting unregitered codpolets or those pending decommissioning
+4. Conduct monchy reconcilation berween VEM invencory and nerwork logs, escalating any unionown devices co che governance committee for review
+access co MC duck, so che contra
+Management
+
+VEM-OS
+Define.
+permis
+[Applicable to all actors except CSP)
+inceerate UM with gatch manarement antivirus, and condituracion manasemens databases so aucomace enorcemen o baseline security settings
+zochnic 2 Apply role based profiles in the UEM syltem 10 that MP OSP,AP, and AJC endpoints each receive the correct security
+system 3. Enable real cime complance monicoring and alerting for criccal deviations (ega missing patches, disabled maleare
+4. Run monthly complance reports across all endpoing caserories, reviwine exceptions and ensuring simely remediation of any on complant devices
+program or cesure they are sub;
+UEM aleres (eg. Ma device fals o
+Provide regular complane
+that MP codps
+work wich Axe on any exception devices
+Universal Endpoint
+Screen
+UEM.06
+
+(Applicable to all actors except CSP)
+1. Enforce a common idio cimeout (c.g, 15 minutes or less) on all user codpolets across MP, OSP,AP, and ASC via UEM policies to sucomatically lock devices after inactivity.
+2. Configure the UEM platorm co apply this lock sereen policy uniformly and prevent endiuser modiications, with any non Cont complant coopoint lagged to al stakeholders vecurity team for prompe action
+lock 1o 3. Ischado automatic lock vereen checks in joint security audies, verifying every pardcipants devikes lock property and require
+re-suchentication (oassword or biometric) after the idle perioc
+1. Establah a shared standard for lock screen settings (such as requiring MFA or strong passwords upon unlock) 10 that all orarizations maintain a consisten baseine for endpole, access security.
+5. Encourage che use of passirys (H0/02/WebAuchn) as che primary unlock mechanism on managed endpoines. leveraging device biometrics or PiN and to replace or supplement passwords and tradicional MFA
+changing or dastlng ois seting exaure thee i model engineers on
+verty al MP cem devices soher
+Universal Endpoin
+Operating Systems
+UEM-07
+and or
+[Applicable to all actors except CSP)
+Align OS patching and updace schedules across MI OSP.AP, and ASC so all endpoints receive cricical security updates within an agreed omelrame, minimizieg any one party's exposure to vulnerablites
+Manage 2 Ure UEM driven reports to verity OS version and patch level complance uniformly all saksholders should
+oreonnonsen on or are later to calready bust ach our outke soun
+ippica polture
+process. Coordnate maler operating system changes ehrough a fies change management process - one provier plans a significant OS upgrade or configuration change, notfy and review wich other stakeholders (c.g.va a cross-organization Change Advisory Board) to preempt compaubly or security issues.
+4. Rapidly communicate and adtress emergency O$ vulnerabilloes as a team: if a zero-day patch is released.
+all parties arroe to last-track is deployment and inform one another when their coopoles have been updatoo maintaleing pariy in defense.
+Excablas a rigorous change endpoine modications. Model de
+changes. For example. a de u compiosio. chen scheduled for
+ensure it doesn't break AJ model
+This inchases socing obe date of a
+Manasement
+Storage Encryption
+UEM-08
+
+(Applicable to all actors except CSP)
+I. Mandase full-disk encrycion on all managed endpoints for every Al supply chain participane using approved cools (6 g
+Pert ocker, File Vault and verityine complace vo UM dashboards to enoure data at rest on any device is procecte
+2. Ses a unified policy that no sensiove A data (models training data cultomer information) myy reside on an endpoles unless wientit has dek entrytion ense
+Protectstorage encryption is active; configure UEM to block or quarantine devices that report as unentrypted devices 3. Adopt a comittent cryptographic strengeh sundard across stakcholders (02, AES-256 encryption, FIPS 140-2 complant solacors) for endpoint encrypion so that all data is secured to an equivalent level regardless of which organization's device
+4. leclade encryption status in retular loint security reviews or compliance attestations, requiring each stakeholder t Jemonstrate that lost or stolen devices from heir emiroement were encrypted (providing mutual assurance that a device
+data transer must be encrypeed
+Leverage che device manage al device provaloning, for instan
+trous corenders be likeou
+virtual dals are sito encrypeedo volumes. This compechenive set
+Universal Endpolen
+Ant-raware
+UEM-09
+
+[Applicable to all actors except CSP)
+I. Deploy and maintain antinalware/EOR agents on al endpoints across MP. OSP.AP, and AlC. ensuring every device in the AJ ° supply chain has real-time chreat deteccion and prevention in place with up-to-date signatures on machine learning models
+2 Leverage Utri to connuously monitor the health of endpoint anti-malware (arent installed and running, definitions Cooty curren, sans performed): coc/gure aomated alerts to al relevant security scams any device fals out of compliance or
+quarantee settings and trideal malware sere thresholds - to that a threat detected on one stalzholder codpolar triggers
+4. Share dreas interence and coordinase incidens response for malware attacks: i one stakcholder's endpoin encoumers a new malware or indicator of compromise, quickly keform the others and distribute los or updates, enubling all parties toThreat &
+Winerablicy
+Mund rement rictres
+TVM.10
+Threat & Vulnerably
+Guardrals
+TVM-II
+Threat &
+Management
+Threat Andy's and
+Modeling
+TVM-I2
+Threat &
+Management
+hear Respons
+Managemen
+UEM-01
+UEM-02
+Minagement
+Service Approval
+35
+[All Actors)
+1. Implement concinuous vulnerability scanning processes to desect vulnerablicies in realitime across systems, services, and
+2. Une aucomated scanning tools co monitor for new vulnerabilities as they arise, ensuring chat systems are regularty checked Establs for emerging threats.
+training data repositories; publ
+(All Actors)
+we rera, ensure that vuerady seeing is negated moo oe dere opink weyoe, with seans conested ouring chon say
+(developerent, testing deployment)
+5. Maicain a dashboard for realitie vaily inco scanning results, ensuring chat seams are wormed about the current
+6. Define standard metrics across partners. Algn on core metrics like Mean cime to Detect, Mean ome to Remediace, and cheir calculation rules and reporting frequency.
+prioritzing high-risk issues for
+4. Emure that vulcerablity no
+(All Actors)
+1. entify critical guardra requirements, by reviewing applicable regulzory standards (eg- GDPR) and internal policies and by assessing potential impact on safety, privacy, farness and transparency.
+- Enture the AJ model processes only authorized inputs and generates ousputs within pre-defied acceptable parameters
+• Apply ficers to fug or reject anomalous inputs or outpus, parceutarty in cases where outputs could be harmil
+- Leverare canary tokens to detect potcatal promo lala ro attacks and block responses containior unauthorized systoc
+regulatory sundards (6.g. GO
+potent moact on salety. pr
+2. Implemen Technical Safeguo
+6. Set Thresholds for Model Confdence:
+- Establish a threshold confidence level below which the Al system must defer to human incervention on request addicional
+- Log instances when ourputs fil below the threshold for fusure anslysis and system improvement
+c. Integrace Rak-Based Guardnis
+- Apply risk-scoring methods to outputs, adjunting system respontes accordingly based on risk level (eg, higher scrutiny for
+3. Develop Fal-Safe Mechanisms:
+a Implement Emergency Stop Mechanisms:
+Defne supervisor
+measur - Ensure that shutdowes do not lead to data loss and treate recovery checkpolnts where possible. pply E6. Ser Up Recovery Protocols:
+Apply tiers to fag or reject
+b. Set Thresholds for Model C
+Lor instances when outputs
+require addressed belore the system is reactivated
+sccoranty buicd on rik lere
+and rist 4. Establish Governance and Monitoring Procedures:
+a Assign a Guardrail Review Team:
+3Deelep FalSsle Mechanar
+• Desimate a cram responsible for reviewin, mardral electiveness, responding to tamed issues, and recommending mardrail a molement Emertency Stoo adjustments based on system performance and risk astessment.
+- Indlude a shutdown feacure c
+- Ensure the team echodes personnel capable of inservening and making decisions in cale of system falures or unexpected
+Inekemen costruous manioring look to rack syitem performinee， sccurask and rak Indlestors inreal eme.
+6. Set Up Recovery Prococols
+- Sec up sucomated alerts to nocly the guardrall review ceam of anomalies or potencal risks.
+- Exablish recovery protocols
+= include human-in-che-loop (HITL) mechanisms for reviewing fanned anomalies or when the system reaches critical decision shutdown, ensuring chat unre
+S:Dene Opentonl Protocot for Grardni Adusmanse
+4. Establish Governance and M
+ERebry Revew sed updsd Guardsa
+LAssign a Guardeal Review Te
+•Condixt reub reviews of arerals condiderin chantes in rentatory recuiremans, new risk scenarios and kedoach froen syntem monitoring
+responding to flagged issues. a
+- Ensure that haman oversighe is involved when adjustmenes co guardrals are necessary, particularly wien dezling wich high
+b Document Adusoments and Ineerentions
+deckiom has of system t
+- Makean s log of sl guardrsd sounemene snd speem interverbom,incudng the ratsnsle for chinges and the outcome ef
+6. Continusuly Monitor Syuse
+- Condece oeriodio audes co evaluate che effectiveness of evardralls and idencly escorsunicies for imerovemene
+pipelnes induse atacks on p
+2. Stare relevans modelispecia
+1. Model / System Understanding - document che archicecture, dar sources. algorithms and use-case condext of each Al or
+(All Actors)
+scor,inider drat ind uitenesnsl blure madesicrese conereto scenarios （dats poltcohe model iverslan tralssle
+Defoe
+attacks, etc.)
+1 Mode / System Understand
+3. Winerablity Analysis - perform dica reviews, code reviews, penetration desting and other assessments to dacover
+sources, algorichms and use-cs
+Tor Co 4. Rusk Anaya & Megaton Strategy - Combine Impact and keltood neo a nit maero, priorie events and seine councer-measures (hardening data pipelines, model-integrity checks, drift / stre monitoring access coetrols).
+Cocumentasion & Governage - keso a transparent record of threat loric, data sources, micitation olans and moderator unintentional failure moder; er
+human-in che-loop rules: review the documentation periodically to reflect regulatory change or new attack vectors.
+model inversion, malabity at
+&. Conchusus Monitoring - deploy telemetry and sterding to detect emergeng threats: include adranced techniques such as Al unerably Ansysa - perto
+hongypots (dtcoy data lakes, dummy Afis, fake model codpolnts) to attract and study attackers
+for severicy and likelihood.
+smat and compensthe messres （enhunced monicorine restneeed xcessirevsk accepted rsks on a scheddled base
+4. Rick Analypis & Mitigation S
+data pipelines, model-letegrity
+i. Conduce chreat mostling on
+2Prornue theat rehated io.
+VAdopt a Risk-Based Threat Management Framework egNST SP eo-so, SonEeroos, PaNKE AT TaCk Soc AJ and
+Cloud, ecc.)
+- Establish a coffinsous threat inteligence process.
+- Clify assets, dies flows, and AJ components to prioritize risks bared on impact and likelhood
+- Use threat modeling (e.2. STRIDE. DREAD) on AJ pipeline suges.
+Use a r
+o threshoritize threats cases on beena. ser most maniolation coisonin, mercon agacks Che exocre nick tiness
+vide dimpact (eg. customer facing models vs. internal cools).
+3. Implement nak response opcions: mitigate, accepe, transfer, avoid.
+4. Align with the organizasion) incident response plan ORP).
+5. Map AJispecific threats (eg, adversarial MU inputs) to response playbooks
+3. Implemeer integrity corerol secure model update pipeines
+comumers (Application and C
+1. Adore a Rack-ased Threat h
+- Classify assect, data fow, an impact and Malhood
+2 Prioritie threats based on:
+THUN HON VIN CONT
+(Applicable co all actors except CSP)
+I. Establsh a UEM governance committee with representatives from MP. OSP. AP, and AJC to approve and review endpoint Establ: policies collaboratively.
+si end 2. Malezin a central repository for all endpoler polcies onboarding/decommissioning procedures, and patching schedules Revie, accessible co esch stakeholder group-
+one 3, begato endpoint polity codercement into the UM pletorm (e.3, aumatd compliance checks, akerteg on
+misconfigurations) co endure real cime acherence
+4. Conduct quarterty joint audits of endpoine compliance metrics and policy effectiveness. feeding results back inso policy
+encryption,16:29
+Human Resources
+HRS-IS
+identity & Access
+Identicy and Access
+and Procedares
+LAM.O1
+kentity & Access
+Managemik
+Strong Password
+LAM-02
+kno a mies
+Management
+LAM-03
+LAM.04
+Management
+Identity & Access
+Least Privilege
+LAM-OS
+6
+Establish and document an AJ acceptable use policy and procedure that sodresses fair intlutive, relable & sale, secure & civate, transparent and accouncable use of Al technologes
+Endure coverage of all Al technologies, aligning with organizational values and celieal standards
+Estabus. Reguire using approved Al coois, keeping an updated lat of auchorized applicacions. following procurement rules, ang policiescohibing unauthorized data processing security bypassing unapproved automation and deceptive AJ use.
+on the : Require comprchentive fudelnes to enture complance and robust data protection incorporating stringent securio,
+accountable use of Al technolon
+2. Ensure contrage of al AJ tech
+3. Reguire using approved AJ co
+4. Require comprebersive gvide protection, incorporating string
+cknowledgments and mandating regular evaluations to assess understindng
+Erablah mechanisms to monitor complance, require regular poly review, and report on effectivecens
+interns, and third parties, requie mandating regular entuations co
+All Actors)
+Mentry Inventory. Estatish and maitain an inverkory of ierdbes having access to che dous envrorment Address cross-dedorm permission inheritance by implementing ceetralized policy managemeer that maletains consistent access levels
+Stosrazion o commerenzion o Pimiend Access Roles Preve ay Menory from tavm excessive access chas cocle be sed to compromise the AJ emiroement Separate roles for Al data legestion model developmeet, and model deploymeer
+Precipie of Least Privilege (PoLP): Grase idenecies only che minimam level of access necessary to perform their fob
+  
+Access Provisioning Outine the process, timeframe and responsibiltes for auchoriting recording, and communicating
+Access Changes and Revocation: Oudine che process, timeframe, and responsibildes involved in removing access for
+nover onro heory cmnrer
+Access Review: Procedures to review and revalidate idendy access do ensure adherence to the principle of least privilege nd separation of duries. Reguarty validate Al user accounts and permissions, especialy for data sciendsts and model
+levelopers who may need elevated privleges in AJ emirorments.
+Jeerides used in Al workow. Include sucomated rotation, monitoring for unage patterns, and integration with secrets
+- LAM in Model Artlace Handlog
+• Separate roles for AJ data logaus
+(Al Actors)
+Responsible for esablishing and m
+- Separation of Dudies/Segregacion
+nanagement systems.
+Estabis Managemter, of Privileged Access Roles: Establish requirements for the Ilesyele management of access privleges enalatprovisioninz usage, monitoring, and revocation) and scheduled reguar reviews to ensure aligment of access peiwleges with
+access volveg business requirements and idereces roles
+proced Saleguard Logs Integrity. Reguirments for log les protection from unichorized medications or deltion co ensure che
+segnay of che sudit trali ercak-glass procedures should be deined for accessing and modiying log les in emergens)
+- Segregaion of Privieged Accens
+Unque Menkatie Uer: Requiremans for die arabiabeant of unique identers that are assigred to al kedes wihin « Mungemens of Pried Acen be cloud envirorment. Unique IDi should be ured consistenty throughout the cloud emiroereer to track and manage
+Strong Autherrication and Credential Aushentication requirentees of recurity mestures for accessing sytems, applications. Authortation Mechenems: Auste nd data assets should be deled and established (g. auchencicaton frequency and scope, mechanisma, vecure credentass
+Auchorzacion Mechanisms Authorization requirements that access priveges granted to different user troups and othe
+- Secure Model and Credereal Ma
+Jecrides are bared on their roles and responsibilites, data scesievity and business requirements. The requirements shook utine the specifc dice and system funetons that each wier group is auchorized co access
+Ornami Access Controls: here appropriate, integrace ince teng risk scorine inco access decisiona so chat privileres adag
+equiements and step-up authentication. Implement dynamic data access patterns lechusng comporary.juiein-ome access
+Identity Related Incidene Response: Establish specific procedures for handling kentity compromise scenarios in Al systeme seludiog immedate access revocation model quarattine capublities and forensie analysis requirements. Include procedures
+or concaning incidents across duentured system components
+Secure Secree Mansremeee: Newe hardcode eredecrole API kmt. be other seerets in scoliastion code. Lun soscoscien tesponsible for establishing strong password policies and procedures that inchade
+Nuchentication Sandards Exablish requirements for password complexity, length history, and expiration
+Phe MP a responsole tor osse
+Brute-force Attack Prevention: Use brute-force attack prevention mechanised based on rate limiting and progressivo delays
+Password Proseccion: Use password procection using strong storage and in transi, encryption uelting secure hashing agorid [NI Actors)
+Estabis
+Credental mangement tocks: Loverage credental manugement tola (eg, hardware vecurity modules or entrypted creden Repa de estra cosa
+Password Rotation: Define and enforce password rocation requirements for all idendües within Al development and operato - Bruce-lerce Allack Preventior
+Su Pissword Resee: Define a secure password reset process to prevent unauthorized access in case of forgotten password
+addeion to passwords
+Approval: Establish an approval process for any changes or modifications to the lAM pollicy and procedures, including a docun
+Malecenance and Reviews: Conduce reviews on password policies and procedures documentation at least annually co ensure • Mul
+All Actors)
+tesponsible for maintalning a comprehensive inventory of all identicies and cheir level of access
+Inclade tamin vites, machine lentites, service accounte API keys, and Al ideerisen dentry Management System:Where appropriate. a centralzed Wendy management platform should be implemenced chas
+iry Classication: Idendoes shoud be categoried and cassied based on cheir roles, gurpore, and tersithiy e ition of che resources chey access. Include mapping of arry inheritance relationships berween kenodes. indirect:
+Access Level Mapping Maintain mapping berween identisies and cheir level of access (RBAC/ABAG), documenting specile
+-mission, roles, and retource access kopes for esch kentty. Regularly review these mappings for accur,
+Sentiry Discovery and leventory Aveomated costs should be valited to conticusly scan the emironment and ducover
+Manage disting identities in resteime
+and e dendry Creation Monitorine Implement aercing mechaniama to notly secury sams when new identicies are created or when extting keedes receive permission changes, especialy for privileged access, to detect potental privilege escalation
+Threat lece agente Integration: Leverage threat inteligenco sources to lotebty pocenai identity-based creats to proactive
+ddress emergiog risia
+Inventory Access: identity information should be stored in a secure location and access restrkted to auchortzed personel
+leventory Reviews and Updates: Review the invectory to enture accuracy and completeness and identify amy anomalies, on
+periodio basis or after any system changes or changes to identities and cheir level of access.kno a mies
+Management
+LAM-03
+LAM.04
+Management
+Identity & Access
+Least Privilege
+LAM-OS
+6
+Establish and document an AJ acceptable use policy and procedure that sodresses fair intlutive, relable & sale, secure & civate, transparent and accouncable use of Al technologes
+Endure coverage of all Al technologies, aligning with organizational values and celieal standards
+Estabus. Reguire using approved Al coois, keeping an updated lat of auchorized applicacions. following procurement rules, ang policiescohibing unauthorized data processing security bypassing unapproved automation and deceptive AJ use.
+on the : Require comprchentive fudelnes to enture complance and robust data protection incorporating stringent securio,
+accountable use of Al technolon
+2. Ensure contrage of al AJ tech
+3. Reguire using approved AJ co
+4. Require comprebersive gvide protection, incorporating string
+cknowledgments and mandating regular evaluations to assess understindng
+Erablah mechanisms to monitor complance, require regular poly review, and report on effectivecens
+interns, and third parties, requie mandating regular entuations co
+All Actors)
+Mentry Inventory. Estatish and maitain an inverkory of ierdbes having access to che dous envrorment Address cross-dedorm permission inheritance by implementing ceetralized policy managemeer that maletains consistent access levels
+Stosrazion o commerenzion o Pimiend Access Roles Preve ay Menory from tavm excessive access chas cocle be sed to compromise the AJ emiroement Separate roles for Al data legestion model developmeet, and model deploymeer
+Precipie of Least Privilege (PoLP): Grase idenecies only che minimam level of access necessary to perform their fob
+  
+Access Provisioning Outine the process, timeframe and responsibiltes for auchoriting recording, and communicating
+Access Changes and Revocation: Oudine che process, timeframe, and responsibildes involved in removing access for
+nover onro heory cmnrer
+Access Review: Procedures to review and revalidate idendy access do ensure adherence to the principle of least privilege nd separation of duries. Reguarty validate Al user accounts and permissions, especialy for data sciendsts and model
+levelopers who may need elevated privleges in AJ emirorments.
+Jeerides used in Al workow. Include sucomated rotation, monitoring for unage patterns, and integration with secrets
+- LAM in Model Artlace Handlog
+• Separate roles for AJ data logaus
+(Al Actors)
+Responsible for esablishing and m
+- Separation of Dudies/Segregacion
+nanagement systems.
+Estabis Managemter, of Privileged Access Roles: Establish requirements for the Ilesyele management of access privleges enalatprovisioninz usage, monitoring, and revocation) and scheduled reguar reviews to ensure aligment of access peiwleges with
+access volveg business requirements and idereces roles
+proced Saleguard Logs Integrity. Reguirments for log les protection from unichorized medications or deltion co ensure che
+segnay of che sudit trali ercak-glass procedures should be deined for accessing and modiying log les in emergens)
+- Segregaion of Privieged Accens
+Unque Menkatie Uer: Requiremans for die arabiabeant of unique identers that are assigred to al kedes wihin « Mungemens of Pried Acen be cloud envirorment. Unique IDi should be ured consistenty throughout the cloud emiroereer to track and manage
+Strong Autherrication and Credential Aushentication requirentees of recurity mestures for accessing sytems, applications. Authortation Mechenems: Auste nd data assets should be deled and established (g. auchencicaton frequency and scope, mechanisma, vecure credentass
+Auchorzacion Mechanisms Authorization requirements that access priveges granted to different user troups and othe
+- Secure Model and Credereal Ma
+Jecrides are bared on their roles and responsibilites, data scesievity and business requirements. The requirements shook utine the specifc dice and system funetons that each wier group is auchorized co access
+Ornami Access Controls: here appropriate, integrace ince teng risk scorine inco access decisiona so chat privileres adag
+equiements and step-up authentication. Implement dynamic data access patterns lechusng comporary.juiein-ome access
+Identity Related Incidene Response: Establish specific procedures for handling kentity compromise scenarios in Al systeme seludiog immedate access revocation model quarattine capublities and forensie analysis requirements. Include procedures
+or concaning incidents across duentured system components
+Secure Secree Mansremeee: Newe hardcode eredecrole API kmt. be other seerets in scoliastion code. Lun soscoscien tesponsible for establishing strong password policies and procedures that inchade
+Nuchentication Sandards Exablish requirements for password complexity, length history, and expiration
+Phe MP a responsole tor osse
+Brute-force Attack Prevention: Use brute-force attack prevention mechanised based on rate limiting and progressivo delays
+Password Proseccion: Use password procection using strong storage and in transi, encryption uelting secure hashing agorid [NI Actors)
+Estabis
+Credental mangement tocks: Loverage credental manugement tola (eg, hardware vecurity modules or entrypted creden Repa de estra cosa
+Password Rotation: Define and enforce password rocation requirements for all idendües within Al development and operato - Bruce-lerce Allack Preventior
+Su Pissword Resee: Define a secure password reset process to prevent unauthorized access in case of forgotten password
+addeion to passwords
+Approval: Establish an approval process for any changes or modifications to the lAM pollicy and procedures, including a docun
+Malecenance and Reviews: Conduce reviews on password policies and procedures documentation at least annually co ensure • Mul
+All Actors)
+tesponsible for maintalning a comprehensive inventory of all identicies and cheir level of access
+Inclade tamin vites, machine lentites, service accounte API keys, and Al ideerisen dentry Management System:Where appropriate. a centralzed Wendy management platform should be implemenced chas
+iry Classication: Idendoes shoud be categoried and cassied based on cheir roles, gurpore, and tersithiy e ition of che resources chey access. Include mapping of arry inheritance relationships berween kenodes. indirect:
+Access Level Mapping Maintain mapping berween identisies and cheir level of access (RBAC/ABAG), documenting specile
+-mission, roles, and retource access kopes for esch kentty. Regularly review these mappings for accur,
+Sentiry Discovery and leventory Aveomated costs should be valited to conticusly scan the emironment and ducover
+Manage disting identities in resteime
+and e dendry Creation Monitorine Implement aercing mechaniama to notly secury sams when new identicies are created or when extting keedes receive permission changes, especialy for privileged access, to detect potental privilege escalation
+Threat lece agente Integration: Leverage threat inteligenco sources to lotebty pocenai identity-based creats to proactive
+ddress emergiog risia
+Inventory Access: identity information should be stored in a secure location and access restrkted to auchortzed personel
+leventory Reviews and Updates: Review the invectory to enture accuracy and completeness and identify amy anomalies, on
+periodio basis or after any system changes or changes to identities and cheir level of access.
+The Model Provider is responsi
+• Identes weh accors to mode
+All Actors)
+- Muls-party approval for critican
+(NI Actors)
+vest Practices for Implementing the Principle of Least Privilege (PoLP) include
+UP intrastructure: The Al system's itastructure should be dellened and configured wich PolP in mind by limiting the
+The Model Provider is responsi
+• Granding developers access or
+meione e monour to to buro mamom toronto son di corrado
+18 Rales and Permitions Sontifenatont, dom, and resources cach cole i recrited to netent to oerhorm thai detic.
+hould be identited in order to determine the appropriate level of access based for each roleidentry (RBAC shoud be dized to esforce access control permissions)
+in model craining
+- Implementing fine paleed per
+Permasso crane masconene eranosh a prosess ron cooperee provera tReniRench postinor pertesso
+LAccess of Administatve Accouncs:
+• Creating read-oely roles for vi
+Administrative accounts (eg, root or adminitrator accounts) should have the most restriktive scess chat is leited to modfication rights
+Emplox, MEA should be esforeed for al adminitrative accounts and ary other highrink access points
+[All Actor)
+intormi Sensitive Data Access Umication: Access to sensiove data should be restricted to che minimum number of idencices
+Rest Prococes for implementino
+systemequired to accomplish cheir job fanction
+wwww
+Unused Prmiores Kevocation: Identaes access primileres should be proscavey reviewed on a recular busd in order to
+• U intrastructure: The Al syste
+evoke unused or excessive permissions to maintain the PoLP and reduce the attack surface
+configured wich PoLP in mind b
+LP Access Review:
+Access privileges should be reguarty reviewed and assessed to ensure they align with the currens job/lunccion requiremenss.
+Human Resources
+Responsiblicies
+Human Resources
+Non-Disclosure
+Apreements
+HRS-10
+Human Resources
+Securicy Amareness
+HRS-II
+Human Resources
+Personal and Sensitive
+Traring
+HRS-12
+Human Resources
+Complance User
+Responsiblity
+HRS-13
+Human Resourtes
+Al Competensy
+HRS-14
+Human Nesource.
+AJ Acecotabie Usc
+HRS-IS
+(All Actors)
+stabie a dediated AJ Gowmance Zohy or Commitcee that includes reoresencaswes from various deosremengs such as
+represcetadives from various de engineering and research, secur
+,logal, complanco, engintering and researda, security, tranco, Hik, supply chain operations, sales, marketing, and business nic. This commictee should oversee the defning of policies, guidelines and practices for the ethical and responsible Jeveiopment, deploymeee, and ute of AJ. Thi body should ato overice the implementation and complance to Al governance developmen, depleyment, and
+implementation and complance
+und accountably within the orpanization
+2. Clear reporting lines should be establahed by crestieg a reporong hierarchy where each role knows who they report co ind are accountable co. This will help in maintalning a structured flow of information and decision-making
+2. Clear reporing ines shouls
+empie ndute key roles such as Al Syltem Insegrator. AJ Daa Seeward AJ Avcheece AN Engneer. Dau Scends. AJ Eches Complance hierarchy where each role knon
+as CAy Jlke, sed AJ Governance Lesd
+I. Comprebensive job descriptions and terms in agreement should be developed for organizational personnel and chird
+3. Key roles should be idecsier
+5. Roles and responsbitdes should be communkated to all employees, concractors, and corsingent stall
+5. Role-bated security training commensurate with their accest, duties, and responsibltdes should be provided at the start of Scientisc. AJ Ethics Complance
+4. Comprehenaie job descripe
+7. Changes to relevast, policies should be communicated to employces, contractors, and coetingen stalf to ensure
+1. Fecoback should be solicited from employces to identty areas of improvemants.
+conractors and contingent str
+6. Role based secwrity traisiog
+(All Actors)
+I. Creace NDA complaces co m
+thould include: 2. Clear information on protected information b. Duration of the agroement e. Parties involred and omnership
+1. Responsbilces of each parry e. Defniions t Oblations &, Exclusions h. Restrictions on unauthorized access &. Restrictions c. Pareies involved and ouners
+Identinsn unauchorized usare Data destruction terms k. Breach consequences
+Defiritiona f. Oblipations f. Exe
+reguira. Periodicaly revitw them co ensure chey romain elfeccive and relevant, reflect changes in business operadions, adapt co
+access l Restricions on unsuch
+for nocechnological sdvances, ensure compliance wich regulations, and incorporate foedback and lestons learned. organid. Manditory NOM and confdentialty training should be provided to al sakeholkers.
+2. Periodically review chem to
+WRAV) M CHUNND HWSN HUNG NH KIOTGWHM UR HỚ VAN THU CH CRGGGPN CRAC BC refect changes in bosness ope
+5. NOAr shouls be enferced before sharing confidencial information wich suppilers and vendors, during partherships and sollaborations, before research and developmeet, during mergers and acquisitions, and before product launches.
+(All Actors)
+I. Develop a comprehentive code of conduct, security, and privacy traieing program uning interactive modules, intranet Esabi, Vote on Al-specife traieing Content should provide fuideines on uning Al tochs to prevent data lesks and attcks ceach male molyes to recopize Aligenerated thres, airess AN relaed nsts ncorporate ethical consieraions and complance.
+sandie data, report incideras, and prevent misuse of A
+oreny r eponate it the neseny on t turng opon s naly oret ece prond aboue and "S. Evalute the training electiveness and maina records of evaluten
+I. Develop a comprebersive co program using inseractive mod
+tools to prevent data lesks and
+penerated threat, adtress Aln
+2. Provide training to ali empioy ancually chereater to educate
+S. Review and update the training program anually
+4. Maintaln craining attendance
+S.Tallor training based on roles
+(Al Actors
+1. Orvelop a compretensive tra
+(All Acsors)
+1. Deveiop a comprehensive tralning program using interactive modules, incnanet contenc webinars, videos emals, and
+Nose on Alispeciic trainint on
+Pun Vote on Aj-specilie tralning on persona and sensitve data could include how to idently personal and sensitive daca
+Person kcordng to Liw Me GDPX aod CCPA, best praceikes for dits handin, eesfyinz privay risks in Al worklow, hom to renva imaure dits ieegrio, emphatis os eeliesl Al przkkes, understardeg how Al syrtems haadle Pil ad other refdated des ted Wworklom, how to ensure dia
+wotwhowocordh
+spdate, Provite cesioior to ei cctaloae, dod ccotrnctors durioe onbosedioe ded decually ebecosfeer so edivnte decsone sber undersanding how Al sysems
+reitni per responsbibes whie handing personal and senitive des
+security coples lke dats access
+to chei) Evalute che uräning elethesess and maltah records ol evalustien
+2 Provide traiieg to all emplo,
+5. Talor training based on roles and responsiblities
+X. Review and update dhe training program anually
+handiog personal and sensicire
+peruate br tentekcow
+I. Emure employces know thel
+(All actors)
+2. Establsh and mainah a traning program that defnes roles, departmenal responablicies, and lepal oblipations chrouph sampaigns, nowlecters, and training sessioes
+Make d. Conduct perlodic training, sessions on AJ privacy and security, carbying shared responsibiloes
+swareri. Algn policles and procedures wich legal and regutacory reguirements best practies and industry trameworks procedi. Ensure employees, contractors and third partes understand permisible data usage and its implications
+1. Commanicate policies for handling sensitive data and clarify rolesand respomibilities.
+). Provide reguar updates on AJ chreats, risks and lessons learne
+10. Endure all employees, contractors, interm and third partes comply with security and privacy policies by obcaning
+iknowkoremeoa
+ecioann domnenatea
+newslesters, and training sessio
+3. Conduct periode training 16
+AJ misuse.
+S. Align policies and procedures
+6. Emure employces, contracto-deca usage and ics implications
+7. Emohasize echical AJ practice
+(All Actors)
+tvskace exisring Al sieiis and resource
+2. Set elear objectives cutcomes, and goals for the Al competency program
+3. Desermine the speciic AJ skelis and knowledge needed by performing a skol op analysis.
+T. vereop a sousturco terewons duondoe protiokio Korti
+ereste erane crowms vonz onime courses, workthom, mo mentoriho kxuomz on Al basis, cohes d Alcat orioy Establand security. model developmenc human cerkered mindret. AJ rechnigues and applicatiors, and AJ system design. Implemens malezain approval protess for training materials and protedures to enture they meet industry standards and repulatory
+8. Communicate policies for ha responsiblties
+9. Provide reguar updaces on A
+10. Ensure all employses, concr.
+Al Actors)
+i. Evebate existing Al s6ils ane
+2. Set diear obfectives, outcom program
+3. Decermine dhe specifc AJ skol
+sال gap analpaia
+4. Develop a stroccured frame-mencorshia focusing on AJ basi model developen
+trainiog matcrials and procedur
+6. Administer trainior accordnn
+7, Moricor employse progress by conducting periodic evaluations and guizzes to measure comprebersion of Al principles.
+3. Encourage external industry cerufcasions in core Al competendies and academic programs. Fotter a learning culcure quizzes co measure comprehen
+v. Paletan traning records, completion rates and achlevement scores
+10. Conduct amual or on-demand revews to ersure skl set relevancy
+11. Evaluate the traising programis effectiveness through feedbuck and performance metrics.
+academic protrams. loster a le
+nisks, and best pracoces
+9. Maintaln training recordi. cos
+10 Condxe asol or onide
+Tu, traluate the training, progea (AN Actors)
+1. Establish and document an A
+…lAor'
+secourtable use of Al technolo,
+1. Esablsh and document an Al accepuble use poliyy and procedure that addresses falr, inclusive, reluble li safe, secure &
+2.Emure coverage of al AI teel
+stvate, transparem. and accountable uie of AJ technologies.
+2. Ensure coverage of all AJ technolopes, aligning wich organizational values and ethical sandarés.
+3. Require using approved AJ to applications. following procuren
+policiesrohibiting unauthorized data processing security bypassing unapproved automation, and deceptive Al use
+data processint, security bypas:
+on the 1. Roguire comprebensie gudiines to ensure complance and rodurt dita protecion. incorporating wringene securiyy
+organimessures and thorouch validation of AJ outputi
+5. Commanicaced chrowth periodic training to a. employees, concraccors, interns, and chird parcies, reguining forma.
+4. Require comprchentive guide protection icorporating strine
+weknowledgmenes and mandating regular evalatioes to astess understandog
+3. Estblsh mechanisms to monitor complance, require reguar poliy reviews, and report on eflectveness.
+Continuousy imorove the polcy by incorporatnr loedbuck, trcods, and reruatory chunres
+Incerns, and chiró parcies, reguie
+mandating regolar caluations t
+(AJl Actors)
+- Idecray lewentory: Establth and maletain an leventory of identiles hariog access to the closd emvircemeer. Address cross-Management
+Least Privilege
+LAM-OS
+All Actors)
+iest Practices for implementing the Principle of Least Privilage (PoLP) include:
+1P Intrastxcure: The Al sysem's intrastxcure should be desired and contrured with Polf in mind by limicine tha civileges of identities to the bare minimum required for their operation
+IP Roles and Permissions: Speciße stions, dets, and retcurces esch role i required to access to perform their duties hould be idenelled in order to determine the appropriate level of access based for each roleldentity (RBAC should be Permission Change Management Establish a process for requencing approvind implementing and documenting permission hanges, to prevent undue pridege escalation. Require justification for changes and maintan an aude log
+pecife casts and environments, and ensured that they are only used when absolucly necesary
+Employ, MEA should be ectorced for al administrative accouts and amy other high-rink acess pointe informa Sensitive Data Access Limitations Access to sendrive dars should be restricted to the minimum number of identicine system soniced to secomelch chei, los ncelon
+Unused Privileges Revocation: Identities acess privileges should be prosctvely reviewed on a regular basis in order to evoke unused or excessive permissions to maintain the PoLP and reduce the attack surface
+Access privileges should be regularty reviewed and assessed to ensure they align with the curren, jobuncion requirements. • UP Roles and Permissions: Spe o dentify any unnecessary or excessive access and make adjustments accordedy
+Ausomated cools should be implemented to consinuously monicor and evaluate the effectiveness of Poll throuphout the AJ to desermine the appropriace le
+Temporary Access Grants: Where possible, semporary access grants with automatic expiration should be used so chat ersistent access to a resource stry limited to the minimum needed
+Comprehensive Access Lonelor, Loz any access to resources including explicit purpose for access, in order to inform which oles need persissent access
+The Model Provider is responsi sctively working on
+- Leniteg training covironment
+operations, and deployment acc
+- Creating time-limited privilege
+modikabon rights
+[All Actors)
+dest pokeses for migroninor
+- IP frastructure: The Al syste configured with PolP in mind t
+• Permission Change Manageme spproving implemerring, and do
+Ientry & Access
+Mund rement
+User Access
+Provisioning
+
+All Actors)
+: Delne clear approval worktows for access requests, keding speroprüte stakeholers (eg. MR. ecurity. team leads).
+Defice: Establish Iecycle-based access managemene to automatically manage uner access at each stage (osboarding, role changs.
+to data, ensure roles and enterents are clearly debned and mapped for each application belore intiating access provisioning i Implement justin-eme UM) provisioning for sersitive systems to reduce standog access and pocencal exposure.
+•Enforce segregacion of duties by restricting conflicting roles during provisioning and role assigameer.
+1, Maletain detalled logs of all provisioning actions to support auditing complance, and forensic investigation.
+1. implement role-based access
+scientists, and Mil corneers acc
+2. Ensure model reposicories. tr have costrolled access ted to o
+3. Automate access provisionin.
+1. Malean an access matrix ma to prevent overprovisioning
+(All Actors)
+1. Establish standardized onbos
+2. Define dear approval workle appropriate stakeholders (g. h
+3. Establish Mecycle based accen
+4. Ensure roles and entitlements
+Mentity & Access
+Unce Access Changes
+LAM.07
+All Actors)
+• Deline time-bound policies for revoling access upon role change, termination, or inactivity
+¿Aucomate access modfication and revocation workßows baked on triters (cg. MR system updates),
+1. Revoke all credentiah and token (pastwords API keys, cloud roles, third-party SauS costlements) and/or any standing
+De procasions ove user gal holl
+l Decect and handle orphaned or dormant accounts; auto-disable or lar them for imeedato review Log every modfication or revocation action to an immutable store for sude foremales and compliance reporting « Run periodic accessilst reviews to validate chat current entidements match active business roles and projects: document ry exceptions and correcove actions
+I. Inmedately remove access te
+2. Ensure CV/CD pipelines invali permissions for departing users
+(All Actors)
+1. Defies time-bound policies fo
+trizzers (0 g. HR system update
+3. Revoke al credential and tol
+tire party say exports
+Management
+
+LAM-08
+All Actors)
+Conduce periodic reviews (eg- quarterty) of all user access rights for appropriateness and necessic.
+soparas: Use automated tooling to generate review reports, detect orphan / unused accounts, and route tasks to resource owner with oor sign-oll
+upon si. Require certification and reconcilation access that i unapproved, stale or in confict with role definicions must be revoked Track outcomes and evidence of each review cycle, wich timestamps and approver IDs, to satisty audit and complance weeds.
+I. Review access to model regi
+2. Flag and remediate persistent.
+lorerior access alter model har
+All Actors
+Conduct periodie revews (e.
+2.Validate least-privilege and sea
+3. Use automated tooling to ger
+dentity & Access
+Managemen
+Segregation of
+Privileged Access
+LAM-09
+. Defee clear boundaries between roles such at admintrator, developer, auditor, and operator.
+Restrict conflictine or him-risk role combinations (ca,developer and production admin) co enforce separation of duties
+technid. Monicor privilege escalation paths and restrict cemporary elevation through strong justification and approval. roles.i. Regularly assens tegregation policies for electivecess and algoment with risk management frameworks
+*. Run periodic certification / reconcilation campaign to verify chat current, entidements match approved role definitioes:
+administrators in the AIML Iles models without independent ov
+3. Require deal control for shan
+[All Actors)
+1. Defice dear boundaries berm
+2. Restrict conflicting or high-ci
+3. Segregate duties in provisioni
+dentity & Access
+Management of Privileged Access
+LAM:10
+nd im APAIC)
+mert satebared second ten Rem wace do pried toes and cermission
+2. Implement an approval proce
+identity & Access
+Minugement
+for Agreed Privleged
+Access Roles
+LAM:11
+All Actors on
+nod accessitoles (such as access to customer data) andor actions and thet relevant cus
+Defe. Defeo an access request workhow, nolang the request Ication to the AC when high risk petr
+pEE NO ase mechanis in cleo for spread ander nocation from agent based tyies request
+
+Management
+Incegrity
+
+All Actors)
+echnicccess
+rose use imes ferocray access win approace agerever or roles at more Pran roson
+is to peeveni tampering and data los
+no mockon in to be to to and mosta Pod corres redso to 59%.
+disable Ensure reasonly access so logs & COMMP, OSP, AP)
+treak gotan assrova from tre AC (be die 9 hen veing high rak per permission tout could afect log neyy.
+Entum foot called to Al mo
+в тобмі весусі ів*
+(MP. OSP, AP) NG [See LAM-111
+identry & Access
+Uniquely identiable
+
+implement access cortrol measures to ensure user IDs are authenticated and autherorized when accessingidentity & Access
+Management
+Least Privilege
+LAM-OS
+All Actors)
+iest Practices for implementing the Principle of Least Privilage (PoLP) include:
+1P Intrastxcure: The Al sysem's intrastxcure should be desired and contrured with Polf in mind by limicine tha civileges of identities to the bare minimum required for their operation
+IP Roles and Permissions: Speciße stions, dets, and retcurces esch role i required to access to perform their duties hould be idenelled in order to determine the appropriate level of access based for each roleldentity (RBAC should be Permission Change Management Establish a process for requencing approvind implementing and documenting permission hanges, to prevent undue pridege escalation. Require justification for changes and maintan an aude log
+pecife casts and environments, and ensured that they are only used when absolucly necesary
+Employ, MEA should be ectorced for al administrative accouts and amy other high-rink acess pointe informa Sensitive Data Access Limitations Access to sendrive dars should be restricted to the minimum number of identicine system equired to accomplish cheir job function
+Unused Privileges Revocation: Identities acess privileges should be prosctvely reviewed on a regular basis in order to evoke unused or excessive permissions to maintain the PoLP and reduce the attack surface
+Access privileges should be regularty reviewed and assessed to ensure they align with the curren, jobuncion requirements. • UP Roles and Permissions: Spe o dentify any unnecessary or excessive access and make adjustments accordedy
+Ausomated cools should be implemented to consinuously monicor and evaluate the effectivoness of Poll throunout the Al to desermine the appropriace le
+Temporary Access Grants: Where possible, semporary access grants with automatic expiration should be used so chat ersistent access to a resource stry leited to the minimum needed
+Comprehensive Access Lonelor, Loz any access to resources including, explicit purpose for access, in order to inform whic oles need persissent access
+The Model Provider is responsi setively working on
+- Leniteg training covironment
+operations, and deployment acc
+- Creating time-limited privilege
+modikabon rights
+[All Actors)
+des rakoses for mierennong
+- IP frastructure: The Al syste configured with PolP in mind t
+• Permission Change Manageme spproving implemerring, and do
+1. implement role-based access
+
+User Access
+Provisioning
+
+All Actors)
+: Delne clear approval worktows for access requests, keding speroprüte stakeholers (eg. MR. ecurity. team leads).
+Defice: Establish Iecycle-based access managemene to automatically manage uner access at each stage (osboarding, role changs.
+to data, ensure roles and enutements are clearly dento and mapped for each application belore intiating access provisioning i Implement justin-eme UM) provisioning for sersitive systems to reduce standog access and pocencal exposure.
+•Enforce segregacion of duties by restricting conflicting roles during provisioning and role assigameer.
+1, Maletain detalled logs of all provisioning actions to support auditing complance, and forensic investigation.
+scientists, and Mil corneers acc
+2. Ensure model reposicories. tr
+3. Automate access provision
+4. Maintain an access matrix o to prevent overprovisioning
+(All Actors)
+1. Establish standardized onbo
+2. Define dear approval work
+3. Establish Mecycle based acc
+Mentity & Access
+Unce Access Changes
+LAM-07
+All Actors)
+• Deline time-bound policies for revoling access upon role change, termination, or inactivity
+¿Aucomate access modfication and revocation workßows baked on triters (cg. MR system updates),
+1. Revoke all credentiah and token (pastwords API keys, cloud roles, third-party SauS costlements) and/or any standing
+De procasions ove user gal holl
+l Decect and handle orphaned or dormant accounts; auto-disable or lar them for imeedato review Log every modfication or revocation action to an immutable store for sude foremales and compliance reporting « Run periodic accessilst reviews to validate chat current entidements match active business roles and projects: document ry exceptions and correcove actions
+4. Ensure roles and entitlemet
+1. Inmedately remove access
+2. Ensure CV/CD pipelines inva permissions for departing users
+(All Actors)
+1. Defies time-bound policies fo
+trizzers (0 g. HR system update
+3. Revoke all credentials and tol
+tire party sos erroomns
+Management
+
+LAM-08
+All Actors)
+• Conduct periodic reviews (62- quarterty) of aluser access righes for appropriateness and necessicy.
+Review, Validate least-privilege and serrezation-of-duces: document explicit, rationale for any persisten or elevated access separas: Use automated tooling to generate review reports, detect orphan / unused accounts, and route tasks to resource owner with oor sign-oll
+upon si. Require certification and reconcilation access that i unapproved, stale or in confict with role definicions must be revoked Track outcomes and evidence of each review cycle, wich timestamps and approver IDs, to satisty audit and complance weeds.
+I. Review access to model regi
+2. Flag and remediate persistent.
+lorerior access alter model har
+All Actors
+Conduct periodie revews (e.
+2.Validate least-privilege and sea
+3. Use automated tooling to ger
+dentity & Access
+Managemen
+Segregation of
+Privileged Access
+LAM-09
+. Defee clear boundaries between roles such at admintrator, developer, auditor, and operator.
+Restrict conflictine or him-risk role combinations (ca,developer and production admin) co enforce separation of duties
+technid. Monicor privilege escalation paths and restrict cemporary elevation through strong justification and approval. roles.i. Regularly assens tegregaton policies for electivesess and algement with risk manugement frameworks
+*. Run periodic certification / reconcilation campaign to verify chat current, entidements match approved role definitioes: emedace exceptions.
+administrators in the AIML Iles models without independent ov
+3. Require deal control for chan
+[All Actors)
+1. Defice dear boundaries berm
+3. Segregate duties in provisioni
+dentity & Access
+Management of Privileged Access
+LAM:10
+nd imAPAIC)
+mert satebared second one Eggs win access do prives roles and germission
+2. Implement an approval proce
+identity & Access
+Minugement
+for Agreed Privleged
+Access Roles
+LAM:11
+All Actors on
+nod accessitoles (such as access to customer data) andor actions and thet relevant cus
+Defoe. Defeo an access request workhow, inclang the requent
+Ication to the AC when high risk petr
+pEE NO ase mechanis in cleo for spread ander nocation from agent based tyies request
+
+Management
+Incegrity
+
+All Actors)
+echnicccess
+rose use imes ferocrary access win approace agerever or roles at more Pan rosson.
+is to peeveni tampering and data los
+no mockon in to bee to and most cat Pod cores related to 1098.
+disable Ensure reasonly access so logs & COMMP, OSP, AP)
+treak gotan assrova from tre AC (be die 9 hen veing high rak per permission tout could afect log neyy.
+Entum foot called to Al mo
+в тобмі весусі ів*
+(MP. OSP, AP) NG [See LAM-111
+
+
+
+implement access cortrol measures to ensure user IDs are authenticated and autherorized when accessing
+
+identry & Access
+Uniquely identiable
+LAM:13
+36
+DefineHuman Resources
+HRS-IS
+identity & Access
+Identicy and Access
+and Procedares
+LAM.O1
+kentity & Access
+Managemik
+Strong Password
+LAM-02
+kno a mies
+Management
+LAM-03
+LAM.04
+Management
+Identity & Access
+Least Privilege
+LAM-OS
+6
+Establish and document an AJ acceptable use policy and procedure that sodresses fair intlutive, relable & sale, secure & civate, transparent and accouncable use of Al technologes
+Endure coverage of all Al technologies, aligning with organizational values and celieal standards
+Estabus. Reguire using approved Al coois, keeping an updated lat of auchorized applicacions. following procurement rules, ang policiescohibing unauthorized data processing security bypassing unapproved automation and deceptive AJ use.
+on the : Require comprchentive fudelnes to enture complance and robust data protection incorporating stringent securio,
+accountable use of Al technolon
+2. Ensure contrage of al AJ tech
+3. Reguire using approved AJ co
+4. Require comprebersive gvide protection, incorporating string
+cknowledgments and mandating regular evaluations to assess understindng
+Erablah mechanisms to monitor complance, require regular poly review, and report on effectivecens
+interns, and third parties, requie mandating regular entuations co
+All Actors)
+Mentry Inventory. Estatish and maitain an inverkory of ierdbes having access to che dous envrorment Address cross-dedorm permission inheritance by implementing ceetralized policy managemeer that maletains consistent access levels
+Stosrazion o commerenzion o Pimiend Access Roles Preve ay Menory from tavm excessive access chas cocle be sed to compromise the AJ emiroement Separate roles for Al data legestion model developmeet, and model deploymeer
+Precipie of Least Privilege (PoLP): Grase idenecies only che minimam level of access necessary to perform their fob
+  
+Access Provisioning Outine the process, timeframe and responsibiltes for auchoriting recording, and communicating
+Access Changes and Revocation: Oudine che process, timeframe, and responsibildes involved in removing access for
+nover onro heory cmnrer
+Access Review: Procedures to review and revalidate idendy access do ensure adherence to the principle of least privilege nd separation of duries. Reguarty validate Al user accounts and permissions, especialy for data sciendsts and model
+levelopers who may need elevated privleges in AJ emirorments.
+Jeerides used in Al workow. Include sucomated rotation, monitoring for unage patterns, and integration with secrets
+- LAM in Model Artlace Handlog
+• Separate roles for AJ data logaus
+(Al Actors)
+Responsible for esablishing and m
+- Separation of Dudies/Segregacion
+nanagement systems.
+Estabis Managemter, of Privileged Access Roles: Establish requirements for the Ilesyele management of access privleges enalatprovisioninz usage, monitoring, and revocation) and scheduled reguar reviews to ensure aligment of access peiwleges with
+access volveg business requirements and idereces roles
+proced Saleguard Logs Integrity. Reguirments for log les protection from unichorized medications or deltion co ensure che
+segnay of che sudit trali ercak-glass procedures should be deined for accessing and modiying log les in emergens)
+- Segregaion of Privieged Accens
+Unque Menkatie Uer: Requiremans for die arabiabeant of unique identers that are assigred to al kedes wihin « Mungemens of Pried Acen be cloud envirorment. Unique IDi should be ured consistenty throughout the cloud emiroereer to track and manage
+Strong Autherrication and Credential Aushentication requirentees of recurity mestures for accessing sytems, applications. Authortation Mechenems: Auste nd data assets should be deled and established (g. auchencicaton frequency and scope, mechanisma, vecure credentass
+Auchorzacion Mechanisms Authorization requirements that access priveges granted to different user troups and othe
+- Secure Model and Credereal Ma
+Jecrides are bared on their roles and responsibilites, data scesievity and business requirements. The requirements shook utine the specifc dice and system funetons that each wier group is auchorized co access
+Ornami Access Controls: here appropriate, integrace ince teng risk scorine inco access decisiona so chat privileres adag
+equiements and step-up authentication. Implement dynamic data access patterns lechusng comporary.juiein-ome access
+Identity Related Incidene Response: Establish specific procedures for handling kentity compromise scenarios in Al systeme seludiog immedate access revocation model quarattine capublities and forensie analysis requirements. Include procedures
+or concaning incidents across duentured system components
+Secure Secree Mansremeee: Newe hardcode eredecrole API kmt. be other seerets in scoliastion code. Lun soscoscien tesponsible for establishing strong password policies and procedures that inchade
+Nuchentication Sandards Exablish requirements for password complexity, length history, and expiration
+Phe MP a responsole tor osse
+Brute-force Attack Prevention: Use brute-force attack prevention mechanised based on rate limiting and progressivo delays
+Password Proseccion: Use password procection using strong storage and in transi, encryption uelting secure hashing agorid [NI Actors)
+Estabis
+Credental mangement tocks: Loverage credental manugement tola (eg, hardware vecurity modules or entrypted creden Repa de estra cosa
+Password Rotation: Define and enforce password rocation requirements for all idendües within Al development and operato - Bruce-lerce Allack Preventior
+Su Pissword Resee: Define a secure password reset process to prevent unauthorized access in case of forgotten password
+addeion to passwords
+Approval: Establish an approval process for any changes or modifications to the lAM pollicy and procedures, including a docun
+Malecenance and Reviews: Conduce reviews on password policies and procedures documentation at least annually co ensure • Mul
+All Actors)
+tesponsible for maintalning a comprehensive inventory of all identicies and cheir level of access
+Inclade tamin vites, machine lentites, service accounte API keys, and Al ideerisen dentry Management System:Where appropriate. a centralzed Wendy management platform should be implemenced chas
+iry Classication: Idendoes shoud be categoried and cassied based on cheir roles, gurpore, and tersithiy e ition of che resources chey access. Include mapping of arry inheritance relationships berween kenodes. indirect:
+Access Level Mapping Maintain mapping berween identisies and cheir level of access (RBAC/ABAG), documenting specile
+-mission, roles, and retource access kopes for esch kentty. Regularly review these mappings for accur,
+Sentiry Discovery and leventory Aveomated costs should be valited to conticusly scan the emironment and ducover
+Manage disting identities in resteime
+and e dendry Creation Monitorine Implement aercing mechaniama to notly secury sams when new identicies are created or when extting keedes receive permission changes, especialy for privileged access, to detect potental privilege escalation
+Threat lece agente Integration: Leverage threat inteligenco sources to lotebty pocenai identity-based creats to proactive
+ddress emergiog risia
+Inventory Access: identity information should be stored in a secure location and access restrkted to auchortzed personel
+leventory Reviews and Updates: Review the invectory to enture accuracy and completeness and identify amy anomalies, on
+periodio basis or after any system changes or changes to identities and cheir level of access.
+The Model Provider is responsi
+• Identes weh accors to mode
+All Actors)
+- Muls-party approval for critican
+(NI Actors)
+vest Practices for Implementing the Principle of Least Privilege (PoLP) include
+UP intrastructure: The Al system's itastructure should be dellened and configured wich PolP in mind by limiting the
+The Model Provider is responsi
+• Granding developers access or
+meione e monour to to buro mamom toronto son di corrado
+18 Rales and Permitions Sontifenatont, dom, and resources cach cole i recrited to netent to oerhorm thai detic.
+hould be identited in order to determine the appropriate level of access based for each roleidentry (RBAC shoud be dized to esforce access control permissions)
+in model craining
+- Implementing fine paleed per
+Permasso crane masconene eranosh a prosess ron cooperee provera tReniRench postinor pertesso
+LAccess of Administatve Accouncs:
+• Creating read-oely roles for vi
+Administrative accounts (eg, root or adminitrator accounts) should have the most restriktive scess chat is leited to modfication rights
+Emplox, MEA should be esforeed for al adminitrative accounts and ary other highrink access points
+[All Actor)
+intormi Sensitive Data Access Umication: Access to sensiove data should be restricted to che minimum number of idencices
+Rest Prococes for implementino
+systemequired to accomplish cheir job fanction
+wwww
+Unused Prmiores Kevocation: Identaes access primileres should be proscavey reviewed on a recular busd in order to
+• U intrastructure: The Al syste
+evoke unused or excessive permissions to maintain the PoLP and reduce the attack surface
+configured wich PoLP in mind b
+LP Access Review:
+Access privileges should be reguarty reviewed and assessed to ensure they align with the currens job/lunccion requiremenss. - UP Roles and Permissiona: Spe
+o lotnuty any unnecessary or excessive access and make so ustments accordinoy
+Aucomated cools should be implemented to concinuounty monicor and evaluate the effectivenets of PolP throuphour the Al co desermine the appropriate le
+(RBAC should be velized to col spproving implemerring, and doHuman Resources
+Responsiblicies
+Human Resources
+Non-Disclosure
+Apreements
+HRS-10
+Human Resources
+Securicy Amareness
+HRS-II
+Human Resources
+Personal and Sensitive
+Traring
+HRS-12
+Human Resources
+Complance User
+Responsiblity
+HRS-13
+Human Resourtes
+Al Competensy
+HRS-14
+Human Nesource.
+AJ Acecotabie Usc
+HRS-IS
+(All Actors)
+stabie a dediated AJ Gowmance Zohy or Commitcee that includes reoresencaswes from various deosremengs such as
+represcetadives from various de engineering and research, secur
+,logal, complanco, engintering and researda, security, tranco, Hik, supply chain operations, sales, marketing, and business nic. This commictee should oversee the defning of policies, guidelines and practices for the ethical and responsible Jeveiopment, deploymeee, and ute of AJ. Thi body should ato overice the implementation and complance to Al governance developmen, depleyment, and
+implementation and complance
+und accountably within the orpanization
+2. Clear reporting lines should be establahed by crestieg a reporong hierarchy where each role knows who they report co ind are accountable co. This will help in maintalning a structured flow of information and decision-making
+2. Clear reporing ines shouls
+empie ndute key roles such as Al Syltem Insegrator. AJ Daa Seeward AJ Avcheece AN Engneer. Dau Scends. AJ Eches Complance hierarchy where each role knon
+as CAy Jlke, sed AJ Governance Lesd
+I. Comprebensive job descriptions and terms in agreement should be developed for organizational personnel and chird
+3. Key roles should be idecsier
+5. Roles and responsbitdes should be communkated to all employees, concractors, and corsingent stall
+5. Role-bated security training commensurate with their accest, duties, and responsibltdes should be provided at the start of Scientisc. AJ Ethics Complance
+4. Comprehenaie job descripe
+7. Changes to relevast, policies should be communicated to employces, contractors, and coetingen stalf to ensure
+1. Fecoback should be solicited from employces to identty areas of improvemants.
+conractors and contingent str
+6. Role based secwrity traisiog
+(All Actors)
+I. Creace NDA complaces co m
+thould include: 2. Clear information on protected information b. Duration of the agroement e. Parties involred and omnership
+1. Responsbilces of each parry e. Defniions t Oblations &, Exclusions h. Restrictions on unauthorized access &. Restrictions c. Pareies involved and ouners
+Identinsn unauchorized usare Data destruction terms k. Breach consequences
+Defiritiona f. Oblipations f. Exe
+reguira. Periodicaly revitw them co ensure chey romain elfeccive and relevant, reflect changes in business operadions, adapt co
+access l Restricions on unsuch
+for nocechnological sdvances, ensure compliance wich regulations, and incorporate foedback and lestons learned. organid. Manditory NOM and confdentialty training should be provided to al sakeholkers.
+2. Periodically review chem to
+WRAV) M CHUNND HWSN HUNG NH KIOTGWHM UR HỚ VAN THU CH CRGGGPN CRAC BC refect changes in bosness ope
+5. NOAr shouls be enferced before sharing confidencial information wich suppilers and vendors, during partherships and sollaborations, before research and developmeet, during mergers and acquisitions, and before product launches.
+(All Actors)
+I. Develop a comprehentive code of conduct, security, and privacy traieing program uning interactive modules, intranet Esabi, Vote on Al-specife traieing Content should provide fuideines on uning Al tochs to prevent data lesks and attcks ceach male molyes to recopize Aligenerated thres, airess AN relaed nsts ncorporate ethical consieraions and complance.
+sandie data, report incideras, and prevent misuse of A
+oreny r eponate it the neseny on t turng opon s naly oret ece prond aboue and "S. Evalute the training electiveness and maina records of evaluten
+I. Develop a comprebersive co program using inseractive mod
+tools to prevent data lesks and
+penerated threat, adtress Aln
+2. Provide training to ali empioy ancually chereater to educate
+S. Review and update the training program anually
+4. Maintaln craining attendance
+S.Tallor training based on roles
+(Al Actors
+1. Orvelop a compretensive tra
+(All Acsors)
+1. Deveiop a comprehensive tralning program using interactive modules, incnanet contenc webinars, videos emals, and
+Nose on Alispeciic trainint on
+Pun Vote on Aj-specilie tralning on persona and sensitve data could include how to idently personal and sensitive daca
+Person kcordng to Liw Me GDPX aod CCPA, best praceikes for dits handin, eesfyinz privay risks in Al worklow, hom to renva imaure dits ieegrio, emphatis os eeliesl Al przkkes, understardeg how Al syrtems haadle Pil ad other refdated des ted Wworklom, how to ensure dia
+wotwhowocordh
+spdate, Provite cesioior to ei cctaloae, dod ccotrnctors durioe onbosedioe ded decually ebecosfeer so edivnte decsone sber undersanding how Al sysems
+reitni per responsbibes whie handing personal and senitive des
+security coples lke dats access
+to chei) Evalute che uräning elethesess and maltah records ol evalustien
+2 Provide traiieg to all emplo,
+5. Talor training based on roles and responsiblities
+X. Review and update dhe training program anually
+handiog personal and sensicire
+peruate br tentekcow
+I. Emure employces know thel
+(All actors)
+2. Establsh and mainah a traning program that defnes roles, departmenal responablicies, and lepal oblipations chrouph sampaigns, nowlecters, and training sessioes
+Make d. Conduct perlodic training, sessions on AJ privacy and security, carbying shared responsibiloes
+swareri. Algn policles and procedures wich legal and regutacory reguirements best practies and industry trameworks procedi. Ensure employees, contractors and third partes understand permisible data usage and its implications
+1. Commanicate policies for handling sensitive data and clarify rolesand respomibilities.
+). Provide reguar updates on AJ chreats, risks and lessons learne
+10. Endure all employees, contractors, interm and third partes comply with security and privacy policies by obcaning
+iknowkoremeoa
+ecioann domnenatea
+newslesters, and training sessio
+3. Conduct periode training 16
+AJ misuse.
+S. Align policies and procedures
+6. Emure employces, contracto-deca usage and ics implications
+7. Emohasize echical AJ practice
+(All Actors)
+tvskace exisring Al sieiis and resource
+2. Set elear objectives cutcomes, and goals for the Al competency program
+3. Desermine the speciic AJ skelis and knowledge needed by performing a skol op analysis.
+T. vereop a sousturco terewons duondoe protiokio Korti
+ereste erane crowms vonz onime courses, workthom, mo mentoriho kxuomz on Al basis, cohes d Alcat orioy Establand security. model developmenc human cerkered mindret. AJ rechnigues and applicatiors, and AJ system design. Implemens malezain approval protess for training materials and protedures to enture they meet industry standards and repulatory
+8. Communicate policies for ha responsiblties
+9. Provide reguar updaces on A
+10. Ensure all employses, concr.
+Al Actors)
+i. Evebate existing Al s6ils ane
+2. Set diear obfectives, outcom program
+3. Decermine dhe specifc AJ skol
+sال gap analpaia
+4. Develop a stroccured frame-mencorshia focusing on AJ basi model developen
+trainiog matcrials and procedur
+6. Administer trainior accordnn
+7, Moricor employse progress by conducting periodic evaluations and guizzes to measure comprebersion of Al principles.
+3. Encourage external industry cerufcasions in core Al competendies and academic programs. Fotter a learning culcure quizzes co measure comprehen
+v. Paletan traning records, completion rates and achlevement scores
+10. Conduct amual or on-demand revews to ersure skl set relevancy
+11. Evaluate the traising programis effectiveness through feedbuck and performance metrics.
+academic protrams. loster a le
+nisks, and best pracoces
+9. Maintaln training recordi. cos
+10 Condxe asol or onide
+Tu, traluate the training, progea (AN Actors)
+1. Establish and document an A
+…lAor'
+secourtable use of Al technolo,
+1. Esablsh and document an Al accepuble use poliyy and procedure that addresses falr, inclusive, reluble li safe, secure &
+2.Emure coverage of al AI teel
+stvate, transparem. and accountable uie of AJ technologies.
+2. Ensure coverage of all AJ technolopes, aligning wich organizational values and ethical sandarés.
+3. Require using approved AJ to applications. following procuren
+policiesrohibiting unauthorized data processing security bypassing unapproved automation, and deceptive Al use
+data processint, security bypas:
+on the 1. Roguire comprebensie gudiines to ensure complance and rodurt dita protecion. incorporating wringene securiyy
+organimessures and thorouch validation of AJ outputi
+5. Commanicaced chrowth periodic training to a. employees, concraccors, interns, and chird parcies, reguining forma.
+4. Require comprchentive guide protection icorporating strine
+weknowledgmenes and mandating regular evalatioes to astess understandog
+3. Estblsh mechanisms to monitor complance, require reguar poliy reviews, and report on eflectveness.
+Continuousy imorove the polcy by incorporatnr loedbuck, trcods, and reruatory chunres
+Incerns, and chiró parcies, reguie
+mandating regolar caluations t
+(AJl Actors)
+- Idecray lewentory: Establth and maletain an leventory of identiles hariog access to the closd emvircemeer. Address cross-satorm permissin iberiance by implemenring centralzed poliy maragement that mainains corsistens access leveis
+KrosS Nemraik
+- Separation of Dusies/Segregation of Priviloged Access Roles: Prevent ary ideeriy from having excessive access that could be
+y development, and model deployment
+Principle of Least Priviloge (PolP): Grant kentities coly the um levci of accens necessary to perform uheir jokPrivacy Ufecycle
+VE WARN
+Data Security and Privacy Ufecycle
+Management
+Tramparency
+Privacy Ufecycle
+Prevention & Detection
+On Storer she
+Privacy Ufecycle
+runs cuit
+Pracy Enhancing
+Technologies
+Data Security and Management
+Dats integrity Check
+DSP.19
+DSP-20
+DSP-21
+DSP-23
+36
+(Applicable to all providers)
+I. Maletain lise of all data askets, their onners sensitivity, origh, and processing methods
+2. Create data flow darrams (DfDs) co identity data sources, descinations, and storare points, and documene the flow so
+2 Create det Bow dagrams 1 and storage polets, and docum
+Inal destinasion
+backups in OFOs and data ma
+3. Adentify physical and logical data reposicories, Al models. Air. and data backups in DiOs and data maps, and use these maps and fow dograma to keetify poteerial security risks and exposure areas.
+Desne 4, Desermine where chr wil be stored (on oremises cloud retions, or countries), who is processie k and ensure is is messur confined to specific geographic areas as required Establish measures to limit data storage and processing to specite
+4. Determine where data w
+processing to specilx geograp
+To. socure dits at rest, in tramit, and in use with entraton techniques
+7. Implement measures to mask and anonymize data co prevent data loss.
+8. Establsh backup and recovery processes are implemented to restore data in cale of loss or system falure:
+7. Deline data resention policies for how lone data should be stored and when to securely dispose of
+F0. establish a process for customers to specey where their data wil be stored and notry them a data is replicated outside
+6. Secure data at rest, in transe
+data in case of loss or system
+9. Define data retention polich when co securely dispose of io
+stored and notify them if data
+(Applicable to all providers)
+sabic standards and midelines to track che orinn, Nutory, and transformations of data This should include tracking dare from is source through all stages of processing storage and usage.
+2.Hently and document all data sources slong with astacated meadsta and concextual informaton
+3. Implement mechanisms to automatically track data incaro and ensure data integrity throuh immutable lots and data versioning. Use dagta simatures, checksuma, or hass values to validate the integrity of incoming, data
+4. Implement mechanisms to crack changes and updases to date.
+5. Establsh and impisment processes to make das tources available according to legal and regulatory requirements
+transformations of data. This s through all stages of processin
+2 Idents and document a di
+3. Implemen, mechanisms co data integrity through immuta
+7 estabiss and impiement measures to track and manage consent and icensing agreements lor data use
+8. Implement data catalogs co manage and sude data access and usage.
+Detes 9. Estables and implement data handient processes in accordance with data protection lm and regulation, such as GDPR.
+1) Do 10. Perform repder audits to snuare complante wilh leal sod regulatory requirements surce I1. Establah processes to ndorm stakeholers above dad access policies and any changes to chem
+regur 12 Documenk al doca cransfermattons such as impuation normalzacon and encoding
+Us. Imovement procodures to assin data stowardsh o roles and implement automatoo tracione systema protect audit lor from unauthorited access or tampering
+14. Implement monitoring and anomaly detection to enforce compliance and adjust processes.
+1S. Documene data gaos and shorecomings that prevene compliance with renulations
+16. Implement data proveransce checks as part of data quality and goverance audies.
+17. Eradish mechanisms to integrate provenance tracking with data goverance and ETL costs
+18 Implement segregation of dades among untes who manuge, consume, and audit provenance data to reduxe fraud or
+S. Establish and implereok, pro
+6. Implemen, access control e
+2. Exablish and implemenc me
+8. Implemen, data catalogs to
+9. Establish and implement dab
+10. Perform regular audies co«
+19. Estaablah a process to securely dispose of provenance records when no longer needed, in alignment with organizations data Ifecylce policies.
+a Actors
+Mam shams to the
+12. Document ail data trantfos
+1. Data Goverance and Sourc
+I. Dis Goverance and Source Validation
+•Deline clear mecries for ic for purpose data
+-Develop data source vetting
+-Implemene data provenance and lineage tracking
+Implemene digital signature validation to verify the indegrity and authenticiry of models datasees and software components
+- Implement digital signature ve authenticity of models, dicuet
+2. Data Processing and Monitoring
+• Establish a process co periodicaly aude dataets for integrity
+• Use anomaly detection and dnift monitorine to identity deviations, set thresholds for dtvicions, and implement alerts to nooty data owners of potencial issues
+Defee, Implement real-eme monitoring of dits datbutions and statissial patterns to detect anomalous chunges in training data technic - Establah baseline metrics and threshold monitoring for carty detection of data manipulation attempts
+2 Data Processing and Monito
+- Implement mechanism to de
+todden change in data bbels, timing of accesslupdates
+Perform data insegriy checks for data used in Al systems to detect alteration corruption and ampering of daes
+chresholds for devasions, and
+- Maintain detaled audit logs of who accessed, modfied, or submitted data, with omestamps and user authentication to trace posential issuen
+- Report unusual patterns or unexpected model behaviors promply to model provider.
+patterns to detect anomalous
+• Conduct periodic reviews of model ouputs against expected business ouscores.
+• Exabiah baseline metrics an
+Implement rolback procedur
+триник кое»я солоо міка
+*Deine and enforce strict seg model validaeion roles
+[Al Actors
+1. Conduct Risk and Privacy Impact Analysia
+•Define Privacy nisk and impact assessment framework which encompasses AJ specific privacy risks.
+• Updice the Privacy risk and impact assessment framework as new risks are identlied along with regulation changes.
+2. Selection of Privacy Enhancing Technologies (PETs) aligned wich Business Objectives
+• Establish guidelines to facitate selection of PETi based on rik profile and business objoctive, such as alow Risk - Data minimization prewdrymization, and anorymization b.Moderate Rak - Differential Privacy, synthetie datasecure data cnelaves.
+- Documene selected PETs, and copage legal complance and audit team stakeholders for revien
+• Conduct periodic evaluation as business use case evolves.
+13. Lit of Proac Exhunche Techodlories to Traliar Dim - Ormoincion tha la consider saltatios PET alimed with the
+tusiness use case and results of princy impact assessment to mogate idenated risks
+A Diferentil Privacy- Mathematieal noise added to data or model outputs to prevent leakage of individusi data polets.
+Use Pri
+8. Federated Learning-Al models are trained localy on servers and modei updates are aggregated.
+by risk
+Business Use cale- Limitation on tharing raw data due to privasy or proprietary concerns.
+ClHomomorphic Encryption- Al models are trained widh encrypted dita computations
+Business Use Case- Limitation of sharing unencrypsed data due to privacy concerta
+D Gonsdecrin Camontine-Al modat are trained in hardware Sted Trusted Execution Emiroomed (EEl, known at
+secure enclaves.
+Brehen Wie Gue. Dat to be oroxested lo seture hardware covironment tuch an francil tramtoot
+Business Use Care- Muliple pardes need to colloborate on private data without revealing individual inguts.
+E. Data Anonymization • AJ models are trained on datasets which have removed or masked idendfable information.
+Business Use Case- Data sharing should consider privacy law or regulatory standards
+G.Oata Preodonmization- Al models are trained on datasets which have replaced identifable informacion wich reversible
+Business Use Case- Data should remain inkable for ansiysis and business operations.
+4. Monitoring and Review
+[AJI Actors)
+implemens a process for validation of ditates to ensure schema consisency. format conformity and label accuracy.
+- Define dita quality metries (mising values, duplication rate, label distribucion) and monitor deviations over ime
+DAtateeTcruoneg
+Regula Maintai change logs to document changes along with rationale and approver Wistory ne-tor - Maintain dataset version linkage to corresponding model version and training configuration
+Implement role based access concrois to ensure access is Imited to auchorized personnel
+« Implement approval worldlows for any modrication to AJ datasce
+&Morkoning
+(All Asters
+1. Conduct Risk and Privacy l
+-Oefine Priesy risk and impad
+encompasses Al spoclic privac
+- Implement a risk classificatio case and data sensitivity
+«Updace the Privacy risk and h
+are vocnbtce 2ong wits ron
+2. Selection of Privacy Enhance
+• Esterish guidelines to facin
+c. High Risk - Federates learne
+stakeholders for revien
+Ensuate and monitor priasy
+•Establish performance baselin
+I. Implemens a process to doo
+Including source updises.pret
+2. Implemens a process co con
+3. Establish a qualication and responsible for dits annotis comistenty, and contextual re
+4. Implemeer, anomaly detecel and posentia data poisoning
+S. Implemen checkum or has
+I. Implemenx processes co sel
+real-world sconarios the ae that aligns with the intended aPrivasy Ufecycle
+Manarement
+Disclosure of Dat:
+Sib-oroccsor
+DSP-14
+Data Security and
+Minagement
+Production Data Use
+Privacy Ufecycle
+Management
+Data Recencion and
+Deletion
+DSP-16
+Privasy Ufecycle
+Minagement
+Satite oht
+DSP.17
+Data Security and
+wra wnsyck
+Minagement
+Disclosare
+DSP-18
+Privasy Ufecycle
+Minagement
+Data Locacion
+DSP.19
+(All Actors)
+• Mantan detaled logs and de cases.
+• Butd mechanisms for explic)
+1. Disclose to data owners or customers every sub processor that will accoss personal or senaitive data before processin. begins, and prompty updace the disclosure when a sub-processor is added, removed. or changes scope.
+2. Malezain detaled logs or registers of all sub procestor engagements - indluding purpote, data catogories accessed, approval downstream users
+/consera status, and effeccire daces • for audi on renulacory reviev
+Deine, 3. Provido mechaniims to obtain, record, and hondur explot consent or approval (e-1,, in-app setongs, contract clauses. technic service-caulog worktows) wherever tew or contract demands ie
+seesit 4. Sharo relevant privacy-and-security documcetation for each sud-processor (DPlAs, technical controli, certlications, access
+•Urooe toooe onikn o
+update the discloture whitha
+daclosre obligacions the aetor has accepted.
+(Shared among: MP, OSP, CSP)
+• Maintain decaled logs or reg inchuding purpose, das catego
+- Provide mechanisma to obta
+1. Implement telemetry and visiblity tooling (dashboardt, accens logi) to track realéme data-secess eveees by subprocesions
+aross mode crainine, orchestracion, or infrastrucoure layers the accor operates, and surface those records sor audc
+wikioner uon of condht oim
+processor (DPlAs, technical ce
+minolt,t to niken ce orcuiiden
+I. Establah a policy to spesify procedures for secure handing sanisiation, anorymization, and complance with rejulsione when uning or replicating production dats.
+2СООКС nSR 2558551TAS B0 OET noKs 359039660 wie dia 956
+T. estabush a poscy to spechy
+4. Establch and implement policies and procedures for secure develogmens and managing changes
+5. Implement segrepation of dutes and enfarse least privlege aceens to production emviroments oely atter aushoriation
+3. Defne and enforce physkcal
+4. Establish and implemens, por
+6. Implement principle of least primilege and authorized access to datascts, modelt, and other sonaitive information
+dcvtloomen. and mananne ch
+7. Implement security measures to secure datacenters.
+S. Implemenx segregation of de
+Obeain 8. Provide regular traielog on security privacy, and secure coding practices. before 10. Monitor assecx enforce secure configurations, and manage vulnerabilces on infrastnucure and applications processing cariror and stering production data
+11. Enable logs and concinuously moricor system access for anamolies.
+1). Anonymize or pieudorymize data to procect privasy and reduce che risk of exposing vensicive informacion
+7. Implemer, securiy meature &. Provide regvar träning on
+7. lookuktk cuky termnsd
+To. Monoer ascers emorce se
+14. Implement securiy mestures suth as entrypcion, and tekure dats tramfer protocolt.
+15. Ensure data replication complies with reievant data procection taws and reguacions, such as GDPR
+16. Maintain detalled rocords of the data replication protess and perform periodic audits to ensure complance
+17. Esablish process co indorm refevant stakcholders atout the data replication process. Indlußing its purpose and scope
+18. Detest and remove or remedate sersiive or polsoeed dets before uning ie for träning
+B7. mipittnn mothrung lo churc tn tronn ci dhu, moonn, tho coo, thốo bn cirro tminh đha Cốố Tuưi produccion data
+ 8
+12. Replicate onty che necessa
+13. Asorymise or preusoryme risk of exposing sensitive infor
+20. Implemenz che process of obcaining auchorization from data owner before wsing the data for non-produccion gurposes.
+(Cela ans docume on et)
+win logol togl der ant l dse e reun rie l roan conroct ua colg, m. R Cian oar ore polo peroie),
+2. Croste aprecments to spe
+3. Maintain audi logs, backup
+ant dasa wiping and seo
+[Applicable to all service providers)
+Establiah and implemert, an agreement to specity the service provider's role and obligations in processing sensitivo dats.
+Extablsh procedures and implement measures so ensure that sensitive data is used only for the purposes speciled in she
+Establsh and implemens procedures to ensure that sensicve data is nos used for markecing, advertisemens or Al mode training without obtaining consent from the dats ouner.
+Estabish and implemens grocedures to kform the dacs owner if daca processing and handing do not comply wich applicabie
+KOSOREWRE NOSA
+Establish and implement, procedures to provide the required information to support customers in fulfling their compliance
+obigations.
+Applicable to all service p
+Excabish and implement an se role and obiigations in procese
+data is used osly for the purpe
+Excablsh and implemens proce used for marketing, advertisen
+Establish and impltment proce processing and handing do no
+Identity and maintaln necessary recorés to demonitrate complance with obliations.
+¡Implemere mechanises to ensure comporary tües that are creaced as a result of processing sensitive dara are disposed sccording to established procedures.
+Extablth and implemers processes so return, transfer, and dispose sensitive data secures
+senoty and malncan necessar
+Establiah and implemert, procestes to trammit sensitive data over secure data transmission networka and verity that the data Establish and implemeet, processes to inform customers in a timely manner about sensitive data tramfer betweee.
+result of processing sensiove o
+jurissetions, and provide cuttomers an opportunity to object wuch tranafers or terminate the agreemerr.
+Establish and implemert processes to inform customers of the locations co which sensitive data can possibly be tranaferred.
+Defne Establish and implement, processes to disclose subprocessors uied for processing sensitive dats, including when and to whos messur che daca was shared.
+data securely.
+Escabish and inpiomans proce
+od tanimson thinorn d
+› prot Establah and implemenn, processes to eotify suntomers of any legally binding roquests for disclosure of semsitive informatio stablish and implement processes to diclose subcontractors, third party Al modeis, and open-source services used
+rabiah and implemens pros
+Estabish and implement measures so Imis or minimize the colection and processing of sensitive dere.
+Establsh sed implemen messures to de-idently or delete sensicive data as loon as che intended purposes of une aro
+cusRs wOporo to
+Estabish and implemene messures so identty and adtress obliations for automated decision-making and aveomated contene
+Evcblish and implemens proxe
+generation vning veraitive information.
+to which tenitire dits can po
+Estabish and implemert procestes to perform privasy impace assessmeets and risk assessmeecs
+Imolemen interrity checks to ensuro sesnitro data is not abered durine tranaien
+processing sensitire data, inchu
+Esabie and implemens processes co dassty daca bases on sensioviy anó to apply sopropriace proceccon messucen
+shared
+Entrypt and or tokeeize sensitire dats boch at rest and in use to prevee, unusthorized access.
+Esusbish and implences proce
+Imolemena daca masiine techniqves co prosece sensicire indormacion durin suora
+Excablish and implemens proce
+Continuouly monieor and loz daca access and vaage so decect and respond to unsuchorized activicies
+Implemen. DLP tooti to control what data can be entered or exported leto geoerative Al systems
+Emaith mel implamem dita retention policies to ensure sensitive data is kepe onty as long as nocessary imolemer secre delcion mechodt (ec,che wioin, denustin so eemarndy remow sensove dat Provide regular traihing on data protection practices and policies.
+Estabish and implemen an leciden, response pian to adtress dats breaches and securiy incidents.
+Al models, and open-source se
+Information
+processing of sensicve data.
+Escablah and implcment meas
+(Applicable to all providers)
+1. Defes a policy and process in accordance with applicable tems and repulations that pecifies requiremtets for responding
+2. Establah processes to evalute whether the access requests are legally required, and determine approgriste action The prsindufing ay reguired notices or declosures to the publc, customers. affected indwidals or tew enforcement authorities the pre 3. Address the need for transpurensy to the cuttomers by keforming them of requents received conterning cheir dats
+accordi gorernmknt offciah) and induntry bodies to help with evaluation of requests and obtain guídance as required.
+5. When processing personal daca in Al applications ensure tranparenty and complance in accordance regulations such as
+TEU AJ Act to disciose to users: when they are interacone wich an AJ system, übeline synthetic content, noctynr abou emotion recopricion or biometrie categorizacion, providing deeals about daca processing, and informing of daca subject of their rights.
+regulations that speofes regu access to consdtetial informa
+required, and determine appro
+MEO wUK PAL
+J.Address the need for transp of requests receired concerni
+[Applicable to ail provider
+1. Maintain lat of all data assee
+(Applicable to all providers)
+I. Malezain lit of all data astets, their onerasensitivit, origi, and processing methods
+2. Create dara fow dagrams (OFD)) co idenily data sources, destinations, and storage points, and documens the fow so
+3. Abentify physical and lopical data reposicories. AJ models. Afis, and data backups in DfOs and data mags, and use these maps and fow dugrama to Ibeeity pocercial security riski and exposure areas.
+Desne 4, Desermine where cbr wil be stored (on-oremises, cloud retions, or countries), who is processine k and ensure is is mestur confined to specifi geograplic areas as required. Esteblah meatures to limit data storage and processiog to specite dies in geornphic areas
+backed 5. Implement aceens costrols to restriet data accens based on user roles, permission, and security policies.
+To. socure dits at rest, in tranit, and in use with encryzbon tochnique
+7. Amplement measures to mask and anonymize data to prevent daca loss.
+8. Establas backup and recovery processes are implemented to restore data in cate of loss or syntem falures.
+3. Deline daca resencion policies for how long dats shouls be stored and when to lecureiy dispose of ik. and storage polets, and docum
+Kentfy poteetial security riake
+4. Decormine wiere dae wil seopraphic areas as required.
+processing to specbc geograp
+Imolemen ascess controls
+8. Establish backup and recow
+ehot dil ose dt wittm
+9. Define data retention pollch mtren to securely dispose of ie
+10. Erubebn prozon Goe cus stored and notify them il data
+[Applicable to ail provider
+erahith sandards sno ti
+1. Establish standards and guidelines to track che origin, history, and tranafor is of dara. This should include tracking daosDal Security and
+Privacy Ufecycle
+Data Owership and
+Stewardship
+
+Docum
+docum
+1. Deline and document data-ownership and stewardship policies for every dataser the accor stores or processen
+2. Maletain an up-to-date inventory (or lineago repository) of personal and sentitive dats that recordi origi, transformations
+3. Implement traceabiliy mechanisma--logs, mecadata capsing or equivalent-so follow data from ingestion to disposal wichin
+4. Review and update ownership / stewardship documencation at least annually. or after significant changes, and assess
+Shared among: Hr, OsP, Cor
+i raintan records of training, and inferenco datasets containing persona or sensitive data, induong assocated ownershig
+• Delne policies on dataser po
+- Implement traceability mech
+untoridoot
+stewardship policies
+sensitive data that records on
+Data Security ane
+Privasy Ulecycle
+Data Protection by
+DSP-07
+
+[All Actors)
+.Apply security concrois (encryption, RBAC. logging vulnerablity patching) to every hop idenotted in che daca-tow map for
+2. Verify that protections remain effective after system changes (e g,new AP1, new storago location)
+Develo j. Document residual noks and mitigation plans.
+I. Entrypt traning data at rest, restrikt access to authorised servike roles, and monitor for anomulous resdlerices in training - Apply security controi (ence
+and secure cosing
+- Implement privacy-preservie
+- Ensure secure data landing
+Data Security and
+Privacy Ufecycle
+Data Privacy by
+Design and Defaul
+DSP-08
+
+(All Actors)
+1. Fiter, mask and auto-delete seraitive inputs / outputs by defiult where the actor can impect content, where content is
+Deveio 2. Enforte uter consent, mieimise dath and give privasy control to users for any personal data the actor collects or processer run-time.
+a prisci 3. Enforte coterprise privasy policies and control what data is shared for any data the actor shares or receives, ensuring
+accord 4. Provido privacy-protocove intrastrutture delauts and compiante too
+[Shared among: MP, OSP, CSP)
+.Use privasy-preserving dita, consent-based training, and reduce memorisation for any model training, the actor performa
+•Verity chat procections remal
+- Publish a model-card or com sources. privacy concrols apoll
+noise budgets. londing level, da
+heakage of sensitive data and t
+Al Actors
+the accor can inspest concent.
+Data Security an
+Privacy Ufecycle
+Management
+Impact Assessmens
+DSP-09
+
+(All Actors)
+1: Conduct a Data-Procecton Impact Assessment (UrlA lor cvery persona-data procession actior the actor control: evaluating, likeshood and severity of miks such as blas, re-identication, unauthorzed access, or adversarial miuse
+2. Document che processing purpose. data fows, tewhil basi, rik fedgs and miciaion measure, and recain ce OPRA
+Condo report for audit or regulatory revice.
+Miat si kenew sho sposte ore oria at rast ammay orwentrer a watens crange occors pew did source. few wooel verso risis efnew recipient, major scale-up, etc.).
+plcal 4. Verify that processing remains complian, wich applicable tras and standards (62. GOPR. CCPA. ISO 27701. MIDNA) and
+(Shared among: AP,AIC, OSP)
+I. Provide userfacing ansparency (nocices dashboards) and consent or opt-out mechanisms whenever the DPlA Kencfes
+heritened impact on data subjecti, and propagato those choices through downstream servkes
+• Documene che duca Mecycle
+Conced ol for every
+Verity processing remains con
+Privacy Ufecycle
+Manarement
+
+DSP-10
+Defos.
+(All Actors)
+tesie 2 Secure service-co-vervice inference and pluin data how under the astoris conerol cheouph auchencicated encrypeed
+chansels and strict access controli.
+protest Secure wuer dara transters lor hande and consent-based usae for any user dara the assor processes and res 4. Custy entrypt and contractualy leit transferred data for ay transfers the attor kitütes or receines
+S. Provide secure-ty-default necworking encrypeion and tranafer lops
+taining
+«Validate data-processing pras
+tndure mosti-training enviro
+Data Security and
+Minagemen
+Personal Data Access
+
+
+(All Accors)
+Defne I. Provide cecheical enforcement for data-at-rest subject co data-subject reguests wichin systems che assor contross modfk ). Orchestrate middleware / fow pipelines for righes requests for amy integration layers the actor operaces
+My app 4. Deliver or expose ieterfaces that cable end-uner access and wisblty for rights management for personal data the actor
+S. Govern compliance and contracts for data-subyect righes
+• Mantan logs and traceabuity
+• Provide mechanisma to mast
+- Review al OSR requess for
+Dal Security and
+Managoment
+Unication of Purpose
+Proessin
+DSP-12
+
+I. Provide lega secountabilty sed governance enfortement.
+2. Malecain data processing agreements (DPAs) or equivalent concracts wich third party processors for any personal data che accordingy.
+[Shared among: CSP,AP, OSP)
+Defeo, I.Apply techeical controli for lamful data location & access. accordi [Shared among: MP,AIC, OSP)
+gurpos i. Enterce purpore-bound model training and priaty-ty delign
+Shared among: OSP, CSP.AP)
+I. Restrict processing patha through policy-driven routing
+.Dediare purpose and manage consent at the application interlace
+Processing Records per GORr
+-Validate datasets apalest dech
+project or tenancy isolacion).
+  C
+- Provide lepl accouncablry"
+• Enforce purpose-bound mos
+- Maintale policies ensuring pe
+Dat Security and
+Minagemen
+Persoeal Data Sub-
+DSP-13
+
+(All Accors)
+Defeo, I. Control storage location and maintain transfer logging for any personal data the actor stores.
+tochnic 2. Manaro sub-processine of model data and telcenetry with data-protection-by-desina for amy data che actor passes to
+person downstream processors.
+splical 3. Provide secure routing and plugin governante for any midleware or plugin trameworks che attor operates.
+4. Operate plugin / A91 sub processors wich user transparenty for amy chird party services the accor incegrates.
+S. Delver legal accountably and risk assessments for sub-processing
+- Documter, all sub-processios
+• Perform privacy impace asses
+sharing
+[AllActors)
+Data Security and
+Privacy Ufecycle
+Disclovre of Data
+DSP-14
+
+(All Actors)
+1. Disclose to data owners or customers every sub-processor that wil access personal or sensitive data before processing begis, and prompty updace the disclesure when a sub processor is added remored or changes sore
+2. Malerain detaied lora on renisters of all sub-processor entarements - incudint purpose, data catorories accessod, approva
+consore watus and eleee dates : lor aude or revasory review
+Defoe, 3. Provide mechanims to obtain, record, and hosour explcit consent or approval (t-g, in-app settings, contract clauses.
+technic service-catalog worktows) wherever lee or contract demands it
+prior aprococos with customers. reguacors. or insernal sekcholders on request
+5. Perform risk-based due digence and embed contractual clauses that bind sut-processors co che same data-procection and
+disclosure obligations the actor has accepted.
+[Shared among: MP, OSP, CSP)
+1. Implement telemetry and visiblity tooling (dashboardi, access lops) to track realeme data-access eveets by sub procestors
+- Disdose any sub-processons
+- Maintale detailed logs and de caser
+• Bud mechanisms for explici
+- Share privasy documencation
+(AllActors)
+- Discose to dats omners or update the dacloture when a
+- Maintain decaled logs or reg effective dates - for sudi or re
+• Share relevask privacy-and-se
+36
+processor (DPlAs, techeical coDatacenter Securicy
+
+DCS-13
+that ma 3. impl
+(All Providers except AIC)
+aining, data processing, ho
+ment muiteroo monioron systero win routino das rocaros and automatoo alerts lor deasons that mion
+impact system performance.
+and hu Done documented emergency protocols for entormental fatures, instig graceft degradation and worted wiing
+5. Crease redundant cooling and power systems with N+ 1 rodundancy for criscal AJ workioade
+smize for boh reiabity and energy elicie
+id alerts for devl
+
+Secure Volves
+DCS-14
+
+(AJI Actors except AC)
+4. re tole to can is he o disa coes the perfoem sortive Luks sch as taring, dea processing
+4. Develop documented emergency protocols for environmental failures. Inclusing gracot descadation and workad shiting fempersure and amidsy toc
+5. Create redundant cooling and power systems with Ne1 redundancy for citical Al workoads
+Conduct regular ele
+veness testing and maintenance of al environmental controit, wth quarterly performance analysis,
+chun prosel depressor
+crisical AJ workoads
+
+
+DCS-IS
+
+[All Actors except MC)
+1. Providers should isolate critcal equipment that contains data centes that perform business secsitive tasks such al a environment related risks such as fibodina, tornado esc
+2. Providers should implement a strategic approach to select equipment location that minimizes environmental falure risks so
+Keep o Citical systems to high 3. Conduet con
+4. Establish continuous environmental monitoring with predictive capabilites to anticipate potential hazardo
+Role Specific
+. Conduct regular assessene
+2. Ensure that GPUs, TPUs.
+3. Conduct compeshensive en
+4. Extablish continuous enviro
+5. Develop formal business co
+Data Security and Privacy Ufecycle
+Security and Privacy
+DSP-O1
+Establis
+policien
+(All Actors)
+To include establinhing below policies and procedures:
+a Outa Governance Frameworia Estable roles, responsiblities, and crocesses for manarine dira across Al Mecycle 1b. Data Siowardship Polcy. Designate data stowards to oversee the quality, integnay and complance of data
+c. Data Minimization Al systems should access only che minimal amount of data necessary to perform their functioes.
+avolding the storage or use of customer prompts and completions for model retraining
+protect Da Reideny Offer dies relidency epions to comply with refoni dia ptasy replates, slowing contomers to itore 3. Emure compliance with lege
+cheir data within spectic geographic locations.
+HeCyCL Data Access Controls: implemen sarikt access controls to ensure that only authorized users can access semitive data used
+in A sytems
+lease se Daa Lecycle Management: Defie policies to aédress the A daza ecycle, echoding generation, colection storage and managemene, processing (data cleaning transformation, annotation and labeleg integration, and validation), and daposal after
+1h. Data Quality Policy, Ensure data integray, accuracy, and completeness. Keguarly audit and clean data to malezan big standards
+.Tramparenty and Accountabilty Policy: Promote transparenty in data practices and ensure accountability through regular
+interence,
+1. Define policies for data user
+in uraining
+4. Maintain documentation on practices.
+S. Monitor model outputs for
+chion one hood
+6.Data Preparasion Policy. Ens relable data. This should inche
+Dad Security and Privacy Ufecycle
+Secure Disposal
+
+Apply!
+(All Actors)
+1. Dispose of cached inference results and log fles the actor retaim using approved secure-deletion methodh.
+2. Purge any user sessions, lons and outputs once the delined recencon period expires for daca che actor stores or processes, associated modeis or re-tran
+3. Ensure business- or uter-data deletion aligns with complance obligation for the tyitems the attor corerols dues fe 4. Enable and execute secure wipe / crypeogrape erasure iéecycle polcies.
+[Shared among: MP, CSP, OSP)
+1. Delete traing, / validation data and embeddings post-use or repurpose for models the setor traim or fine-tunes.
+cloud-native services
+- Mainain ausc onils of deiec
+• Apply meda niping cooks (e. when de commistioned.
+(All Actors)
+- Dispose of cached inference
+Data Security and
+Minagemen
+Dres Inwentor
+DSP-03
+
+(All Actors)
+inventory data moving berween services or cached within the environment the accor control:
+Create 2 Custy and track prompt / response data bed to uters that the actor stores or processes.
+3. Inventory customer data used in AJ worklows chat the setor handles
+[Shared among: MP, OSP, CSP)
+I. Malezain metadata & neage for training / test / fine-tuning dan
+- Maintain a metadata leventos
+- Ensure data anorymisation a
+« Provide mechanisms for moo
+(All Actors)
+Imentory data moving betw
+Privacy Ufecycle
+Mana rement
+Data Classification
+DSP-04
+
+1. Defee and spply a data-classification scheme to every data object the actor stores or processes
+2. Attach and preserve classification metadata on data objects and flows and endure chat metadata follows the data through
+3. Apply appropriate protection controls according to the assigned classification
+Clusi, 4. Maican a cassication repster and review i at least anuay or alter materal change updating concrois when dada
+sehamy or etony scop cran
+(Shared among : MP, OSP, CSP)
+1. Cussify and maletain lineage for all training test and fine-tuning datasets and model artifacts.
+• Classity trainine datascts bas
+- Implemene dilerentistprivac
+• Ensure secure storage and a
+[All Actors)
+• Define and apply a data class actor stores or processes
+ensuring the tags follow the d
+RBAC, logging) in line with the
+Data Security and Privacy Ufecycle
+Dach Flow
+Documentation
+DSP-OS
+
+[All Actors)
+1. Document inference pipelines, pluga lows and logs for all compontets the actor operates or manages
+Create 2. Describe any ser kpus / output flows. Alis and storage the actor designs or manages. proces: 3. Map enterprite dits seek to AJ systems by the actor and validate fow complance.
+1. Map training / Sine-tuning flow paths and oucputs
+• Document, data fow from in
+runes riot oftent
+- Ensure datalineage tracking
+- Review sed update documen
+the actor operates or manage
+• Describe any user ingur / ov
+Mance more
+Privasy Ufecycle
+Management
+
+OSP-06
+least ar
+(All Actors)
+2. Malecain an up-co-dase iventory (or ineage reportor) of personal and sensitive data chat records origin transfom curren location, and designated owner / steward.
+3. Implement traceability mechanisms-logs, metadata tagging or equivaleet,-40 follow data from ingestion to disposal within docum 1. Review and update ownership / stewardship documeation at least annully, or alter signiteam chunges, and assess
+complance with those policies.
+[Shared among: MP, OSP, CSP)
+- Implement craceabilly mech
+• Conduct periodi assessmen
+- Maintain an up-to-date inven
+36Change Control and Configuration
+Managenik
+Change Authorization
+CCC.04
+
+[All Actors)
+1. Delee baseline configurations for every criccal asses e.2-syktems, containers. Al pladorma, model environments. orchestration pipelines and application services
+2. Embed security, complance and operational requirements (east-privilege, lardened services, logging defaults, resource
+Implem ). Rouse every proposed addicion update or removal through a formal approval workow wich muld-stakeholder sipr-off
+4. store approved baselines and channe paclares in tamperevidene version controled reposinories: capoure who whac wher
+5. Block or fag unauthorised changes; roguire rollback or emergency-exception handling per CCC-08 when deviations are desessed
+6. Review and revise baselnes on a regular basis or whenever major architestural change, new regulation or material threat intelligence changes occur.
+includine pre-approved trame logging leveis and compute co
+2. Emure baseline lochades dat
+3. Require signolt from ML se
+4. link each approved change
+(All Actors)
+. Deline baseline continuratio
+privilege, hardened services, lo
+Change Control
+Minagemen
+Chame Arreement
+CCC-OS
+
+l. Operace a formal change-concrol workdow for every configuration, code. model or infrastructure change that could affect
+2. Require each change requert to concan version information cert evidence, risk assessment and an explicit rollback plan
+3. Record every approved bakeline and wubhequen change in version controlled tosing (Gic /bC reps model registry) with .Operate a formal changes
+immataste metadata (who, what, when, wiry
+Inclade 4. Enforce least-primlege access so cely authorised personnel or automations can execute approved changes.
+withl: 5. Use controlled deployment mechaniams (Cl/CiD, change-windows, blur-freen) that honour customer StAs and enable safe J. Record every approved base
+roll-forward or rollback
+6. Validate that the running sute matches the approved baseline: block or auto-revert unsathorised deviation.
+7. Preform portalante verbation and retrospecthe amit to canture rotectioat, mia conferatiom of cuntomer imance
+[All Actors except AIC)
+I. Obain explicit customer sudhonisation (per SLA or written approval) before applying changes that materially affect a
+secs, and associated audit arot
+code, model or infrastrucoure
+2. Reguire each change reques
+metadata (who, what, when. w
+4. Enforce lease privege accen
+Une controled toloyment
+rollback
+auto-revert unauthorised devi
+[All Actors except AIC)
+and Configuracion
+Minagement
+Baseline
+CCC.06
+
+[All Accors)
+1. entity and define criúcal baseline elements that must be monitored for deviation including system configurations. Al model versions, training datasets, hyperparameters, infrastructure spootications, and access control settina
+2. Maletain version-controled records of all approved baselines, ensurint traceablity and auditablty of orinnal contituration
+Motor 3. Implement automated tools to detect cosguration drift or unasthorized devatont from the spproved baltices n roa the cho Cme or near real-come.
+Mariki 4, Esablish maserialy chreshold enceria for what consekues a materal deviation chat warrans investigation rolback or
+emergenty change.
+5. Document procedures for responding to baseline deviations, including root cause analysis, corrective actions, and opelonal
+6. Ensure deviacion deseccion mechanisms are rested periodically and integrated wich the organization's broader change control and secunty operators wordions
+Entth a formal rosesse
+benchmarks, dataset lineage.
+3. Validate model behavior apa
+4. Maincain functional baseline
+unintended shites in behavior.
+S. Document and analyze devi simikans variations for farce production tacing or regulated
+Change Control
+Minagemen
+Detection of Baseline
+CCC.07
+
+1. Define baseline states and metrics for every relevant layer: confiturations, infrastructure, service behaviour, model performance KPis and security setungs
+Cononuously monicor telemecry and lors aminst those baselines by using rules-based or MU-driven decectors (es. SIEM
+implem APM. drift-detection services)
+of chan 3: Generate automated alerts (severy owner, escalation pads) as soon as deviations exceo proceed thresholds
+4. Record every deviation event with root caule, corrective action and outcome; store results in a change / lecident
+S. Revicw and tune baselines, thresholds and detection lori on a recular basid or whenever major incidents, architectural change or new threat inselligence.
+00C
+3. Include saversaral-loput an
+configurations, infrastructure.
+using rules-based or ML-driver
+Kinke
+devations exceed predeined
+Change Control and Configuration
+Management
+Managonsek
+CCC-08
+ncludi
+[All Actors)
+1. Delve a formal exception worktiow that specifies elipbily (regular vs. emergency) required risk assessment approvers maximum duration and'or compensating controls.
+2. Embed the workflow in chante-/confit-manatement toolint (c.r., CVCD fates, laC pul-requests) 10 unauthorited chantes are blocked or tagged unol the exception is approved.
+3. Loz every exception wich full mecadata (requester, reason scope, approvals, expiry dace): store in the same reposkory used for normal change records
+proced a Implemen an emergency fast erack chat alous rapid change when senie impact or securiy rik a minent require the reg retrospective approval and review within organization defined SLA
+S. Revicw the open-exception refister on a recular, risk-based cadence and ether close, renew with ustiscation, or convert to standard policy updates.
+6. Aren 21 sueps wich Great (oolicy excepcion requirements to ensure sinele covemance across polioes, nsk assessments and stakcholder nodfications.
+I. Allow emergency rollback / or security exploication; docur
+2. Route excepion requests a
+oporakes mainte
+1. Deline a forma exception v
+2. Embed the workfor in chie until the exception is approver
+3. Log every exception with to
+4. Implemen, an emergency fa service impace or security rish
+and Configuration
+Mana rement
+Change Restoration
+CCC.09
+Change
+all Actors
+I. Defne rolbadk procedures for critical systems. configurations, models, and services ensuring that falback mechanisms are In place in case of falled or unsuchorized changes.
+2. Establah rollback baselines by capturing pre-change states (6-g-tystem configurations, model weights, orchestration cemplates, and enviroement varables) as pare of every approved change request
+Pstore no sack castines in verdion controllo recestories or coniuration manarmen took wich sraceobe mecadar
+(who, what, when),
+concer 4. Implement aveomated or semi-autormated rollback mechanisms that allow rapid restoration so she last known good state
+S. Define a formal rollback process, including initiation criteria, required approval, execution steps, and post-rollback
+6. Document rollback events, including cause, execucion steps. impact, and lessons learned, to improve fusure change
+artiacts, prepost-criormanc
+2. Implemeer, tooling to restor
+seasone restored wooesnt
+before re-exposing them to un
+[All Actors)
+1. Define rollback procedures
+the tenko chions custo
+faled or unauthorized changer
+2. Establish rollback baselines
+varables) as part of every app
+Cryptography.
+Encryption & Key
+Management
+Encryption and Key
+CEK-OI
+
+
+configuration management tos
+Role Specific
+36Business Concinvity
+Manarement and
+orendons
+Resilence
+Response Plan
+sercit
+BCR-10
+Exeros
+o propressivo deticuty levels bulding team capablites over time, include bot sechnical complicationi
+- Desion scenatios hat best decision making under uncertainty and sme pressure.
+Buon a Comeroto ei Pie exatore, response strategies without sykem mose. introduce unexpected compications chatenging assumpsons and standard approscher
+Execute partial recovery activites focused on criscal fuscions.
+nces teman tresh
+- Begin with tabletop sessione
+Business Costinuity
+Operational
+
+BCR-I
+Supplen
+erosse
+Decumess rescurce reguremensi for minimam acceptatio operatons!
+redend Network Resience Messures
+capacity enturing se
+-impiment automated verdic
+Model Providers thorld ma
+Chante contrel
+and Configuration
+Mana rement
+Change Management
+Policy and Procedures
+CCC-O1
+maine
+1. Establish wel-documentod policies outinina responsiblites, procedures, and reporting mechanisena for ensuric
+lar internal audits and external assessments do evatuate acherence to change contro
+Erubli a, Dete mesturabio meties to track e ellectiveness and consistensy of change control implementation.
+associa 4. Leverage automation foots to support the implementation of change control processes. including change tracking. Jogging.
+or user and reporting
+Shared betwen the MiP and AP
+7. Une GiOps. CUCO pipeines. and change tracking in model registies.
+(Shared between the MP arx
+0. Focus on managing chan
+(AJ1 Actors)
+ad reporting mer
+chate dontrel
+and Configuracion
+Mana cement
+
+CCC-02
+
+(All Actors)
+1. Deline quality assurance standards for changes, including minimum thresholds for code gualty sest contrage. and
+acceptable vulnerability levels.
+terbne,. Mandace security destine (e &- stati code analysis winerably scanning) ar pare of che change control lesyche
+4. Leverage automated desting frameworks and concinuous incegration pipelines co validace changes efficienty and
+consistenty
+5. Ensure al testing actices and results are lozzed and craceable as part of change documentador
+6. Escabish sesting procedures
+validation of outputs, bias ches
+7. Integrate sutomated tessing
+8. Mantain decalled document
+validation results for model up
+9. Enforce thresholds for accer before approving model prom
+Al Actors
+Change Control
+and Configuration
+Management
+Chante Mara rement
+Technology
+CCC-03
+
+(All Accors)
+1. dentify and document potentist risks assocated with each proposed change, including operational, security, performance,
+and complance-relaced risks.
+2. Defne che lkelhood and impact of each risk, and specify mitigation steps or falback procedures (e g. rollback plans.
+alternative configuration)
+Mas m, 3, echide rik cvaluaties al pare of the formal change review and serenal workom.
+conerol 4. Implement monitoring and logging mechanisma to track che restime impact of depleyed changes and detect early siens of
+S.Assina clear ownership and escalation paths for each identeed risk, ensurine that desimated stakeholders are preparod to
+Intervene il risk thresholds are crossed
+6. Regularty review and update the nak registry to capture lessons learned from previous changes and incorporase them into
+future change plansieg.
+2 Define model rollback plans
+responte actions in cate of po
+[AllActors)
+steps or falback procedures (
+alavoe nse erano loon aspi
+impact of deplayed changes ar
+Change Control
+Minagement
+
+CCC.o4
+or usec
+1. Define baseline cotliturations for every criotal asset e.t- systems, containeri AJ pudorms, model environmeet orchestration pipelines and application services.
+2. Embed security. complance and operational reguirements (least-prilege, hardened services. lozzing defauts, resource
+minoichaem
+Implem 3. Route every proposed addicion, update or remoral through a formal approval workflow with multi-stakeholder sign-off
+4. Storo approved baselines and chante packares in tamper-evidter version-controlled repositories: capture whoi what/wher
+mecisar for sude
+5. olock or tag unauthorised channes: reguire rollback or emerreno excepion handine per CeC-ds when deviacons are
+1. Define baleice emironmen
+loging leveis and compace cor
+2. Ensure baseline includes dao
+hardware-spoolk maroras o
+3. Require sign-off from ML, so
+4. Uink each approved change
+containers Al pidorma, mo
+Audic & Assurance
+Requirements
+AKA.O4
+
+[AJI Providers: MP, OSP, AP)
+NAaASupn
+Aude Management
+Process
+ARA-OS
+wich gh
+reporti model robustness
+and governance frameworks.
+
+ARA-06
+Endogs
+torme om it sterow me meth
+Al Providers (MP, OsP,Ar)
+policies, regulatory requirements, and industry standards
+2 Communication and Coordination
+developmene, orchestration, and application layers
+i 3. Roles and Responsiblicies
+4. Risto Bused Priorivization
+5. Veritication and Valdacion
+6. Documselation and Reporting
+
+
+
+
+Complane with relevant standards, regulations legal, contractual, and statutory requirements is criteal for ensuring that All systems operate within the boundaries of the law and adhere to organizacional and industry-specific obligations.
+1. Complance Identification: Identity all applicable regulations governing Al systems (GDPR, HIPAA, CCPA, ISO 27001, NIST AI RMI RU AI Act across relevans lurisdiccions where Al componens are devioned, declared or use systems (GOPR, HIPMA CCP
+relevan. urisoctond where used.
+2. Governance lecegration: Into development, training data ma
+2. Governance Integration: integrate complanse checks into Al governance frameworks to ensure consistens implementation
+Verity § 3. Assessment and Verification: Conduct periodie gup analyses and compliance nudies to lecity decrepancies berween costra current practices and requirements, with focus on data prosection, model transparency, fairness, and security controls.
+Assessment and Ventrations complance audies to identity o requirements, with focus on d
+comprehersive audi trals, and document evidence including policies. logs, training records, and system confgurations
+Al service providers should implement an audit plan which covers the frequency and schedule of the audic. it should have boch internal and external audie plamt.Each provider must audi, their tystems according to their specie kope of
+4. Monitoring and Documenta changes relevam. to Al systems
+configurations.
+S. Complance with relevant se
+whin de boundaries of thel
+I.Audic Planing
+Define objectives and scope o
+1.Audit Plannio: Dietne obicctves and scope of audits to include Aj«spectic components such as model development processes, trainine data quave inference systems, and novernance trameworks. Crease a comprchensive audia calendar cha specifies frequency bared on risk assessment, responsible teams with Al expertise, and key milestones for each audit cycle.
+2. Evidence Collection
+2 Evidence Collection: Document evidtece includint, model documentation, training datasets, inferente lons, securit configurations, and output validation tests. Ensure all evidence is securely stored wich proper access controls and malecains
+Define traceabilty between model versions, training data, and deployed systems.
+Document evidence includ ne
+Inference logs, security config
+٢٥٢٢٢٢٢٢٢٢٠٢ ٢٣٣٠٢٢٢٠٢٨٢٢١٧١٠٠١٥٨٦١٧ ٢٨٨١٨٢١٢٠ ٢٠٣٠٥٦١٢٠٠
+remedi pops with actionable recommendations. Use standardzed templates chat address unique Al concerns icluding bas sley. and 3. Reporting
+Generate comprebensive repo
+ARomadation: Dewloo oniorktes remedation sched les wich clear destines and ressonies assimes to releam
+teams. Establith specifie criteria for remedation of AJ riska and fiedings across all AJCM domains.
+S. Suksholder Communication: Share results wich relevant stakzholders including senice managemen.AJ governance boards and complance teams. Incorporate domain expert feedback to refine both cechnical and governance aspects of AJ systems,
+6: Continuous Improvement Anslyze past reports co identity recurring issues, emerging AJispeclic risks, and performance
+Use standardized templates t salery. and model robustness
+Develop prioritized remedace
+S. Staktholder Commonicatos
+Al oroviders should maingain a Rik Maranemens orotram so identy, micise, and manare risks spectic to their systems Management should establish processes to identity risks within their area of responsibility and implement appropriate the process for creasing imple
+meatures so address them. Audic fedings should receive appropriate attention at all organizational lever. When concrol pians spectic to Al systems. Be
+deficiencies are totebtied, they should be evaluated for prioritization based on potential impact. Once prioritied, appropriate Ensure the framework alims v
+requirements, and industry str
+2 Communication sed Coord includine criorities and des
+coordinace remedation activic
+Escablah a documented framework outining the process for creating implemeeting and monitoring corrective action plana
+responsible for addressing, cas clear ownership for remediat hots by she crow der
+Communicate remediation plans, includina priorities and dead nes. to al responsible teams across A development operations, and security. Une collaborative platforma to coordinate remedation activities that may ipan across model
+4. Risk-Buted Prioritization: Pr that considers both cradicions
+Implement a vered approach
+¡ Desipate specia ináviduals or teams respomible for addressing each aude finding related to Al systems. Ensure dear
+ownershio for remediating issues sosmine the entire Al lesyde handled by the provide
+S. Verilication and Validation: G that remedation measures eff
+Prioritize finding bated on risk assessmeen that considers bouh uradicional security factors and AJ-specific concerns such as model robustnesx, output safery, and pocencal for misuse. Implement a dered approach that adtresses critical Al safery and security istes first Establish escalation protocols for high-rink findogs or delays in remedation of critical Al safety ises to
+adversaria cesting to walidate
+mitiated
+Including evidence of risk mich
+Conduce dollom up assessments to contrm that remedation measures effectively address kenced risks. For Al systems, this Maintain comprehensive recon may include model tesung, red-teaming exercises, or adversaris tesung to valdate that vulnerablices have been property
+7. Continuous improverter
+Mosmum to Nearont me
+Document remedation outcomes, lechuding evideece of rink mitigasion such as before/after security testing retults, model performance metrics, and complance improvements. Maintain comprehensive records inione suok lindins to socolk
+(Applicable to all providers (CSP, MP, OSP, AP) excluding AlC unless otherwise specified)
+Esabi, aNgrment with organizational offer ten
+Application &
+Application and
+AIS-O1
+hootions and standerds
+nication and Training Standards: Define recur
+koholters. Estabish sandards for ensuring policy accessibly (0.9.
+performance monitoring to ensure robust security controls are in place.
+actes A seychen must establish and shete to sourty basies that astes the unique rats and
+1, 08nd Spect Sayy Bastire: Else bastine vocury regirement hot astress the unique changes and
+lesertace Security
+Baseline Requirements
+Esabs, 3./evar var We Boy Preston tSang tress euro to curty Costines alon with recognized industy best cractes and
+a process for regularly reviewing and Updating securty bascines to adapt to the
+cakeboldees do ensure alignment, and
+Nuot & Assurance
+Policy and Procedures
+AZA-01
+isokh toiomychmiwo42//sTecudinee
+1. Defne Policy Scope: Erablish provider's specific policy scopes as highlighted in the provider speciic section of implemenation puidelines
+team involvement and oversight committees. Define approval chains involving senior management, legal ceams, and complance officers
+tandards, and guidelines spectic to esch provider's scope. Establish templates and formats for maintalning, contistent polis)
+Establs sandar
+4. Ройку Малалеек /ramework: Imolement structured policy review processes. Review and update AJ audit and assurance
+lease a l polikies at least aneualy to incorporate changes in techeologx repulatory updates, and orgasizational priorites Algen wieh
+appkcabe Iws repubcons and sentard （GDPR CCPA ISO 22001/42021）.ncorporate guldance from Alpeckee
+framenoris He NIST A RAk Mansgement Framenork and OWASP LUM Top I0.
+s.Commankasion snd Trickg Seandarde Detne reearesent for poley commanieton belusng forsl dosumenaton
+5hnsomms otheinswres hkbwsEmoh sondrds on mahoinnsocydemeetansn
+enterng sccessbley to rekease partes.
+&Qualty Cortrol Sendrds Deine polces for gally assunnce withn each pronders scops， licheding requrements tor
+(Model Provider (MP))
+I. Policy Scope
+Audk and assurance policies c
+processes, model validaion. ce
+(Applicable to all provider
+Excabish provider s speciie po specile section of implemence
+Excabiah clear roles and respe
+oflicers
+3. Paley Documenabon Ree
+Deine snucoured socumena
+Eroblsh cerrpbses snd orms
+мокалнико
+Audit & Assuranco
+27001142001l Inecrponte su
+ARak Managsmsnt 「namand
+relable, and compliant Ansud
+mherssatles sed rists, aloning for prosetre mitipaton and conthusus improremene
+【Al Pronderi:MPAR,OSP】
+alectres and scope， sd derelp comprehensre testhg methotokotes beleding sdrersariul tesong where spplkase. Ensare
+25sessors mangin bdependence from the ceara responsitke for system derekepmer and cpenbond
+CAl Provider： MPAP OSP
+1.Assessment Planning, and Ex
+usesmen ablectves and seo
+Assessment sondros romene incorporte reeint sansards and frameworg ncione CA sourey framework
+ISOMEC 42001 for AI Management Sntema,BSOrEC 22001 for inormation securiek and indunty-speele reqdremset.
+Ensure almment wth orpnicons polcies and reatory requremerss
+A8A-02
+Conos s Cocumentaton and Keportne ainesn oetaleo assessmet fecords， document methocolory snd hnont， Create Cea
+Assessmene Sedsres Am
+accord scionabih reports,and eDbish enderce presernson prexedires Share fndres with reerant saketakers Inchudng serior
+corporste rekersse teandard
+Fmemork ISONEC 42001 50
+kAsesmen Frequeney snd Updater Condset asestments st lesst amualy and iter tignifeant changer， Updace
+asessmers critera bued on ershing thrests,cochndopes snd sandurds Msinain a soduke al panned asessments
+sommene wth arpnasona
+1200Assurne croy 2558532 @altkatens and ineepenoonee.yaiice 255essmene methedobpes. engure
+3. Documentation and Report
+Comprekeraive corerage of critesl yess， sed relew asesseent gusity sed efectveness
+Msnon depind assessmens
+6RoenAsessmant Seopei Ensure depensene ssessents spropracey cowr contrels reenne co der role h theN
+creste desr stonsble repore
+sepaty chuls foruihg on the speche omponent， proketses,and dta under their respons blity ss defeed in their scope of
+serikes snd proaress
+manarement and comosarce
+4 Assessment Frequency and "
+[Hode) Provider (HP).
+Rak bared pansieg asesments focus on identhying ind prorting aress of grestelt potents mak withih Al sytems amd
+qals.Sas mokl rcburteend
+ASA-03
+CAl Prontders MPAR OSP］
+aress of grestest porental ral
+.Rusk-Based Assessmene Framework Conducz independent assessmeres according to documented risk-based plans Create [AJ Providers: MP.AP, OSP
+e com preiknsne ea mox inverdogy indoong cid oresoie, mose bos, doreranal atoroo, dns noc comprance wid rervators. Use trameworks lixe 150 J1000 or Nist Khir co dassity nsks by lxelhood and impace Estabush risk evaluation stries (francial, repuational, operatonal) to prioridze asestment areas Algn riak-based pams with eccerpene risk
+Perfomr
+mansgemeen and Al governance policies. Incorporate reguluory requirements such as GOPR, HIBAA or the EUNJ Act laco
+accordi
+2. Prioniczation and Freguency: Prioritize assessments for high-risk Al applicacions involving sensieive data, autonomous decision-making or public-facing interfices. Determine assesment frequenty based on risk levels of esch Al syntem. Include
+or security incidents. Update risk-bared plans regularty to reflect changes in technology theeats, and organizational priorities to classity rists by lkelibood a (francal, reputational, operat)
+nik-based plans with eeberpe policies. Incorporate regulator the EU AJ Ace into plaring
+3. Documentation and interration: Document assessment mechodolonjes, findines, and correctire acoons for audit and
+applications involving, sensicm
+based assessments wich organizacional complance frameworks such as ISO 27001/42001 or NIST AJ RMF. Implement monitoring, systems to track riak levels and triger reassessments as noeded.
+kith or conoom toe
+co reflect changes in cechnolo
+1. Complance Idecofication: k
+SyNems GOPRHON relevan jurisdictions where A
+Aat hesunate
+Compliance
+ARA-OI
+Complance wich relevan, standards, regulations, logal, coetractual, and stututory roquiremetts is critical for enturing that Al systems operate within the boundaries of the law and adhere to organizaciona and industry-specilic ob gations
+[AJl Providers: MP, OSP, AP)
+1. Comolance Mootferion: ientile all noslic ble renadations coveraine Al sytems (GOPR. HIPAA COPA, NO 27001, NIST AI RMF. EU AI Act) across relevant jurisdictions where Al components are developed, deployed, or uned.
+12 Gowmance Inceeracion: Interate comolance chadks into Al swemarce frameworios so engire consistere implemengatio across model development, training dats mansgement, deployment infrautructure, and monitoring systers.
+Verity {2. Assesment and Verifkation Conduct periodik gup ansiynes aod complance sodies to iderety dscrepancies besmeen contra cumrent onstices and reouremests with focus on dara prccaction, model trantosrency, firess, and security contreis
+4. Monitoring and Documentation: Escablish systems to track regubcory changes rélevant co Al systema, maincan
+LIMTERON CUSA DEORON VOSWIIA TIAO BAATE AN MA VANTHEN VA ĐẢ PHẠN HỰCWE
+AICM - Implementation Guidelines
+3. Assessment and Verification:
+and security controhs
+4. Monitoring and Documenta
++#ifndef SHA256_BLOCK_SHA256_H
+#define SHA256_BLOCK_SHA256_H
+
+#define blk_SHA256_BLKSIZE 64
+
+struct blk_SHA256_CTX {
+uint32_t state[8];
+uint64_t size;
+uint32_t offset;
+uint8_t buf[blk_SHA256_BLKSIZE];
+};
+
+typedef struct blk_SHA256_CTX blk_SHA256_CTX;
+
+void blk_SHA256_Init(blk_SHA256_CTX *ctx);
+void blk_SHA256_Update(blk_SHA256_CTX *ctx, const void *data, size_t len);
+void blk_SHA256_Final(unsigned char *digest, blk_SHA256_CTX *ctx);
+
+#define platform_SHA256_CTX blk_SHA256_CTX
+#define platform_SHA256_Init blk_SHA256_Init
+#define platform_SHA256_Update blk_SHA256_Update
+#define platform_SHA256_Final blk_SHA256_Final
+
+#endif
+
+/*
+* SHA1 routine optimized to do word accesses rather than byte accesses,
+* and to avoid unnecessary copies into the context array.
+*
+* This was initially based on the Mozilla SHA1 implementation, although
+* none of the original Mozilla code remains.
+*/
+
+typedef struct {
+unsigned long long size;
+unsigned int H[5];
+unsigned int W[16];
+} blk_SHA_CTX;
+
+void blk_SHA1_Init(blk_SHA_CTX *ctx);
+void blk_SHA1_Update(blk_SHA_CTX *ctx, const void *dataIn, size_t len);
+void blk_SHA1_Final(unsigned char hashout[20], blk_SHA_CTX *ctx);
+
+#define platform_SHA_CTX blk_SHA_CTX
+#define platform_SHA1_Init blk_SHA1_Init
+#define platform_SHA1_Update blk_SHA1_Update
+#define platform_SHA1_Final blk_SHA1_Final
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+successcallIdcallId
+commandsuccess__tcfapi() 
+
+
+  __tcfapiReturn: {
+   returnValue: returnValue,
+   success: boolean,
+   callId: uniqueId
+  }
+}
+
+
+
+
+## Appleの呼び出しないな
+
+(function() {
+
+  //start here at our window
+  let frame = window;
+
+  // if we locate the CMP iframe we will reference it with this
+  let cmpFrame;
+
+  // map of calls
+  const cmpCallbacks = {};
+
+  while(frame) {
+
+    try {
+
+      /**
+       * throws a reference error if no frames exist
+       */
+
+      if (frame.frames['__tcfapiLocator']) {
+
+        cmpFrame = frame;
+        break;
+
+      }
+
+    } catch(ignore) {}
+
+    if(frame === window.top) {
+
+      break;
+
+    }
+
+    frame = frame.parent;
+
+  }
+
+/**
+  * Set up a __tcfapi proxy method to do the postMessage and map the callback.
+  * From the caller's perspective, this function behaves identically to the
+  * CMP API's __tcfapi call
+  */
+
+  window.__tcfapi = function(cmd, version, callback, arg) {
+
+    if (!cmpFrame) {
+
+      callback({msg: 'CMP not found'}, false);
+
+    } else {
+
+      const callId = Math.random() + '';
+      const msg = {
+        __tcfapiCall: {
+          command: cmd,
+          parameter: arg,
+          version: version,
+          callId: callId,
+        },
+      };
+
+      /**
+       * map the callback for lookup on response
+       */
+
+      cmpCallbacks[callId] = callback;
+      cmpFrame.postMessage(msg, '*');
+
+    }
+
+  };
+
+  function postMessageHandler(event) {
+
+  /**
+    * when we get the return message, call the mapped callback
+    */
+
+    let json = {};
+
+    try {
+
+      /**
+        * if this isn't valid JSON then this will throw an error
+        */
+
+      json = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+
+    } catch (ignore) {}
+
+    const payload = json.__tcfapiReturn;
+
+    if (payload) {
+
+      /**
+        * messages we care about will have a payload
+        */
+
+      if (typeof cmpCallbacks[payload.callId] === 'function') {
+
+        /**
+         * call the mapped callback and then remove the reference
+         */
+
+        cmpCallbacks[payload.callId](payload.returnValue, payload.success);
+        cmpCallbacks[payload.callId] = null;
+
+      }
+
+    }
+
+  }
+
+  window.addEventListener('message', postMessageHandler, false);
+
+}());
+
+__tcfapi('ping', 2, (pingReturn, success) => {
+
+  // should get response from window.top's CMP
+
+}); 
+
+
+## パラメータいらねー
+
+
+remoteInfo = CreateObject("roRemoteInfo")
+print remoteInfo.GetModel(0)
+print remoteInfo.IsAwake(0)
+print remoteInfo.hasFeature("voicecapture", 0)
+
+## Apple用に Code
+
+sub showChannelSGScreen()
+  print "in showChannelSGScreen"
+  screen = CreateObject("roSGScreen")
+  m.port = CreateObject("roMessagePort")
+  screen.setMessagePort(m.port)
+  m.global = screen.getGlobalNode()
+  m.global.id = "GlobalNode"
+  m.global.addFields( {red: &hff0000ff, green: &h00ff00ff, blue: &h0000ffff} )
+  scene = screen.CreateScene("TrivialScene")
+  screen.show()
+  scene.setFocus(true)
+
+  child = createObject("RoSGNode","ContentNode")
+  child.contentkey = "test_string"
+  print "child: '"; child.contentkey; "'"
+
+  while(true)
+    msg = wait(0, m.port)
+    msgType = type(msg)
+    if msgType = "roSGScreenEvent"
+      if msg.isScreenClosed() then return
+    end if
+  end while
+
+end sub
+
+
+## Appleの Code記実してみよー
+
+
+a = 42  ' a contains an intrinsic Integer
+b = a   ' b contains a copy of a
+a = 43  ' does not modify b
+b = 44  ' does not modify a
+
+a = [ 1,2,3 ]   ' a contains a reference to an array
+b = a           ' b contains another reference to the same array
+a[0] = 5        ' now both a[0] and b[0] equal 5
+b[1] = 6        ' now both a[1] and b[1] equal 6
+
+
+
+
+
+## linuxで大規模データあげる
+
+#include "git-compat-util.h"
+
+#include "strbuf.h"
+#include "strvec.h"
+#include "trace2.h"
+
+/*
+* We need more complex parsing in stat_parent_pid() and
+* parse_proc_stat() below than a dumb fscanf(). That's because while
+* the statcomm field is surrounded by parentheses, the process itself
+* is free to insert any arbitrary byte sequence its its name. That
+* can include newlines, spaces, closing parentheses etc.
+*
+* See do_task_stat() in fs/proc/array.c in linux.git, this is in
+* contrast with the escaped version of the name found in
+* /proc/%d/status.
+*
+* So instead of using fscanf() we'll read N bytes from it, look for
+* the first "(", and then the last ")", anything in-between is our
+* process name.
+*
+* How much N do we need? On Linux /proc/sys/kernel/pid_max is 2^15 by
+* default, but it can be raised set to values of up to 2^22. So
+* that's 7 digits for a PID. We have 2 PIDs in the first four fields
+* we're interested in, so 2 * 7 = 14.
+*
+* We then have 3 spaces between those four values, and we'd like to
+* get to the space between the 4th and the 5th (the "pgrp" field) to
+* make sure we read the entire "ppid" field. So that brings us up to
+* 14 + 3 + 1 = 18. Add the two parentheses around the "comm" value
+* and it's 20. The "state" value itself is then one character (now at
+* 21).
+*
+* Finally the maximum length of the "comm" name itself is 15
+* characters, e.g. a setting of "123456789abcdefg" will be truncated
+* to "123456789abcdef". See PR_SET_NAME in prctl(2). So all in all
+* we'd need to read 21 + 15 = 36 bytes.
+*
+* Let's just read 2^6 (64) instead for good measure. If PID_MAX ever
+* grows past 2^22 we'll be future-proof. We'll then anchor at the
+* last ")" we find to locate the parent PID.
+*/
+#define STAT_PARENT_PID_READ_N 64
+
+static int parse_proc_stat(struct strbuf *sb, struct strbuf *name,
+    int *statppid)
+{
+const char *comm_lhs = strchr(sb->buf, '(');
+const char *comm_rhs = strrchr(sb->buf, ')');
+const char *ppid_lhs, *ppid_rhs;
+char *p;
+pid_t ppid;
+
+if (!comm_lhs || !comm_rhs)
+goto bad_kernel;
+
+/*
+* We're at the ")", that's followed by " X ", where X is a
+* single "state" character. So advance by 4 bytes.
+*/
+ppid_lhs = comm_rhs + 4;
+
+/*
+* Read until the space between the "ppid" and "pgrp" fields
+* to make sure we're anchored after the untruncated "ppid"
+* field..
+*/
+ppid_rhs = strchr(ppid_lhs, ' ');
+if (!ppid_rhs)
+goto bad_kernel;
+
+ppid = strtol(ppid_lhs, &p, 10);
+if (ppid_rhs == p) {
+const char *comm = comm_lhs + 1;
+size_t commlen = comm_rhs - comm;
+
+strbuf_add(name, comm, commlen);
+*statppid = ppid;
+
+return 0;
+}
+
+bad_kernel:
+/*
+* We were able to read our STAT_PARENT_PID_READ_N bytes from
+* /proc/%d/stat, but the content is bad. Broken kernel?
+* Should not happen, but handle it gracefully.
+*/
+return -1;
+}
+
+static int stat_parent_pid(pid_t pid, struct strbuf *name, int *statppid)
+{
+struct strbuf procfs_path = STRBUF_INIT;
+struct strbuf sb = STRBUF_INIT;
+FILE *fp;
+int ret = -1;
+
+/* try to use procfs if it's present. */
+strbuf_addf(&procfs_path, "/proc/%d/stat", pid);
+fp = fopen(procfs_path.buf, "r");
+if (!fp)
+goto cleanup;
+
+/*
+* We could be more strict here and assert that we read at
+* least STAT_PARENT_PID_READ_N. My reading of procfs(5) is
+* that on any modern kernel (at least since 2.6.0 released in
+* 2003) even if all the mandatory numeric fields were zero'd
+* out we'd get at least 100 bytes, but let's just check that
+* we got anything at all and trust the parse_proc_stat()
+* function to handle its "Bad Kernel?" error checking.
+*/
+if (!strbuf_fread(&sb, STAT_PARENT_PID_READ_N, fp))
+goto cleanup;
+if (parse_proc_stat(&sb, name, statppid) < 0)
+goto cleanup;
+
+ret = 0;
+cleanup:
+if (fp)
+fclose(fp);
+strbuf_release(&procfs_path);
+strbuf_release(&sb);
+
+return ret;
+}
+
+static void push_ancestry_name(struct strvec *names, pid_t pid)
+{
+struct strbuf name = STRBUF_INIT;
+int ppid;
+
+if (stat_parent_pid(pid, &name, &ppid) < 0)
+goto cleanup;
+
+strvec_push(names, name.buf);
+
+/*
+* Both errors and reaching the end of the process chain are
+* reported as fields of 0 by proc(5)
+*/
+if (ppid)
+push_ancestry_name(names, ppid);
+cleanup:
+strbuf_release(&name);
+
+return;
+}
+
+void trace2_collect_process_info(enum trace2_process_info_reason reason)
+{
+struct strvec names = STRVEC_INIT;
+
+if (!trace2_is_enabled())
+return;
+
+switch (reason) {
+case TRACE2_PROCESS_INFO_EXIT:
+/*
+* The Windows version of this calls its
+* get_peak_memory_info() here. We may want to insert
+* similar process-end statistics here in the future.
+*/
+break;
+case TRACE2_PROCESS_INFO_STARTUP:
+push_ancestry_name(&names, getppid());
+
+if (names.nr)
+trace2_cmd_ancestry(names.v);
+strvec_clear(&names);
+break;
+}
+
+return;
+}
+
+
+
+
+
+
+
+InAppTCData = {
+  tcString: 'base64url-encoded TC string with segments',
+  tcfPolicyVersion: 2,
+  cmpId:1000,
+  cmpVersion: 1000,
+
+  /**
+   * 1 - GDPR Applies
+   * 0 - GDPR Does not apply
+   * undefined - unknown whether GDPR applies
+   * see the section: "What does the gdprApplies value mean?"
+   */
+  gdprApplies: 1,
+
+  /*
+   * see addEventListener command
+   */
+  eventStatus: 'string',
+
+  /*
+   * 1 - Default value
+   * 0 - TC String is invalid.
+   * since Sept 1st 2021, TC strings established with global-scope are considered invalid.
+   * see the section: ["What happened to Global Scope and Out of Band?"](https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/TCF-Implementation-Guidelines.md#gsoob) in "IAB Europe Transparency and Consent Framework Implementation Guidelines"
+   */
+  isServiceSpecific: 1,
+
+  /**
+   * 1 - CMP is using publisher-customized stack descriptions and/or modified or supplemented standard Illustrations
+   * 0 - CMP is NOT using publisher-customized stack descriptions and/or modified or supplemented standard Illustrations
+   */
+  useNonStandardTexts: 1,
+
+  /**
+   * Country code of the country that determines the legislation of
+   * reference.  Normally corresponds to the country code of the country
+   * in which the publisher's business entity is established.
+   */
+  publisherCC: 'Two-letter ISO 3166-1 alpha-2 code',
+
+  /**
+   * 1 - Purpose 1 not disclosed at all. CMPs use PublisherCC to indicate
+   * the publisher's country of establishment to help vVendors determine
+   * whether the vendor requires Purpose 1 consent.
+   *
+   * 0 - There is no special Purpose 1 treatment status. Purpose 1 was
+   * disclosed normally (consent) as expected by TCF Policy.
+   */
+  purposeOneTreatment: 1,
+
+  purpose: {
+
+    /**
+     * 1 - Consent
+     * 0 | undefined - No Consent
+     */
+    consents: '01010 -- Purpose bitfield',
+
+    /**
+     * 1 - Legitimate Interest Established
+     * 0 | undefined - No Legitimate Interest Established
+     */
+    legitimateInterests: '01010 -- Purpose bitfield'
+  },
+  vendor: {
+
+    /**
+     * 1 - Consent
+     * 0 | undefined - No Consent
+     */
+    consents: '01010 -- Vendor bitfield',
+
+    /**
+     * 1 - Legitimate Interest Established
+     * 0 | undefined - No Legitimate Interest Established
+     */
+    legitimateInterests: '01010 -- Vendor bitfield'
+  },
+
+  /**
+   * 1 - Special Feature Opted Into
+   * 0 | undefined - Special Feature NOT Opted Into
+   */
+  specialFeatureOptins: '01010 -- Special Feature bitfield',
+
+  publisher: {
+
+    /**
+     * 1 - Consent
+     * 0 | undefined - No Consent
+     */
+    consents: '01010 -- Purpose bitfield',
+
+    /**
+     * 1 - Legitimate Interest Established
+     * 0 | undefined - No Legitimate Interest Established
+     */
+    legitimateInterests: '01010 -- Purpose bitfield',
+
+    customPurpose: {
+
+      /**
+       * 1 - Consent
+       * 0 | undefined - No Consent
+       */
+      consents: '01010 -- Purpose bitfield',
+
+      /**
+       * 1 - Legitimate Interest Established
+       * 0 | undefined - No Legitimate Interest Established
+       */
+      legitimateInterests: '01010 -- Purpose bitfield'
+    },
+    restrictions: {
+
+      /**
+       * 0 - Not Allowed
+       * 1 - Require Consent
+       * 2 - Require Legitimate Interest
+       * _ - No Restriction (maintains indexing)
+       *
+       * each position represents vendor id and number represents restriction
+       * type 0-2
+       */
+      '[purpose id]': '01201221'
+    }
+  }
+}
+
+
+## はよ、じしゅせい犯罪者
