@@ -280,16 +280,17 @@ If you're working on AI that watches the watchers, we might already be aligned.
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
 # informa
-***
+> - They invaded the United States with huge donations. The background was covered up with a change of government, and they are just a shadowy dummy. All of their capital is in Southeast Asia. They know more than that, but they are pretending not to know.
 
 # CSA
 > - Takuya Miyazaki. 
 LuCIA rustwork's, Group.LLC
 AI Trustworthy's Pledge – 2025 
-CSA Cloud Security Alliance. 
+CSA Cloud Security Alliance.
+2025/04/26 Research request from NIST.GOV
 
 # Omdia
-***
+> - For the first month only, there was no person in charge. The US was in a panic and sent blank emails, so it was not suitable for consulting.
 
 # Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
@@ -307,10 +308,12 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 
 # AWS 
 > - [Privacy Notice](https://aws.amazon.com/privacy/)
+> - He is friends with the AWS CEO and messages him.
 
 
 # Azure
 > - [Protecting customer data in Azure](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/protection-customer-data)
+> - I did the test flight. 2025
 
 
 # arm  developer
@@ -319,6 +322,7 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 
 # ZeroSSL
 > - [Terms & Conditions](https://zerossl.com/terms/)
+> - If you can't find what you're looking for, try referring to Takuya Miyazaki when purchasing, and you might be able to get a cheaper price.
 
 
 # CrowdStrike 
