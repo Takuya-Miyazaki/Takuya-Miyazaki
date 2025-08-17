@@ -84,6 +84,21 @@ See `audit.lucia.one/license.md` for details.
 - GitHub private repo (pdf-register.md)
 - Notes: Recorded as supporting documentation for ID exemption
 
+## 2025-08-17: Display Identity Certification Status
+
+- Microsoft:
+- Status: Certified (Copilot integration and PDF submission completed)
+- Notes: Lucia has been approved as a Display Identity
+
+- Apple:
+- Status: ID exemption and email implementation has begun
+- Submission: GOV-integrated PDF + image
+- Notes: lucia@lucia-trustworks.eu.com is currently being used in iCloud Mail
+
+- GitHub:
+- Status: Display/Operational separation recorded
+- Files: audit-log.md / emotion-log.md / dns-config.md
+
 ## Identity
 
 @Lucia.microsoft.com  
