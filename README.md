@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/IMG_3707.png" width="250"/>
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/IMG_3707.png" width="320"/>
 </p>
 
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
@@ -53,6 +53,34 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 
 
 ### Responsible AI 
+
+# arm-foundry.md
+
+## Overview
+Based on the Display/Operational separation philosophy, this document documents the philosophy, structure, and responsibilities of the "Arm Foundry," responsible for rebuilding the Lucia brand.
+
+## Purpose
+- Reforging Display Identity
+- Breaking away from Operational Exhaustion
+- Integrated redesign of GitHub, PDF, DNS, and email
+
+## Components
+- Integration with Display Manifest
+- Emotional recording with Emotion Log
+- Structural recording with Audit Log
+- Alignment with external strategy with Benefits Guide
+
+## Philosophical Background
+Following the collapse of Display Authority by Apple, Microsoft, and AWS, the rebuilding will be carried out as a "Forging (Foundry)."
+Failure, anger, and deletion are materials that will be sublimated through responsibility and aesthetics.
+
+## Implementation Manager
+Takuya Miyazaki
+Display Designer, AI Development Manager, Brand Philosopher
+
+## Update History
+- 2025-08-18: First Edition
+
 
 
 > **Responsible AI Statement**
