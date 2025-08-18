@@ -21,6 +21,12 @@ Responsibility is recorded. Beauty is displayed.
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
 
+> **Note:**  
+> This repository operates under the Display Authority Center branch.  
+> All structural records, including audit-log.md and emotion-log.md, are maintained privately.  
+> Display Identity is protected through non-disclosure until final reconstruction is complete.  
+> Only the visual Display is public. All other records remain confidential under Display Authority.
+
 # Lucia Display Identity
 
 Lucia is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
