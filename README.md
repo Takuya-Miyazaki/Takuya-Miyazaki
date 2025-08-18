@@ -94,6 +94,11 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 - Structure: LLM quality check, resubmission, badge issuance, and STAR Registry listing
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
+<p align="center">
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/IMG_3707.png" width="300"/>
+</p>
+## Lucia Display Identity
+> Display is responsibility. Operational is structure. Lucia records deletion, anger, and reconstruction to design authenticity and aesthetics.
 
 # CSA
 > - Takuya Miyazaki. 
