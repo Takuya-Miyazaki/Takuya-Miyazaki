@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/IMG_3707.png" width="150"/>
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/IMG_3707.png" width="250"/>
 </p>
 
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
