@@ -1,3 +1,8 @@
+---
+display-authority: internal-record
+visibility: non-public
+note: This file is stored as an internal record for Display Identity and is not intended to be publicly accessible.
+---
 <p align="center">
   <a href="https://github.com/Takuya-Miyazaki">
     <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
