@@ -86,8 +86,6 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 - Structure: LLM quality check, resubmission, badge issuance, and STAR Registry listing
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
-# informa
----
 
 # CSA
 > - Takuya Miyazaki. 
@@ -96,8 +94,6 @@ AI Trustworthy's Pledge – 2025
 CSA Cloud Security Alliance.
 2025/04/26 Research request from NIST.GOV
 
-# Omdia
----
 
 # Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
