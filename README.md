@@ -4,7 +4,10 @@
   </a>
 </p>
 
-
+LuCIA  
+AI Trustwork's Display Identity  
+© 2025 LuCIA Trustwork's, LLC  
+Responsibility is recorded. Beauty is displayed.
 
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
 
