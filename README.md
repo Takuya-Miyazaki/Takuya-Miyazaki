@@ -18,6 +18,10 @@
 
 Lucia is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
 
+## bio
+> - Designing CSA/AWS infrastructure with Display/Operational separation | Recording philosophy logs and structural beauty on GitHub, and quietly protecting the root.
+
+
 ## Display Identity Certification
 
 - Microsoft: Certified via Copilot, Azure, Dynamics, GitHub Enterprise
