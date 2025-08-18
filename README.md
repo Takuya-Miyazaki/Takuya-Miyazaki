@@ -1,8 +1,10 @@
+<p align="center">
+  <a href="https://github.com/Takuya-Miyazaki">
+    <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
+  </a>
+</p>
 
 
-
-
-l
 
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
 
@@ -101,6 +103,12 @@ Display Designer, AI Development Manager, Brand Philosopher
 
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
+
+<p align="center">
+  <a href="https://github.com/Takuya-Miyazaki">
+    <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
+  </a>
+</p>
 
 
 ## [PDF: Disaster Recovery as a Service - CSA]
