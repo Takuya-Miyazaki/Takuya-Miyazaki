@@ -1,3 +1,7 @@
+## Update History
+- 2025-08-18: First version created (structure updated by reforging)
+
+
 ##  Display/Operational Separation Philosophy × ARM Technology
 - Connection with Azure AI Foundry
 - Consistency with CSA PDFs
@@ -12,3 +16,8 @@
 - Recording Deletions and Anger in emotion-log.md
 - Redesigning Display Identity
 - Responsible Return to ARM Technology
+
+# arm-foundry-core.md
+
+## Overview
+This document documents the philosophy, structure, and responsibilities of the Arm Foundry Core, responsible for reforging the Lucia brand.
