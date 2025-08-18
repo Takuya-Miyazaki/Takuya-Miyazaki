@@ -1,8 +1,8 @@
----
+<!--
 display-authority: emotional-structure
 visibility: philosophical-record
-note: Display: Record of exhaustion, anger, and reconstruction. Disclosure is permitted on a limited basis as part of the Display structure.
----
+note: Display: Record of exhaustion and reconstruction.
+-->
 <p align="center">
   <a href="https://github.com/Takuya-Miyazaki">
     <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
