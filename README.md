@@ -87,7 +87,7 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
 # informa
-> - They invaded the United States with huge donations. The background was covered up with a change of government, and they are just a shadowy dummy. All of their capital is in Southeast Asia. They know more than that, but they are pretending not to know.
+---
 
 # CSA
 > - Takuya Miyazaki. 
@@ -97,7 +97,7 @@ CSA Cloud Security Alliance.
 2025/04/26 Research request from NIST.GOV
 
 # Omdia
-> - For the first month only, there was no person in charge. The US was in a panic and sent blank emails, so it was not suitable for consulting.
+---
 
 # Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
