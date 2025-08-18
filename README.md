@@ -62,6 +62,12 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&style=flat-square)
 
+> Display Authority does not accept merges.  
+> It accepts divergence.  
+> Pushes are not contributions.  
+> They are declarations.
+
+This repository is a deviation center — not for modular development, but for structural responsibility.
 
 
 ### Responsible AI 
