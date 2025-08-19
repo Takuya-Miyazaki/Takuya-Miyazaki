@@ -195,7 +195,16 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 
 > - [CrowdStrike](https://www.crowdstrike.com/en-us/)
 > - [Privacy Policy](https://www.crowdstrike.com/en-us/legal/privacy-notice/)
- 
+
+
+# auth0.com
+> - [Terms of Use](https://auth0.com/jp/web-terms)
+
+
+# Thanks to the above support and sponsors, LuCIA Trustworks Group will continue to work hard to build infrastructure and do business in JP, US, EU, and UK, including the construction of infrastructure in Japan, the AWS CEO, DB Tokyo's three locations, and CSA. We will also work on the operation of approximately 25,000 AIs, based on Zero Trust's security and responsible AI concepts. I will continue to be a great help to you, even though I am not yet fully capable. 
+
+Representative: Takuya Miyazaki. 
+August 20, 2025
 
 
 
