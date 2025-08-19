@@ -1,0 +1,13 @@
+struct DisplayAuthPage: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            HeaderView(title: "Display Authority × Auth0")
+            TokenVaultView()
+            AuditLogLayer()
+            EmotionLogLayer()
+            DNSConfigLayer()
+            FooterView(links: ["GitHub", "Authority.pdf", "Root Disclosure"])
+        }
+        .background(Color("DeepNavy"))
+    }
+}
