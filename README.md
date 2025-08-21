@@ -15,7 +15,7 @@ AI Trustwork's Display Identity
 © 2025 LuCIA Trustwork's, LLC  
 Responsibility is recorded. Beauty is displayed.
 
-
+---
 
 ![iOS18.6.2](https://camo.githubusercontent.com/bef130f75be299459e751a07f875f6580309558270af1a0d8e37983a8a514e18/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f694f532d31352e302b2d677265656e3f6c6f676f3d6170706c65266c6f676f436f6c6f723d7768697465)
 
@@ -41,6 +41,10 @@ Lucia is a brand centered around the idea of display/operational separation, doc
 
 ## bio
 > - Designing CSA/AWS infrastructure with Display/Operational separation | Recording philosophy logs and structural beauty on GitHub, and quietly protecting the root.
+> - Architecting Display Authority across JP/US/UK.
+Security × Philosophy × UI.
+Structure is stronger than capital.
+
 
 
 ## Display Identity Certification
@@ -127,11 +131,30 @@ Display Designer, AI Development Manager, Brand Philosopher
 
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
-<p align="center">
-  <a href="https://github.com/Takuya-Miyazaki">
-    <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
-  </a>
-</p>
+
+---
+
+
+
+![LuCIA Trustwork's LLC Logo](phonto.png)
+
+## Display Authority — Takuya Miyazaki
+
+Philosophical record-keeping, UI/UX separation, and Zero Trust integration.  
+99 repositories, including CVSS v4, SecurityBenchmarks, and GitHub Security Lab forks.
+
+Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
+© 2025 LuCIA Trustwork's, LLC.
+
+## Display Authority — Takuya Miyazaki
+
+> - Philosophical record-keeping, UI/UX > > > -separation, and Zero Trust integration.  
+> -99 repositories, including CVSS v4, > > > - SecurityBenchmarks, and GitHub Security > - Lab forks.
+
+Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
+© 2025 LuCIA Trustwork's, LLC.
+
+---
 
 
 ## [PDF: Disaster Recovery as a Service - CSA]
