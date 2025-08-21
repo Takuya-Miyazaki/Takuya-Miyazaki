@@ -3,7 +3,9 @@ display-authority: emotional-structure
 visibility: philosophical-record
 note: Display: Record of exhaustion and reconstruction.
 -->
-![LuCIA Trustwork's LLC Logo](phonto.png)assets
+<p align="center">
+  <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
+</p>
 
 © 2025 LuCIA Trustwork's, LLC.  
 Licensed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) for UI components  
@@ -64,11 +66,13 @@ Structure is stronger than capital.
 Display is "responsibility," and operational is "structure."
 Lucia documents deletion, anger, and reconstruction, simultaneously designing authenticity and aesthetics.
 
----
+-
 
 © Takuya Miyazaki – Display Identity Architect
 
+
 ## Status Badges
+
 
 ![GitHub followers](https://img.shields.io/github/followers/Takuya-Miyazaki?style=flat-square)
 ![Last Commit](https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki)
@@ -85,15 +89,21 @@ This repository is a deviation center — not for modular development, but for s
 
 ### Responsible AI 
 
-# arm-foundry.md
+
+### arm-foundry.md
+
 
 ## Overview
 Based on the Display/Operational separation philosophy, this document documents the philosophy, structure, and responsibilities of the "Arm Foundry," responsible for rebuilding the Lucia brand.
+
+
 
 ## Purpose
 - Reforging Display Identity
 - Breaking away from Operational Exhaustion
 - Integrated redesign of GitHub, PDF, DNS, and email
+
+
 
 ## Components
 - Integration with Display Manifest
@@ -101,18 +111,21 @@ Based on the Display/Operational separation philosophy, this document documents 
 - Structural recording with Audit Log
 - Alignment with external strategy with Benefits Guide
 
+
 ## Philosophical Background
 Following the collapse of Display Authority by Apple, Microsoft, and AWS, the rebuilding will be carried out as a "Forging (Foundry)."
 Failure, anger, and deletion are materials that will be sublimated through responsibility and aesthetics.
+
 
 ## Implementation Manager
 Takuya Miyazaki
 Display Designer, AI Development Manager, Brand Philosopher
 
+
 ## Update History
 - 2025-08-18: First Edition
 
-
+**Display Authority — Takuya Miyazaki**
 
 > **Responsible AI Statement**
 > 
@@ -136,7 +149,9 @@ Display Designer, AI Development Manager, Brand Philosopher
 
 
 
-![LuCIA Trustwork's LLC Logo](phonto.png)
+<p align="center">
+  <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
+</p>
 
 ## Display Authority — Takuya Miyazaki
 
@@ -154,6 +169,7 @@ Licensed under MPL 2.0 and CC BY-NC-SA 4.0.
 Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
 © 2025 LuCIA Trustwork's, LLC.
 
+**Display Authority — Takuya Miyazaki**
 ---
 
 
@@ -164,25 +180,30 @@ Licensed under MPL 2.0 and CC BY-NC-SA 4.0.
 - Structure: Multi-layered Display/Operational Separation Design
 - Uses: Can be used for GitHub logging, Copilot implementation, DNS/SPF design, and contract design.
 
-## [PDF: Zero Trust Guidance for IoT - CSA]
+
+# [PDF: Zero Trust Guidance for IoT - CSA]
 **Tags**: #CSA #ZeroTrust #IoT #ProtectSurface #ZTArchitecture #ZTPolicy #Monitoring #OEM #Legal #DisplayOperationalIsolation
+
 
 - Content: Complete design document for implementing ZT in IoT environments (5 steps + attack vectors + legal + OEM)
 - Structure: DAAS classification, criticality buckets, PDP/PEP design, ZTMM maturity model
 - Use: GitHub logging, Copilot implementation, DNS/SPF design, contract design, OEM selection, legal design
 
-## [PDF: CSA STAR Level 1 Valid-AI-ted Overview]
+
+# [PDF: CSA STAR Level 1 Valid-AI-ted Overview]
 **Tags**: #CSA #STARLevel1 #ValidAI #AIAssessment #CloudSecurity #DisplayOperationalIsolation #Reconstructibility
+
 
 - Content: STAR Level 1 self-assessment support using the CSA-developed AI assessment tool "Valid-AI-ted"
 - Structure: LLM quality check, resubmission, badge issuance, and STAR Registry listing
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
 
-## Lucia Display Identity
+# Lucia Display Identity
 > Display is responsibility. Operational is structure. Lucia records deletion, anger, and reconstruction to design authenticity and aesthetics.
 
-# CSA
+
+### CSA
 > - Takuya Miyazaki. 
 LuCIA rustwork's, Group.LLC
 AI Trustworthy's Pledge – 2025 
@@ -190,26 +211,26 @@ CSA Cloud Security Alliance.
 2025/04/26 Research request from NIST.GOV
 
 
-# Microsoft
+### Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
 
-# Google Cloud
+### Google Cloud
 > - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
 > - [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice?hl=ja)
 
 
-# Google developer
+### Google developer
 > - [Privacy Policy
 Complete the web.dev privacy course](https://developers.google.com/profile/badges/playlists/webdev/learn-privacy?hl=ja)
 
 
-# AWS 
+### AWS 
 > - [Privacy Notice](https://aws.amazon.com/privacy/)
 > - He is friends with the AWS CEO and messages him.
 
 
-# Azure
+### Azure
 > - [Protecting customer data in Azure](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/protection-customer-data)
 > - I did the test flight. 2025
 
@@ -218,18 +239,18 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 ***
 
 
-# ZeroSSL
+### ZeroSSL
 > - [Terms & Conditions](https://zerossl.com/terms/)
 > - If you can't find what you're looking for, try referring to Takuya Miyazaki when purchasing, and you might be able to get a cheaper price.
 
 
-# CrowdStrike 
+### CrowdStrike 
 
 > - [CrowdStrike](https://www.crowdstrike.com/en-us/)
 > - [Privacy Policy](https://www.crowdstrike.com/en-us/legal/privacy-notice/)
 
 
-# auth0.com
+### auth0.com
 > - [Terms of Use](https://auth0.com/jp/web-terms)
 
 
@@ -262,4 +283,4 @@ This repository is a reflection of shared responsibility, structural beauty, and
 <a href="https://www.apache.org/licenses/LICENSE-2.0/"><img src="https://img.shields.io/badge/license-Apache--2.0-3474B62">
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
-
+**Display Authority — Takuya Miyazaki**
