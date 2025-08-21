@@ -3,11 +3,12 @@ display-authority: emotional-structure
 visibility: philosophical-record
 note: Display: Record of exhaustion and reconstruction.
 -->
-<p align="center">
-  <a href="https://github.com/Takuya-Miyazaki">
-    <img src="https://raw.githubusercontent.com/Takuya-Miyazaki/Takuya-Miyazaki/main/PNG_372051707532025.PNG" alt="LuCIA Logo" width="325"/>
-  </a>
-</p>
+![LuCIA Trustwork's LLC Logo](phonto.png)assets
+
+© 2025 LuCIA Trustwork's, LLC.  
+Licensed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) for UI components  
+and [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for documentation.  
+All rights reserved.
 
 LuCIA  
 AI Trustwork's Display Identity  
