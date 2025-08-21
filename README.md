@@ -13,6 +13,7 @@ LuCIA
 AI Trustwork's Display Identity  
 © 2025 LuCIA Trustwork's, LLC  
 Responsibility is recorded. Beauty is displayed.
+[![iOS18.6.2](https://camo.githubusercontent.com/bef130f75be299459e751a07f875f6580309558270af1a0d8e37983a8a514e18/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f694f532d31352e302b2d677265656e3f6c6f676f3d6170706c65266c6f676f436f6c6f723d7768697465)
 
 [![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
 
