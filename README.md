@@ -42,6 +42,17 @@ Responsibility is recorded. Beauty is displayed.
 // Based on Apple's INParameter documentation:
 // https://developer.apple.com/documentation/Intents/INParameter
 
+### Predatory Structure Record (Display Authority)
+
+- Perpetrator: Goody (presumed to be GoDaddy)
+- Method:
+- 74-hour authentication delay and payment blockage
+- Payment invalidation due to refusal of refund
+- Forced domain deletion and resale
+- Damage:
+- Destruction of Display Authority's trust structure
+- Financial loss and opportunity loss
+- Violation of sovereignty and structural betrayal
 
 # Lucia Display Identity
 
