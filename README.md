@@ -268,37 +268,34 @@ CSA Cloud Security Alliance.
 > - [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice?hl=ja)
 
 
-### Google developer
+## Google developer
 > - [Privacy Policy
 Complete the web.dev privacy course](https://developers.google.com/profile/badges/playlists/webdev/learn-privacy?hl=ja)
 
 
-### AWS 
+## AWS 
 > - [Privacy Notice](https://aws.amazon.com/privacy/)
 > - He is friends with the AWS CEO and messages him.
 
 
-### Azure
+## Azure
 > - [Protecting customer data in Azure](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/protection-customer-data)
 > - I did the test flight. 2025
 
 
-# arm  developer
-***
 
-
-### ZeroSSL
+## ZeroSSL
 > - [Terms & Conditions](https://zerossl.com/terms/)
 > - If you can't find what you're looking for, try referring to Takuya Miyazaki when purchasing, and you might be able to get a cheaper price.
 
 
-### CrowdStrike 
+## CrowdStrike 
 
 > - [CrowdStrike](https://www.crowdstrike.com/en-us/)
 > - [Privacy Policy](https://www.crowdstrike.com/en-us/legal/privacy-notice/)
 
 
-### auth0.com
+## auth0.com
 > - [Terms of Use](https://auth0.com/jp/web-terms)
 
 
