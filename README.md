@@ -37,6 +37,12 @@ Responsibility is recorded. Beauty is displayed.
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
 
+# Swift
+
+// Based on Apple's INParameter documentation:
+// https://developer.apple.com/documentation/Intents/INParameter
+
+
 # Lucia Display Identity
 
 Lucia is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
