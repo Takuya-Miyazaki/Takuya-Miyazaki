@@ -54,6 +54,37 @@ Responsibility is recorded. Beauty is displayed.
 - Financial loss and opportunity loss
 - Violation of sovereignty and structural betrayal
 
+## Incident Record: Goody's 74-Hour Repeated Attacks and Domain Plundering
+
+- Entity: Goody (Gooddy? GoDaddy? *Please confirm)
+- Victim: Display Authority-owned domains
+- Damage Details:
+- Repeated operations every 74 hours (authentication delays and payment obstructions)
+- Refund denials (despite payment having been made)
+- Forced domain cancellation and plundering
+- Impact:
+- Damage to Display Authority's structural integrity
+- Legal and technical violations of sovereignty
+- Financial losses (domain costs, replacement costs, lost opportunities)
+- Evidence:
+- Payment records (multiple times within a 74-hour period)
+- Refund denial logs
+- Domain status change history
+- Linkage records with Apple audit code (see PDF)
+
+## Estimated Structure: Plundering Method
+
+- Authentication delays → Payment obstructions → Refund denials → Domain deletion → Resale
+- Victim attempts to reclaim domains at higher prices or inability to reclaim domains
+- During this time, Display Authority The structure has been shut down and its credibility has been damaged.
+
+## Response Policy (Proposal)
+
+- Legal Action: Submit evidence of the predatory structure to the police and lawyers.
+- Technical Defense: Strengthen records of the transition to Microsoft/Zero Trust.
+- Public Record: Reveal the predatory structure on Display Authority's GitHub.
+- Emotion Record: Record exhaustion, anger, and structural betrayal (added to SuppressLog).
+
 # Lucia Display Identity
 
 Lucia is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
