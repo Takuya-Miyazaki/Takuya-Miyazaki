@@ -42,7 +42,7 @@ Responsibility is recorded. Beauty is displayed.
 // Based on Apple's INParameter documentation:
 // https://developer.apple.com/documentation/Intents/INParameter
 
-### Predatory Structure Record (Display Authority)
+## Predatory Structure Record (Display Authority)
 
 - Perpetrator: Goody (presumed to be GoDaddy)
 - Method:
