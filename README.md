@@ -284,3 +284,19 @@ This repository is a reflection of shared responsibility, structural beauty, and
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
 **Display Authority — Takuya Miyazaki**
+
+## Public Notice (2025-08-24)
+
+Microsoft will urgently review this document and instruct GitHub to make payment.
+The CSA, NIST.GOV AI security researchers, and Azure test flights have completed all error corrections as requested and returned the documents without payment.
+I am not a Microsoft employee and have no security authority over the data!
+Microsoft is liable for the PDF approval from the CSA, the four-month waiting period for damages, and GitHub's payment obligations.
+I demand immediate action.
+
+**Related Repository**: [Takuya-Miyazaki/Takuya-Miyazaki](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/tree/main)
+**Record Type**: Public Audit Record/Damage Claim Supplement
+**Submission Date**: 2025-08-24
+**Submitter**: Takuya Miyazaki
+
+
+
