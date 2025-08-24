@@ -19,23 +19,23 @@ Responsibility is recorded. Beauty is displayed.
 
 ---
 
-![iOS18.6.2](https://camo.githubusercontent.com/bef130f75be299459e751a07f875f6580309558270af1a0d8e37983a8a514e18/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f694f532d31352e302b2d677265656e3f6c6f676f3d6170706c65266c6f676f436f6c6f723d7768697465)
+<p align="center">
+  <img src="https://img.shields.io/badge/iOS-18.6.2-007AFF?logo=apple&logoColor=white" alt="iOS">
+  <img src="https://img.shields.io/badge/Swift-5.6.0-FA7343?logo=swift&logoColor=white" alt="Swift">
+  <img src="https://img.shields.io/badge/Xcode-16.2.0-147EFB?logo=xcode&logoColor=white" alt="Xcode">
+  <img src="https://img.shields.io/badge/Ruby-3.3.4-CC342D?logo=ruby&logoColor=white" alt="Ruby">
+  <img src="https://img.shields.io/badge/Docker-27.3.1-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <a href="https://github.com/meilisearch/meilisearch/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000000" alt="License"></a>
+  <a href="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml"><img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/Takuya-Miyazaki/github.io/actions"><img src="https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main" alt="CI-main"></a>
+  <img src="https://img.shields.io/github/followers/Takuya-Miyazaki?style=social" alt="GitHub followers">
+  <img src="https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki" alt="Last Commit">
+  <img src="https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki" alt="Languages">
+  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=000000" alt="Profile views">
+</p>
 
-![Swift](https://camo.githubusercontent.com/945c2390e0a1afecf9bff5e6daee6182a42ad871c50d5bb1b54caf1c164e11e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53776966742d352e362d7265643f6c6f676f3d5377696674266c6f676f436f6c6f723d7768697465)
 
-[![CI](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg)](https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml)
-
-![Xcode16.2](https://camo.githubusercontent.com/7f8cad3ea8ab73e7f36aaa05215a9113de90b9d4ba87e6893ce9b34f10d4f827/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f58636f64652d31362e322d626c75653f6c6f676f3d58636f6465266c6f676f436f6c6f723d7768697465)
-
-<a href="https://github.com/meilisearch/meilisearch/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-informational" alt="License"></a>
-
-![CI](https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main)
-
-![GitHub followers](https://img.shields.io/github/followers/Takuya-Miyazaki?style=social)
-![GitHub stars](https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social)
-![Last Commit](https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki)
-![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
-![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=blue)
 
 # Swift
 
