@@ -13,13 +13,13 @@ and [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for do
 
 
 All rights reserved.
-© 2025 LuCIA Trustwork's, LLC.
+© 2025 LuCIA Trustwork's,Group LLC.
 
 
 
 
 LuCIA AI Trustwork's Display Identity  
-© 2025 LuCIA Trustwork's, LLC.  
+© 2025 LuCIA Trustwork's,Group LLC.
 Responsibility is recorded. Beauty is displayed.
 
 
@@ -50,32 +50,32 @@ Responsibility is recorded. Beauty is displayed.
   <img src="https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social" alt="GitHub stars">
   <img src="https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki" alt="Last Commit">
   <img src="https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki" alt="Languages">
-  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF?" alt="Profile 000000">
+  <img 
+src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF" alt="Profile 000000">
 </p>
 
 # representativeTakuya Miyazaki
 
-**"Order within chaos, chaos within order."**
+代表のマンダラチャート、NISTからCSAに日本のインフラ、オムディアの依頼でAWSのDBを東京に3拠点設置、その後、CSA依頼のAIを25,000台、当社に提供プラットフォーム、クラウド計17社様、当社自作クラウド、ゼロトラストセキュリティとAIコントロールと管理などを構築し、グローバル戦略を実行し、5年で、JP,USA,EU,UKでも同様に展開して、マンダラチャートの中央UK🇬🇧あくまでも一部の記載であり、提供企業様、パートナー企業様、自社サービスは機密情報含む為抜粋致します。私は大谷のマンダラチャートを信じて頑張ってまいります。今後も至らない私に力を貸して頂けましたら幸いです。
 
-A technologist, thinker, and experimenter.  
-My repositories are not just code—they're fragments of thought.  
-The presence of both PNG and JPEG formats is intentional.  
-Uniformity is not the goal. Expression is.
 
----
 
 ## Featured Projects
 
 - **LuCIA Trustwork's Group.LLC**  
   A symbolic archive of trust and ambiguity. The image files are not assets—they are statements.
 
+
+
+
 - **Badges of Thought**  
   Incorporating Creative Commons icons to explore the boundaries of attribution and identity.
+
 
 - **README Labyrinth**  
   Structured to provoke questions rather than provide answers. Always evolving.
 
----
+
 
 ## Tools I Use (Depending on Mood)
 
@@ -83,17 +83,10 @@ Uniformity is not the goal. Expression is.
 - Python (written poetically)  
 - Git (as a tool for memory and fragmentation)
 
----
-
-## On Image Formats
-
-- PNG: clarity of intent  
-- JPEG: emotional ambiguity  
-- SVG: symbols and abstraction
 
 > Format is merely a vessel. Meaning lies within.
 
----
+
 
 ## About Licenses.
 
@@ -104,7 +97,7 @@ Uniformity is not the goal. Expression is.
   - Documentation: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 </details>
 
----
+
 
 ## Future Directions
 
@@ -126,11 +119,17 @@ Uniformity is not the goal. Expression is.
 - Public Record: Reveal the predatory structure on Display Authority's GitHub.
 - Emotion Record: Record exhaustion, anger, and structural betrayal (added to SuppressLog).
 
-# Lucia Display Identity
 
-Lucia is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
+
+# LuCIA Trustwork's, LLC. Display Identity
+
+LuCIA Trustwork's, LLC. is a brand centered around the idea of display/operational separation, documenting and reconstructing the trinity of AI, technology, and emotion through philosophical comparisons with Microsoft, Apple, and AWS.
+
+
 
 ## bio
+
+
 > - Designing CSA/AWS infrastructure with Display/Operational separation | Recording philosophy logs and structural beauty on GitHub, and quietly protecting the root.
 > - Architecting Display Authority across JP/US/UK.
 Security × Philosophy × UI.
@@ -140,27 +139,32 @@ Structure is stronger than capital.
 
 ## Display Identity Certification
 
+
 - Microsoft: Certified via Copilot, Azure, Dynamics, GitHub Enterprise
 - Apple: ID exemption granted via GOV-integrated PDF
 - GitHub: Display/Operational Separation Recorded
 
+
+
 ## Registration Materials
+
 
 - GOV-linked PDF (Display Identity Manifest)
 - Microsoft AI Cloud Partner Program Benefits Guide
 - GitHub audit-log.md / emotion-log.md / dns-config.md
+
+
 
 ## Philosophy
 
 Display is "responsibility," and operational is "structure."
 Lucia documents deletion, anger, and reconstruction, simultaneously designing authenticity and aesthetics.
 
--
+
 
 © Takuya Miyazaki – Display Identity Architect
 
 
-## Status Badges
 
 
 ![GitHub followers](https://img.shields.io/github/followers/Takuya-Miyazaki?style=flat-square)
@@ -168,18 +172,18 @@ Lucia documents deletion, anger, and reconstruction, simultaneously designing au
 ![Languages](https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki)
 ![Profile views](https://komarev.com/ghpvc/?username=Takuya-Miyazaki&style=flat-square)
 
+
+
+
 > Display Authority does not accept merges.  
 > It accepts divergence.  
 > Pushes are not contributions.  
 > They are declarations.
 
+
+
 This repository is a deviation center — not for modular development, but for structural responsibility.
 
-
-### Responsible AI 
-
-
-### arm-foundry.md
 
 
 ## Overview
@@ -236,7 +240,7 @@ Display Designer, AI Development Manager, Brand Philosopher
 ![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Takuya-Miyazaki&show_icons=true&theme=radical)
 
 
----
+
 
 
 
@@ -245,13 +249,18 @@ Display Designer, AI Development Manager, Brand Philosopher
 </p>
 
 
+
+
+
+
 ## Display Authority — Takuya Miyazaki
+
 
 Philosophical record-keeping, UI/UX separation, and Zero Trust integration.  
 99 repositories, including CVSS v4, SecurityBenchmarks, and GitHub Security Lab forks.
 
 Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
-© 2025 LuCIA Trustwork's, LLC.
+© 2025 LuCIA Trustwork's, Group LLC.
 
 
 > - Each company's license may include trademark rights, etc. We would like to explicitly warn you of this.
@@ -267,7 +276,7 @@ Licensed under MPL 2.0 and CC BY-NC-SA 4.0.
 
 
 **Display Authority — Takuya Miyazaki**
----
+
 
 
 ## [PDF: Disaster Recovery as a Service - CSA]
@@ -312,7 +321,7 @@ CSA Cloud Security Alliance.
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
 
-### Google Cloud
+## Google Cloud
 > - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
 > - [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice?hl=ja)
 
@@ -348,9 +357,9 @@ Complete the web.dev privacy course](https://developers.google.com/profile/badge
 > - [Terms of Use](https://auth0.com/jp/web-terms)
 
 
----
 
-### Acknowledgment
+
+## Acknowledgment
 
 I would like to express my sincere gratitude to everyone who contributed to the development, documentation, and philosophical foundation of Display Authority.  
 Your support, insight, and persistence have shaped this structure into what it is today.
@@ -361,9 +370,12 @@ Special thanks to:
 - Audit and operational reviewers  
 - Philosophical design contributors
 
+
 This repository is a reflection of shared responsibility, structural beauty, and sovereign intent.
 
+
 ---
+
 
 > - AI Trustwork's Display Identity  
 > - © 2025 LuCIA Trustwork's, Group LLC  
@@ -378,6 +390,7 @@ This repository is a reflection of shared responsibility, structural beauty, and
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
 **Display Authority — Takuya Miyazaki**
+
 
 ## Public Notice (2025-08-24)
 
@@ -394,3 +407,4 @@ I demand immediate action.
 
 
 
+©2025/5/23 LuCIA Trustwork's,Group LLC.
