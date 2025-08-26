@@ -40,14 +40,14 @@ Responsibility is recorded. Beauty is displayed.
   <img src="https://img.shields.io/badge/Xcode-16.2.0-147EFB?logo=xcode&logoColor=white" alt="Xcode">
   <img src="https://img.shields.io/badge/Ruby-3.3.4-CC342D?logo=ruby&logoColor=white" alt="Ruby">
   <img src="https://img.shields.io/badge/Docker-27.3.1-2496ED?logo=docker&logoColor=white" alt="Docker">
-  <a href="https://github.com/meilisearch/meilisearch/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000000" alt="License"></a>
+  <a href="https://github.com/meilisearch/meilisearch/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-007AFF?" alt="License"></a>
   <a href="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml"><img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/actions/workflows/blank.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/Takuya-Miyazaki/github.io/actions"><img src="https://github.com/Takuya-Miyazaki/github.io/workflows/CI/badge.svg?branch=main" alt="CI-main"></a>
   <img src="https://img.shields.io/github/followers/Takuya-Miyazaki?style=social" alt="GitHub followers">
   <img src="https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social" alt="GitHub stars">
   <img src="https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki" alt="Last Commit">
   <img src="https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki" alt="Languages">
-  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=000000" alt="Profile views">
+  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF?" alt="Profile views">
 </p>
 
 # Takuya Miyazaki
