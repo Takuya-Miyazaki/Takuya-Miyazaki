@@ -389,7 +389,7 @@ This repository is a reflection of shared responsibility, structural beauty, and
 <a href="https://www.apache.org/licenses/LICENSE-2.0/"><img src="https://img.shields.io/badge/license-Apache--2.0-3474B62">
 <a href="https://developer.apple.com/jp/xcode//"><img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
 <a href="https://atom.io/"><img src="https://img.shields.io/badge/-Atom-66595C.svg?logo=atom&style=flat">
-**Display Authority — Takuya Miyazaki**
+
 
 
 ## Public Notice (2025-08-24)
