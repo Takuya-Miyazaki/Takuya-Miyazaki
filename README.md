@@ -19,6 +19,16 @@ Responsibility is recorded. Beauty is displayed.
 
 
 
+
+
+
+
+
+
+
+
+
+
 <!-- バッジ群 -->
 <p align="center">
   <a href="https://github.com/your-repo"><img src="https://img.shields.io/github/stars/your-repo?style=social" alt="Stars"/></a>
