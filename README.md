@@ -47,7 +47,7 @@ Responsibility is recorded. Beauty is displayed.
   <img src="https://img.shields.io/github/stars/Takuya-Miyazaki/Takuya-Miyazaki?style=social" alt="GitHub stars">
   <img src="https://img.shields.io/github/last-commit/Takuya-Miyazaki/Takuya-Miyazaki" alt="Last Commit">
   <img src="https://img.shields.io/github/languages/top/Takuya-Miyazaki/Takuya-Miyazaki" alt="Languages">
-  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF?" alt="Profile views">
+  <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF?" alt="Profile 000000">
 </p>
 
 # Takuya Miyazaki
