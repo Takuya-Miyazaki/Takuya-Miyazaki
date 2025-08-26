@@ -17,11 +17,17 @@ AI Trustwork's Display Identity
 © 2025 LuCIA Trustwork's, LLC  
 Responsibility is recorded. Beauty is displayed.
 
-<p align="center">
-  <img src="URL_1" alt="LuCIA 2332e" width="100"/>
-  <img src="URL_2" alt="LuCIA 333" width="100"/>
-  <img src="URL_3" alt="ルチアグループ" width="100"/>
-</p>
+<div align="center">
+  <a href="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%201.png">
+    <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%201.png?raw=true" alt="LuCIA Group 1" width="120" style="margin-right:10px;">
+  </a>
+  <a href="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%202.png">
+    <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%202.png?raw=true" alt="LuCIA Group 2" width="120" style="margin-right:10px;">
+  </a>
+  <a href="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%203.png">
+    <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork%20LuCIA%20Group%203.png?raw=true" alt="LuCIA Group 3" width="120">
+  </a>
+</div>
 
 <!-- バッジ群 -->
 <p align="center">
