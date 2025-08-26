@@ -17,6 +17,18 @@ AI Trustwork's Display Identity
 © 2025 LuCIA Trustwork's, LLC  
 Responsibility is recorded. Beauty is displayed.
 
+<p align="center">
+  <img src="URL_1" alt="LuCIA 2332e" width="100"/>
+  <img src="URL_2" alt="LuCIA 333" width="100"/>
+  <img src="URL_3" alt="ルチアグループ" width="100"/>
+</p>
+
+<!-- バッジ群 -->
+<p align="center">
+  <a href="https://github.com/your-repo"><img src="https://img.shields.io/github/stars/your-repo?style=social" alt="Stars"/></a>
+  <a href="https://github.com/your-repo"><img src="https://img.shields.io/github/forks/your-repo?style=social" alt="Forks"/></a>
+</p>
+
 ---
 
 <p align="center">
@@ -35,50 +47,71 @@ Responsibility is recorded. Beauty is displayed.
   <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=000000" alt="Profile views">
 </p>
 
+# Takuya Miyazaki
 
+**"Order within chaos, chaos within order."**
+
+A technologist, thinker, and experimenter.  
+My repositories are not just code—they're fragments of thought.  
+The presence of both PNG and JPEG formats is intentional.  
+Uniformity is not the goal. Expression is.
+
+---
+
+## Featured Projects
+
+- **LuCIA Trustwork's Group.LLC**  
+  A symbolic archive of trust and ambiguity. The image files are not assets—they are statements.
+
+- **Badges of Thought**  
+  Incorporating Creative Commons icons to explore the boundaries of attribution and identity.
+
+- **README Labyrinth**  
+  Structured to provoke questions rather than provide answers. Always evolving.
+
+---
+
+## Tools I Use (Depending on Mood)
+
+- HTML, CSS, JavaScript  
+- Python (written poetically)  
+- Git (as a tool for memory and fragmentation)
+
+---
+
+## On Image Formats
+
+- PNG: clarity of intent  
+- JPEG: emotional ambiguity  
+- SVG: symbols and abstraction
+
+> Format is merely a vessel. Meaning lies within.
+
+---
+
+## About Licenses.
+
+<details>
+  <summary>View License Details</summary>
+
+  - UI Components: [MPL 2.0](https://www.mozilla.org/en-US/MPL/)
+  - Documentation: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+</details>
+
+---
+
+## Future Directions
+
+- Transforming README files into poetic expressions  
+- Writing commit messages as micro-narratives  
+- Framing GitHub Issues as philosophical inquiries
 
 
 
 # Swift
 
-// Based on Apple's INParameter documentation:
-// https://developer.apple.com/documentation/Intents/INParameter
+[Based on Apple's INParameter documentation](https://developer.apple.com/documentation/Intents/INParameter)
 
-## Predatory Structure Record (Display Authority)
-
-- Perpetrator: Goody (presumed to be GoDaddy)
-- Method:
-- 74-hour authentication delay and payment blockage
-- Payment invalidation due to refusal of refund
-- Forced domain deletion and resale
-- Damage:
-- Destruction of Display Authority's trust structure
-- Financial loss and opportunity loss
-- Violation of sovereignty and structural betrayal
-
-## Incident Record: Goody's 74-Hour Repeated Attacks and Domain Plundering
-
-- Entity: Goody (Gooddy? GoDaddy? *Please confirm)
-- Victim: Display Authority-owned domains
-- Damage Details:
-- Repeated operations every 74 hours (authentication delays and payment obstructions)
-- Refund denials (despite payment having been made)
-- Forced domain cancellation and plundering
-- Impact:
-- Damage to Display Authority's structural integrity
-- Legal and technical violations of sovereignty
-- Financial losses (domain costs, replacement costs, lost opportunities)
-- Evidence:
-- Payment records (multiple times within a 74-hour period)
-- Refund denial logs
-- Domain status change history
-- Linkage records with Apple audit code (see PDF)
-
-## Estimated Structure: Plundering Method
-
-- Authentication delays → Payment obstructions → Refund denials → Domain deletion → Resale
-- Victim attempts to reclaim domains at higher prices or inability to reclaim domains
-- During this time, Display Authority The structure has been shut down and its credibility has been damaged.
 
 ## Response Policy (Proposal)
 
@@ -210,6 +243,8 @@ Philosophical record-keeping, UI/UX separation, and Zero Trust integration.
 
 Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
 © 2025 LuCIA Trustwork's, LLC.
+
+> - Each company's license may include trademark rights, etc. We would like to explicitly warn you of this.
 
 ## Display Authority — Takuya Miyazaki
 
