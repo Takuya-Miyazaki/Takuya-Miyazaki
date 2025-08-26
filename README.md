@@ -29,14 +29,11 @@ Responsibility is recorded. Beauty is displayed.
 
 
 
-<!-- バッジ群 -->
-<p align="center">
-  <a href="https://github.com/your-repo"><img src="https://img.shields.io/github/stars/your-repo?style=social" alt="Stars"/></a>
-  <a href="https://github.com/your-repo"><img src="https://img.shields.io/github/forks/your-repo?style=social" alt="Forks"/></a>
-</p>
+
+
 
 ---
-
+<!-- バッジ群 -->
 <p align="center">
   <img src="https://img.shields.io/badge/iOS-18.6.2-007AFF?logo=apple&logoColor=white" alt="iOS">
   <img src="https://img.shields.io/badge/Swift-5.6.0-FA7343?logo=swift&logoColor=white" alt="Swift">
