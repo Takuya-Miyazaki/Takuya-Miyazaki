@@ -7,25 +7,28 @@ note: Display: Record of exhaustion and reconstruction.
   <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
 </p>
 
-© 2025 LuCIA Trustwork's, LLC.  
-Licensed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) for UI components  
-and [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for documentation.  
-All rights reserved.
+© 2025 LuCIA Trustwork's, Group LLC.  
+Licensed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) for UI components.
+and [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) for documentation.
 
-LuCIA  
-AI Trustwork's Display Identity  
-© 2025 LuCIA Trustwork's, LLC  
+
+All rights reserved.
+© 2025 LuCIA Trustwork's, LLC.
+
+
+
+
+LuCIA AI Trustwork's Display Identity  
+© 2025 LuCIA Trustwork's, LLC.  
 Responsibility is recorded. Beauty is displayed.
 
 
 
-
-
-
-
-
-
-
+<p align="center">
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork's,%20Group.LLC.PNG?raw=1" height="160" alt="LuCIA Trustwork's, Group.LLC 1" />
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork's,%20Group.LLC%202332.PNG?raw=1" height="160" alt="LuCIA Trustwork's, Group.LLC 2" />
+  <img src="https://github.com/Takuya-Miyazaki/Takuya-Miyazaki/blob/main/LuCIA%20Trustwork's,%20Group.LLC%20333.jpg?raw=1" height="160" alt="LuCIA Trustwork's, Group.LLC 3" />
+</p>
 
 
 
@@ -50,7 +53,7 @@ Responsibility is recorded. Beauty is displayed.
   <img src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF?" alt="Profile 000000">
 </p>
 
-# Takuya Miyazaki
+# representativeTakuya Miyazaki
 
 **"Order within chaos, chaos within order."**
 
@@ -204,7 +207,9 @@ Failure, anger, and deletion are materials that will be sublimated through respo
 
 
 ## Implementation Manager
-Takuya Miyazaki
+• The University of Tokyo, Graduate School of Information Science and Technology.
+•nami iwata
+
 Display Designer, AI Development Manager, Brand Philosopher
 
 
@@ -239,6 +244,7 @@ Display Designer, AI Development Manager, Brand Philosopher
   <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
 </p>
 
+
 ## Display Authority — Takuya Miyazaki
 
 Philosophical record-keeping, UI/UX separation, and Zero Trust integration.  
@@ -247,15 +253,18 @@ Philosophical record-keeping, UI/UX separation, and Zero Trust integration.
 Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
 © 2025 LuCIA Trustwork's, LLC.
 
+
 > - Each company's license may include trademark rights, etc. We would like to explicitly warn you of this.
+
 
 ## Display Authority — Takuya Miyazaki
 
-> - Philosophical record-keeping, UI/UX > > > -separation, and Zero Trust integration.  
-> -99 repositories, including CVSS v4, > > > - SecurityBenchmarks, and GitHub Security > - Lab forks.
 
 Licensed under MPL 2.0 and CC BY-NC-SA 4.0.  
-© 2025 LuCIA Trustwork's, LLC.
+© 2025 LuCIA Trustwork's, Group LLC.
+
+
+
 
 **Display Authority — Takuya Miyazaki**
 ---
@@ -287,11 +296,11 @@ Licensed under MPL 2.0 and CC BY-NC-SA 4.0.
 - Uses: GitHub log recording, Copilot implementation, DNS/SPF design, and brand trust enhancement.
 
 
-# Lucia Display Identity
+## Lucia Display Identity
 > Display is responsibility. Operational is structure. Lucia records deletion, anger, and reconstruction to design authenticity and aesthetics.
 
 
-### CSA
+## CSA
 > - Takuya Miyazaki. 
 LuCIA rustwork's, Group.LLC
 AI Trustworthy's Pledge – 2025 
@@ -347,7 +356,7 @@ I would like to express my sincere gratitude to everyone who contributed to the 
 Your support, insight, and persistence have shaped this structure into what it is today.
 
 Special thanks to:
-- LuCIA Trustwork’s, LLC  
+- LuCIA Trustwork’s, Group LLC. 
 - Display Identity collaborators  
 - Audit and operational reviewers  
 - Philosophical design contributors
@@ -357,7 +366,7 @@ This repository is a reflection of shared responsibility, structural beauty, and
 ---
 
 > - AI Trustwork's Display Identity  
-> - © 2025 LuCIA Trustwork's,LLC  
+> - © 2025 LuCIA Trustwork's, Group LLC  
 > - Responsibility is recorded. Beauty is > -> -> - displayed.
 > - Representative: Takuya Miyazaki. 
 > - August 20, 2025
