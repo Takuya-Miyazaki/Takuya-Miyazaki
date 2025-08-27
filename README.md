@@ -56,7 +56,7 @@ src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF" alt="Prof
 
 # representativeTakuya Miyazaki
 
-代表のマンダラチャート、NISTからCSAに日本のインフラ、オムディアの依頼でAWSのDBを東京に3拠点設置、その後、CSA依頼のAIを25,000台、当社に提供プラットフォーム、クラウド計17社様、当社自作クラウド、ゼロトラストセキュリティとAIコントロールと管理などを構築し、グローバル戦略を実行し、5年で、JP,USA,EU,UKでも同様に展開して、マンダラチャートの中央UK🇬🇧あくまでも一部の記載であり、提供企業様、パートナー企業様、自社サービスは機密情報含む為抜粋致します。私は大谷のマンダラチャートを信じて頑張ってまいります。今後も至らない私に力を貸して頂けましたら幸いです。
+As CEO, Mandala Chart provided Japanese infrastructure to NIST and CSA, and at Omdia's request, installed three AWS databases in Tokyo. Subsequently, we developed 25,000 AI systems at CSA's request, provided our company with a platform, supported 17 cloud providers, built our own cloud, and implemented zero-trust security and AI control and management. We implemented a global strategy and, over the past five years, expanded to JP, USA, EU, and UK. This is only a partial list of providers, partner companies, and our own services, and is an excerpt due to confidential information. I believe in Otani's Mandala Chart and will continue to work hard. I would appreciate your continued support.
 
 
 
