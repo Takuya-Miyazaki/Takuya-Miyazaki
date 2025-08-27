@@ -4,7 +4,7 @@ visibility: philosophical-record
 note: Display: Record of exhaustion and reconstruction.
 -->
 <p align="center">
-  <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
+  <img src="2025 LuCIA Trustwork's,Group LLC.PNG.jpg" width="310" alt="LuCIA Trustwork's Logo">
 </p>
 
 © 2025 LuCIA Trustwork's, Group LLC.  
@@ -245,7 +245,7 @@ Display Designer, AI Development Manager, Brand Philosopher
 
 
 <p align="center">
-  <img src="phonto.png" width="310" alt="LuCIA Trustwork's Logo">
+  <img src="2025 LuCIA Trustwork's,Group LLC.PNG.jpg" width="310" alt="LuCIA Trustwork's Logo">
 </p>
 
 
