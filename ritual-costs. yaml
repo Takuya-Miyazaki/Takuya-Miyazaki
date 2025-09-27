@@ -1,0 +1,11 @@
+# Ritual Expenses List
+
+amex_gold_card:
+annual_fee: 100000
+description: Gold card annual fee. A ritualistic amount paid as a symbol of trust and defense.
+
+card_reissue:
+fee: 5500
+description: Reissue fee incurred as a defensive response to a fraudulent charge. The price of silence.
+
+total_ritual_costs: 105500
