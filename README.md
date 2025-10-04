@@ -342,6 +342,8 @@ CSA Cloud Security Alliance.
 ### Microsoft
 > - [Mitigation measures necessary for customer copyright commitment](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/customer-copyright-commitment)
 
+Microsoft workers in the Shinagawa or Kawasaki area will be provided with TP rink Wi-Fi 7.
+
 
 ## Google Cloud
 > - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
