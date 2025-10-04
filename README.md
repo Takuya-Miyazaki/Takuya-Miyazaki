@@ -54,6 +54,11 @@ Responsibility is recorded. Beauty is displayed.
 src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF" alt="Profile 000000">
 </p>
 
+display-authority-japan
+
+## Meaningful Connection: The Ritual That Started with Drata Mail
+- Status: Buried in spam, but the structure was already underway
+
 # representativeTakuya Miyazaki
 
 As CEO, Mandala Chart provided Japanese infrastructure to NIST and CSA, and at Omdia's request, installed three AWS databases in Tokyo. Subsequently, we developed 25,000 AI systems at CSA's request, provided our company with a platform, supported 17 cloud providers, built our own cloud, and implemented zero-trust security and AI control and management. We implemented a global strategy and, over the past five years, expanded to JP, USA, EU, and UK. This is only a partial list of providers, partner companies, and our own services, and is an excerpt due to confidential information. I believe in Otani's Mandala Chart and will continue to work hard. I would appreciate your continued support.
