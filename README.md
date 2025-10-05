@@ -344,6 +344,7 @@ CSA Cloud Security Alliance.
 
 Microsoft workers in the Shinagawa or Kawasaki area will be provided with TP rink Wi-Fi 7.
 
+Dear Microsoft, I will never forget until the day I can reach out to someone.
 
 ## Google Cloud
 > - [Google Cloud Terms of Service Directory](https://cloud.google.com/product-terms?hl=ja)
