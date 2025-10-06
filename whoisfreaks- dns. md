@@ -1,0 +1,16 @@
+## WhoisFreaks DNS Database Summary
+
+- Source: https://whoisfreaks.com/products/dns-database
+- Records: A, AAAA, MX, NS, CNAME, SOA, SPF, TXT
+- Historical Depth: Since 1986
+- Format: CSV (daily/weekly/monthly)
+- API Access: Available
+- Use Cases:
+  - Threat Actor Monitoring
+  - Marketing Intelligence
+  - Cybersecurity Defense
+  - Structural Beauty Analysis
+- Ritual Notes:
+  - Treat DNS shifts as legacy
+  - Map TTL and NS transitions to emotional phases
+  - Use CNAME expiration as symbolic collapse
