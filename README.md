@@ -56,6 +56,23 @@ src="https://komarev.com/ghpvc/?username=Takuya-Miyazaki&color=007AFF" alt="Prof
 
 display-authority-japan
 
+# Announcement
+
+I, Takuya Miyazaki, hereby announce the following:
+
+- CSA and omdia have blocked visitors from NIST requesting AI since Golden Week in May 2025.
+- All Microsoft PDFs have been blocked.
+- I understand that informa is lurking at their direction, but informa and CSA's response has been extremely rude.
+
+Therefore, I state the following:
+
+- Tokyo Infrastructure 🗼 will continue. However, it is not for you.
+- It has become clear that AI business infrastructure is possible even without CSA.
+- What is "B2"? Just hang out with the bowling nonprofit.
+
+---
+2025/10/12 Takuya Miyazaki.p
+
 ## Meaningful Connection: The Ritual That Started with Drata Mail
 - Status: Buried in spam, but the structure was already underway
 
