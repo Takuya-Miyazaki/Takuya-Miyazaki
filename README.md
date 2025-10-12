@@ -70,6 +70,9 @@ Therefore, I state the following:
 - It has become clear that AI business infrastructure is possible even without CSA.
 - What is "B2"? Just hang out with the bowling nonprofit.
 
+Are you enjoying using Microsoft to install apps? I blocked them because you don't need them. I have nothing. NIST Research was established within our group.
+
+
 ---
 2025/10/12 Takuya Miyazaki.p
 
