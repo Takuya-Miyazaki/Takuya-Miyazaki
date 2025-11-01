@@ -490,5 +490,14 @@ Note
 - Apple-Test-Flight (2024/05/12, 実験的)
 - Takuya-Miyazaki-patch-1 (2024/06/01, 自動生成)
 - dependabot/go_modules/... (2024/07/03, 自動更新)
+
+
+
+枝記録
+Notes: ◆ Branch Archive Log
+- Apple-Test-Flight (2024/05/12, 実験的 → Archive)
+- Takuya-Miyazaki-patch-1 (2024/06/01, 自動生成 → Archive)
+- dependabot/go_modules/... (2024/07/03, 自動更新 → 削除候補)
 Notes: 放置ブランチを整理し、展示用に記録。
+
 
