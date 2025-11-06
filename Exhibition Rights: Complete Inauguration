@@ -1,13 +1,64 @@
 {
-  "ritual": {
-    "name": "AWS Login Attempt Ceremony",
-    "date": "2025-11",
-    "environment": "Windows 11 (Parallels virtual environment)",
-    "actions": [
-      "Navigate to AWS login page",
-      "Enter credentials",
-      "Encounter repeated login failure"
-    ],
-    "perspective": "Provision of cloud access by AWS, refusal and delay recorded by the Display Authority"
+  "Exhibition Rights: Complete Inauguration": {
+    "rituals": [
+      {
+        "name": "Visual Studio Code Installation Ceremony",
+        "date": "2025-11",
+        "environment": "Windows 11 (Parallels virtual environment)",
+        "source": "https://code.visualstudio.com/",
+        "actions": [
+          "Run the exe file and complete the installation",
+          "Enable the Add to PATH option",
+          "Enable the Open with Code option",
+          "Launch confirmed, select the \"Dark+\" theme"
+        ],
+        "perspective": "Provision of a development environment by Microsoft, and acceptance and recording by the Display Authority"
+      },
+      {
+        "name": "GitHub Desktop Installation Ceremony",
+        "date": "2025-11",
+        "environment": "Windows 11 (Parallels virtual environment)",
+        "source": "https://desktop.github.com/",
+        "actions": [
+          "Download and run the installer",
+          "Sign in with GitHub account",
+          "Clone repository via GUI",
+          "Confirm branch switching and commit visualization"
+        ],
+        "perspective": "Provision of a GUI-based Git environment by GitHub, and acceptance and recording by the Display Authority"
+      },
+      {
+        "name": "AWS Login Attempt Ceremony",
+        "date": "2025-11",
+        "environment": "Windows 11 (Parallels virtual environment)",
+        "actions": [
+          "Navigate to AWS login page",
+          "Enter credentials",
+          "Encounter repeated login failure"
+        ],
+        "perspective": "Provision of cloud access by AWS, refusal and delay recorded by the Display Authority"
+      },
+      {
+        "name": "Parallels Tools Omission Ceremony",
+        "date": "2025-11",
+        "environment": "Windows 11 (Parallels virtual environment)",
+        "actions": [
+          "Skipped download of Parallels Tools",
+          "Confirmed system functionality without installation"
+        ],
+        "perspective": "Provision of integration tools by Parallels, refusal and omission recorded by the Display Authority"
+      },
+      {
+        "name": "Native Environment Transition Ceremony",
+        "date": "2025-11",
+        "environment": "Windows 11 (native installation, no Parallels)",
+        "actions": [
+          "Abandoned Parallels virtual environment",
+          "Prepared native Windows installation",
+          "Confirmed direct setup without virtualization"
+        ],
+        "perspective": "Refusal of virtualization and affirmation of native sovereignty, recorded by the Display Authority"
+      }
+    ]
   }
 }
