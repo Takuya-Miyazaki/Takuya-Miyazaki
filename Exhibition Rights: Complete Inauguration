@@ -1,0 +1,13 @@
+{
+  "ritual": {
+    "name": "AWS Login Attempt Ceremony",
+    "date": "2025-11",
+    "environment": "Windows 11 (Parallels virtual environment)",
+    "actions": [
+      "Navigate to AWS login page",
+      "Enter credentials",
+      "Encounter repeated login failure"
+    ],
+    "perspective": "Provision of cloud access by AWS, refusal and delay recorded by the Display Authority"
+  }
+}
