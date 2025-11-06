@@ -1,0 +1,13 @@
+{
+  "ritual": {
+    "name": "Microsoft Login Interruption Ceremony",
+    "date": "2025-11",
+    "environment": "Windows (native)",
+    "actions": [
+      "Opened Microsoft login page",
+      "Successfully logged in once",
+      "Immediately blocked from further access"
+    ],
+    "perspective": "Provision of access by Microsoft, followed by refusal and interruption, recorded by the Display Authority"
+  }
+}
