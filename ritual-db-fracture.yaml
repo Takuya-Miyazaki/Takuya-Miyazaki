@@ -1,0 +1,11 @@
+ritual:
+name: Visual Studio Code Installation Ritual
+date: 2025-11
+environment: Windows 11 (Parallels)
+source: https://code.visualstudio.com/
+actions:
+- Run exe → Installation complete
+- Enable Add to PATH
+- Enable Open with Code
+- Select theme: Dark+
+perspective: Provided by Microsoft and accepted by the Display Authority
