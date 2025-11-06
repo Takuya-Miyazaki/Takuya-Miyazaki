@@ -1,0 +1,18 @@
+{
+  "ritual": {
+    "name": "Visual Studio Code Installation Ceremony",
+    "date": "2025-11",
+    "environment": "Windows 11 (Parallels virtual environment)",
+    "source": "https://code.visualstudio.com/",
+    "actions": [
+      "Run the exe file and complete the installation",
+      "Enable the Add to PATH option",
+      "Enable the Open with Code option",
+      "Launch confirmed, select the \"Dark+\" theme"
+    ],
+    "perspective": "Provision of a development environment by Microsoft, and acceptance and recording by the Display Authority",
+    "artifacts": ["installation_log.txt", "screenshot_dark_theme.png"],
+    "emotions": ["relief", "pride"],
+    "legacy": "Archived as part of Display Authority’s operational exhibition"
+  }
+}
