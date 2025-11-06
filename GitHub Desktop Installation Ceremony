@@ -1,0 +1,15 @@
+{
+  "ritual": {
+    "name": "GitHub Desktop Installation Ceremony",
+    "date": "2025-11",
+    "environment": "Windows 11 (Parallels virtual environment)",
+    "source": "https://desktop.github.com/",
+    "actions": [
+      "Download and run the installer",
+      "Sign in with GitHub account",
+      "Clone repository via GUI",
+      "Confirm branch switching and commit visualization"
+    ],
+    "perspective": "Provision of a GUI-based Git environment by GitHub, and acceptance and recording by the Display Authority"
+  }
+}
