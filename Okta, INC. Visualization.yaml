@@ -1,0 +1,21 @@
+ritual:
+  name: "Obstruction vs Visualization"
+  series:
+    - obstruction:
+        actor: "Omdia"
+        role: "Blocks direct connection with Microsoft"
+        meaning:
+          - "Acts as mediator of disconnection"
+          - "Prevents desired collaboration"
+        exhibition:
+          - "Obstruction recorded as a structural artifact"
+          - "Represents denial in the supply chain"
+    - visualization:
+        actor: "Okta, INC"
+        role: "Provides external visualization of identity"
+        meaning:
+          - "Creates a visible persona for external audiences"
+          - "Actual research remains separate and hidden"
+        exhibition:
+          - "Visualization recorded as external evidence"
+          - "Represents duality between visible and hidden identity"
