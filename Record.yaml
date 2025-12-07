@@ -1,0 +1,12 @@
+ritual:
+  name: "Obstruction and Visualization"
+  actors:
+    - Omdia: obstructs direct connection with Microsoft
+    - Okta, INC: provides external visualization of identity
+  contradictions:
+    - "Omdia blocks, cutting off the desired link"
+    - "Okta visualizes, but actual research remains separate"
+  exhibition:
+    - "Obstruction as a mediated act"
+    - "Visualization as an external persona"
+    - "Duality between blocked connection and visible identity"
