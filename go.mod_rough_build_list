@@ -1,0 +1,15 @@
+// MVS build list (sketch): walk the dependency graph, take the highest required version for each module
+func buildList(main module) map[path]version {
+    selected := map[path]version{}        // currently selected version for each module
+    queue := []module{main}               // module versions waiting to be visited
+    for len(queue) > 0 {
+        m := queue[0]; queue = queue[1:]
+        for _, req := range requires(m) { // read the requires in m's go.mod
+            if req.version > selected[req.path] { // take the highest lower bound
+                selected[req.path] = req.version
+                queue = append(queue, req)       // the subgraph of this version must be folded in too
+            }
+        }
+    }
+    return selected
+}
