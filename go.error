@@ -1,0 +1,7 @@
+func readConfig(path string) error {
+	if err := open(path); err != nil {
+		return fmt.Errorf("read config %s: %v", path, err) // with %v, the original error is "flattened" into a string
+	}
+	// ...
+	return nil
+}
