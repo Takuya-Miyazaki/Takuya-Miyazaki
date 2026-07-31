@@ -1,0 +1,3 @@
+type ioError string
+func (e ioError) Error() string { return string(e) }
+const EOF = ioError("EOF") // a constant, cannot be rewritten
