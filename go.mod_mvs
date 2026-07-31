@@ -1,0 +1,13 @@
+// go.mod of the main module (declares only the minimum versions of direct dependencies)
+module example.com/main
+
+go 1.26
+
+require (
+    example.com/A v1.2.0
+    example.com/B v1.2.0
+)
+
+// in example.com/A@v1.2.0's go.mod: require example.com/C v1.3.0
+// in example.com/B@v1.2.0's go.mod: require example.com/C v1.4.0
+// in both versions of example.com/C: require example.com/D v1.2.0
