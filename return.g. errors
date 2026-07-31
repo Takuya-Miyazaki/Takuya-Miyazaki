@@ -1,0 +1,6 @@
+f, err := os.Open(name)
+if err != nil {
+	return err
+}
+defer f.Close()
+// use f
