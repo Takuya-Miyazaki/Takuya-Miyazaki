@@ -1,1 +1,0 @@
-err := errors.Join(errClose, errFlush) // err.Unwrap() returns []error{errClose, errFlush}
