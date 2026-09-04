@@ -1,6 +1,0 @@
-$ go list -m all
-example.com/main
-example.com/A v1.2.0
-example.com/B v1.2.0
-example.com/C v1.4.0   # the maximum of v1.3 and v1.4
-example.com/D v1.2.0
