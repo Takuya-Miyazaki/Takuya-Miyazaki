@@ -1,0 +1,14 @@
+1. セキュリティ：環境変数の設定ファイル（.env）
+APIキーなどの機密情報は、絶対にソースコードへ直書き（ハードコード）してはいけません。外部ファイルに分離します。
+
+# .env (このファイルはGitの管理対象から絶対に除外してください)
+
+# OpenAI APIキー（プロジェクト専用の制限付きAPIキーを推奨）
+OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# ガバナンス：利用する組織やプロジェクトのIDを指定（誤請求の防止）
+# OPENAI_ORG_ID=org-xxxxxxxxxxxx
+# OPENAI_PROJECT_ID=proj-xxxxxxxxxxxx
+
+# ガバナンス：データの外部漏洩を防ぐ（モデル学習への利用を拒否する設定）
+OPENAI_DATA_PRIVACY_OPT_OUT=true
