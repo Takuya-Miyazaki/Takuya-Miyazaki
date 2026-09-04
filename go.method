@@ -1,4 +1,0 @@
-// src/builtin/builtin.go
-type error interface {
-	Error() string
-}
