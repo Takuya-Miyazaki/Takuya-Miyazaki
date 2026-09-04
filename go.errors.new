@@ -1,2 +1,0 @@
-err := errors.New("connection refused")
-err := fmt.Errorf("read %s: %v", name, cause)
