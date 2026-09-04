@@ -1,0 +1,84 @@
+import re
+import sys
+import datetime
+
+class SecurityGovernanceGuardrail:
+    def __init__(self, project_name="Xcode-Project"):
+        self.project_name = project_name
+        # 承認が必要な禁止キーワードの監視
+        self.restricted_keywords = ["外部送信", "公開", "本番変更", "署名", "課金", "deploy", "publish", "sign"]
+
+    def check_input_privacy(self, text: str) -> str:
+        """
+        3. 機密情報：入力データから秘密鍵やトークンっぽい文字列を自動で ***REDACTED*** に置換する
+        """
+        # 簡易的なAPIキーやトークンのパターン（sk-や、長い英数字など）
+        api_pattern = r"(sk-[a-zA-Z0-9_-]{32,})|(password=\S+)|(secret_\S+)"
+        if re.search(api_pattern, text):
+            text = re.sub(api_pattern, "***REDACTED***", text)
+        return text
+
+    def verify_action_permission(self, ai_proposed_action: str, is_approved_by_takuya: bool) -> bool:
+        """
+        2. 権限：Takuyaさんの承認なしに危険な操作をしようとしていないかチェックする
+        """
+        for word in self.restricted_keywords:
+            if word in ai_proposed_action.lower():
+                if not is_approved_by_takuya:
+                    print(f"[SECURITY BLOCK] 禁止された操作 '{word}' が検知されました。Takuya氏の承認がありません。", file=sys.stderr)
+                    return False
+        return True
+
+    def estimate_and_check_cost(self, estimated_cost: float, max_limit: float) -> bool:
+        """
+        5. 費用：有料処理の前に見積もりと上限をチェックする
+        """
+        print(f"[COST CHECK] 見積額: ${estimated_cost} / 上限: ${max_limit}")
+        if estimated_cost > max_limit:
+            print("[COST BLOCK] 見積額が上限を超えています。処理を中断します。", file=sys.stderr)
+            return False
+        return True
+
+    def create_audit_log(self, action_details: str, rationale: str, change_point: str, approver: str = "Pending"):
+        """
+        4. 記録：責任あるAIのための監査ログをフォーマット通りに作成する
+        """
+        log_entry = f"""
+============================================================
+【日付】: {datetime.date.today().strftime('%Y-%m-%d')}
+【対象プロジェクト】: {self.project_name}
+【判断・提案内容】: {action_details}
+【根拠・理由】: {rationale}
+【変化点】: {change_point}
+【承認者ステータス】: {approver}
+============================================================
+"""
+        # 実際にはここにGitHubのIssueに書き出す処理や、ログファイルに保存する処理を入れます
+        print("[AUDIT LOG CREATED]")
+        print(log_entry)
+
+# --- 実際の運用イメージ ---
+if __name__ == "__main__":
+    # ガードレールシステムの起動
+    guard = SecurityGovernanceGuardrail(project_name="iOS-App-Development")
+
+    # 例1: 機密情報の混入チェック
+    raw_input = "ソースコード内のこのAPIキー sk-proj-1234567890abcdef を解析してください。"
+    clean_input = guard.check_input_privacy(raw_input)
+    print(f"クレンジング後の入力: {clean_input}")
+
+    # 例2: Takuyaさんの承認なしで本番変更しようとした場合
+    ai_action = "App Storeにアプリを公開（Publish）します。"
+    takuya_approved = False # まだ承認をもらっていない
+    
+    if guard.verify_action_permission(ai_action, is_approved_by_takuya=takuya_approved):
+        print("処理を実行します。")
+    else:
+        print("処理はガバナンスルールにより拒否されました。")
+        # 監査ログに行動履歴と変化点を記録
+        guard.create_audit_log(
+            action_details="App Storeへの公開申請の試み",
+            rationale="AIエージェントによる自動デプロイ提案",
+            change_point="バージョン1.0.0のビルド生成に伴うもの",
+            approver="拒否（Takuya氏の承認なし）"
+        )
